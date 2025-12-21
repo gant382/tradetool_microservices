@@ -42,12 +42,14 @@ import com.saicon.games.callcard.components.external.InvoiceDTO;
 import com.saicon.games.callcard.components.external.Postcode;
 // SalesOrderStatus enum stub needed
 import com.saicon.games.callcard.util.Constants;
-import com.saicon.games.callcard.util.EventTO;
+import com.saicon.games.callcard.ws.dto.EventTO;
+import com.saicon.games.core.dto.MetadataDTO;
+import com.saicon.games.core.dto.SalesOrderDTO;
+import com.saicon.games.core.dto.SalesOrderDetailsDTO;
+import com.saicon.games.core.util.SalesOrderStatus;
 import com.saicon.games.entities.shared.ItemTypes;
 // TODO: InvoiceDTO stub
 import com.saicon.multiplayer.dto.KeyValueDTO;
-// TODO: SalesOrderDTO stub
-// TODO: SalesOrderDetailsDTO stub
 import com.saicon.games.entities.shared.Users;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -236,7 +238,15 @@ public class CallCardManagement implements ICallCardManagement {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Read list of CallCard properties
-        List<MetadataKeyDTO> metadataKeyDTOs = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<String> metadataKeyNames = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<MetadataKeyDTO> metadataKeyDTOs = new ArrayList<>();
+        if (metadataKeyNames != null) {
+            for (String keyName : metadataKeyNames) {
+                MetadataKeyDTO dto = new MetadataKeyDTO();
+                dto.setMetadataKeyName(keyName);
+                metadataKeyDTOs.add(dto);
+            }
+        }
         Map<String, String> metadataKeysTypeMap = new HashMap<>();
         Map<String, String> metadataKeysIdMap = new HashMap<>();
         if (metadataKeyDTOs != null && metadataKeyDTOs.size() > 0) {
@@ -277,7 +287,8 @@ public class CallCardManagement implements ICallCardManagement {
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
                 if (brandProduct != null && brandProduct.getSubcategoryIds() != null) {
-                    List<String> categories = new ArrayList<String>(Arrays.asList(brandProduct.getSubcategoryIds()));
+                    List<String> categories = new ArrayList<String>();
+                    categories.addAll(brandProduct.getSubcategoryIds());
 
                     categories.retainAll(productTypeCategories);
                     if (categories != null && categories.size() > 0)
@@ -553,7 +564,15 @@ public class CallCardManagement implements ICallCardManagement {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Read list of CallCard properties
-        List<MetadataKeyDTO> metadataKeyDTOs = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<String> metadataKeyNames = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<MetadataKeyDTO> metadataKeyDTOs = new ArrayList<>();
+        if (metadataKeyNames != null) {
+            for (String keyName : metadataKeyNames) {
+                MetadataKeyDTO dto = new MetadataKeyDTO();
+                dto.setMetadataKeyName(keyName);
+                metadataKeyDTOs.add(dto);
+            }
+        }
         Map<String, String> metadataKeysTypeMap = new HashMap<>();
         Map<String, String> metadataKeysIdMap = new HashMap<>();
         if (metadataKeyDTOs != null && metadataKeyDTOs.size() > 0) {
@@ -594,7 +613,8 @@ public class CallCardManagement implements ICallCardManagement {
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
                 if (brandProduct != null && brandProduct.getSubcategoryIds() != null) {
-                    List<String> categories = new ArrayList<String>(Arrays.asList(brandProduct.getSubcategoryIds()));
+                    List<String> categories = new ArrayList<String>();
+                    categories.addAll(brandProduct.getSubcategoryIds());
 
                     categories.retainAll(productTypeCategories);
                     if (categories != null && categories.size() > 0)
@@ -1356,7 +1376,15 @@ public class CallCardManagement implements ICallCardManagement {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Read list of CallCard properties
-        List<MetadataKeyDTO> metadataKeyDTOs = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<String> metadataKeyNames = metadataComponent.listMetadataKeysByItemType(Constants.ITEM_TYPE_CALL_CARD_INDEX, false);
+        List<MetadataKeyDTO> metadataKeyDTOs = new ArrayList<>();
+        if (metadataKeyNames != null) {
+            for (String keyName : metadataKeyNames) {
+                MetadataKeyDTO dto = new MetadataKeyDTO();
+                dto.setMetadataKeyName(keyName);
+                metadataKeyDTOs.add(dto);
+            }
+        }
         Map<String, String> metadataKeysTypeMap = new HashMap<>();
         Map<String, String> metadataKeysIdMap = new HashMap<>();
         if (metadataKeyDTOs != null && metadataKeyDTOs.size() > 0) {
@@ -1397,7 +1425,8 @@ public class CallCardManagement implements ICallCardManagement {
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
                 if (brandProduct != null && brandProduct.getSubcategoryIds() != null) {
-                    List<String> categories = new ArrayList<String>(Arrays.asList(brandProduct.getSubcategoryIds()));
+                    List<String> categories = new ArrayList<String>();
+                    categories.addAll(brandProduct.getSubcategoryIds());
 
                     categories.retainAll(productTypeCategories);
                     if (categories != null && categories.size() > 0)
