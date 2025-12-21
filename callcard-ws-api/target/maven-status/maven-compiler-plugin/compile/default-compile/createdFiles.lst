@@ -18,6 +18,7 @@ com\saicon\games\callcard\ws\dto\TransactionListResponseDTO.class
 com\saicon\games\callcard\ws\external\BasicUserDTO.class
 com\saicon\games\callcard\ws\ICallCardStatisticsService.class
 com\saicon\games\callcard\ws\response\ResponseListCallCard.class
+com\saicon\games\callcard\util\ScopeType.class
 com\saicon\games\callcard\ws\ICallCardTransactionService.class
 com\saicon\games\commons\exceptions\BusinessLayerException.class
 com\saicon\games\callcard\resources\CallCardTransactionResources.class
@@ -37,6 +38,7 @@ com\saicon\multiplayer\dto\KeyValueDTO.class
 com\saicon\games\callcard\ws\dto\CallCardTransactionDTO.class
 com\saicon\games\callcard\ws\ISimplifiedCallCardService.class
 com\saicon\games\callcard\ws\ICallCardService.class
+com\saicon\games\callcard\util\EventTO.class
 com\saicon\games\callcard\resources\CallCardStatisticsResources.class
 com\saicon\games\callcard\ws\external\IGameInternalService.class
 com\saicon\games\callcard\ws\dto\ItemStatisticsDTO.class
@@ -46,6 +48,7 @@ com\saicon\games\common\AbstractDTOWithMetadata.class
 com\saicon\games\callcard\ws\dto\PurchaseResponseDTO.class
 com\saicon\games\callcard\ws\dto\CallCardBulkResponseDTO.class
 com\saicon\games\callcard\ws\response\ResponseStatus.class
+com\saicon\games\callcard\util\SortOrderTypes.class
 com\saicon\games\callcard\ws\data\ResponseCallCardStats.class
 com\saicon\games\callcard\exception\BusinessLayerException.class
 com\saicon\games\callcard\ws\dto\CallCardActionItemAttributesDTO.class

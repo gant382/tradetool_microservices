@@ -20,6 +20,7 @@ public class ExceptionTypeTO implements Serializable {
     public static final String SESSION_EXPIRED = "1006";
     public static final String DUPLICATE_ENTRY = "1007";
     public static final String USER_SESSION_ID_NOT_VALID = "1008";
+    public static final String GENERIC = "9999";
 
     private String errorCode;
     private String message;

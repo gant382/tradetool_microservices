@@ -9,10 +9,10 @@ import com.saicon.games.callcard.ws.dto.CallCardStatsDTO;
 import com.saicon.games.callcard.ws.dto.TemplateUsageDTO;
 import com.saicon.games.callcard.ws.dto.UserEngagementDTO;
 import com.saicon.games.callcard.ws.dto.ItemStatisticsDTO;
-// TODO: import com.saicon.games.callcard.ws.dto.SolrBrandProductDTO; // Stub needed
-// TODO: import com.saicon.games.callcard.ws.dto.AppSettingsDTO;
-// TODO: import com.saicon.games.callcard.ws.dto.DecimalDTO;
-// TODO: import com.saicon.games.callcard.ws.dto.MetadataKeyDTO;
+import com.saicon.games.solr.dto.SolrBrandProductDTO;
+import com.saicon.games.appsettings.dto.AppSettingsDTO;
+import com.saicon.games.client.data.DecimalDTO;
+import com.saicon.games.metadata.dto.MetadataKeyDTO;
 import com.saicon.games.callcard.util.EventType;
 import com.saicon.games.callcard.util.SortOrderTypes;
 import com.saicon.games.callcard.exception.BusinessLayerException;
@@ -37,10 +37,10 @@ import com.saicon.games.callcard.dao.IGenericDAO;
 // SalesOrderDetails stub needed
 // SalesOrderStatus enum stub needed
 import com.saicon.games.callcard.util.Constants;
-import com.saicon.games.callcard.ws.dto.EventTO;
+import com.saicon.games.callcard.util.EventTO;
 import com.saicon.games.entities.shared.ItemTypes;
 // TODO: InvoiceDTO stub
-// TODO: KeyValueDTO stub
+import com.saicon.multiplayer.dto.KeyValueDTO;
 // TODO: SalesOrderDTO stub
 // TODO: SalesOrderDetailsDTO stub
 import com.saicon.games.entities.shared.Users;

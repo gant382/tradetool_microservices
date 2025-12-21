@@ -1,8 +1,13 @@
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\SolrClient.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IUserSessionManagement.java
-C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\ErpDynamicQueryManager.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\util\ScopeType.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\CallCardConverterUtil.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\appsettings\dto\AppSettingsDTO.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\solr\dto\SolrBrandProductDTO.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IUserMetadataComponent.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IAppSettingsComponent.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\util\CallCardTemplateEntryComparator.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\ErpDynamicQueryManager.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\util\Assert.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\util\SortOrderTypes.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IMetadataComponent.java
@@ -16,8 +21,7 @@ C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\ErpNativeQueryManager.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IAddressbookManagement.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\MultiTenantQueryFilter.java
-C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IUserMetadataComponent.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\util\EventType.java
-C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IAppSettingsComponent.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\metadata\dto\MetadataKeyDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\ICallCardTransactionManagement.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\util\Constants.java

@@ -35,6 +35,21 @@ public class Constants {
 
     // Metadata keys
     public static final String METADATA_KEY_PERSONAL_REGION = "personalRegion";
+    public static final String METADATA_KEY_CALL_CARD_INDEX_SALES = "callCardIndexSales";
+    public static final String METADATA_KEY_PERSONAL_ADDRESS = "personalAddress";
+    public static final String METADATA_KEY_PERSONAL_CITY = "personalCity";
+    public static final String METADATA_KEY_PERSONAL_COUNTRY = "personalCountry";
+    public static final String METADATA_KEY_PERSONAL_STATE = "personalState";
+
+    // App Setting Keys
+    public static final String APP_SETTING_KEY_PREVIOUS_VISITS_SUMMARY = "PREVIOUS_VISITS_SUMMARY";
+    public static final String APP_SETTING_KEY_INCLUDE_VISITS_GEO_INFO = "INCLUDE_VISITS_GEO_INFO";
+    public static final String APP_SETTING_KEY_PRODUCT_TYPE_CATEGORIES = "PRODUCT_TYPE_CATEGORIES";
+
+    // Additional Item Types
+    public static final int ITEM_TYPE_CALL_CARD_INDEX = 1001;
+    public static final int ITEM_TYPE_BRAND_PRODUCT = 1002;
+    public static final int ITEM_TYPE_QUIZ = 1003;
 
     private Constants() {
         // Prevent instantiation
