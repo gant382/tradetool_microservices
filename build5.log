@@ -1,0 +1,136 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] CallCard Microservice Parent                                       [pom]
+[INFO] CallCard Entity Layer                                              [jar]
+[INFO] CallCard WS API Layer                                              [jar]
+[INFO] CallCard Components Layer                                          [jar]
+[INFO] CallCard Service Layer                                             [jar]
+[INFO] CallCard Server WS                                                 [war]
+[INFO] 
+[INFO] ---------------< com.saicon.games:tradetool_middleware >----------------
+[INFO] Building CallCard Microservice Parent 1.0.0-SNAPSHOT               [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tradetool_middleware ---
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-entity >------------------
+[INFO] Building CallCard Entity Layer 1.0.0-SNAPSHOT                      [2/6]
+[INFO]   from callcard-entity\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-entity ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-entity\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-entity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to C:\Users\dimit\tradetool_middleware\callcard-entity\target\classes
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: C:\Users\dimit\tradetool_middleware\callcard-entity\src\main\java\com\saicon\games\callcard\entity\CallCardTransaction.java uses or overrides a deprecated API.
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-ws-api >------------------
+[INFO] Building CallCard WS API Layer 1.0.0-SNAPSHOT                      [3/6]
+[INFO]   from callcard-ws-api\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-ws-api ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-ws-api\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-ws-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 59 source files to C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[83,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[84,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[95,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[134,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[135,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[136,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[137,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[152,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[191,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[192,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[193,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[194,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[209,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[249,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[250,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[266,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[300,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[301,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[309,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[349,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[350,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[366,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[403,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[404,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[420,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[INFO] 25 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for CallCard Microservice Parent 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] CallCard Microservice Parent ....................... SUCCESS [  0.508 s]
+[INFO] CallCard Entity Layer .............................. SUCCESS [  6.698 s]
+[INFO] CallCard WS API Layer .............................. FAILURE [  5.937 s]
+[INFO] CallCard Components Layer .......................... SKIPPED
+[INFO] CallCard Service Layer ............................. SKIPPED
+[INFO] CallCard Server WS ................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.389 s
+[INFO] Finished at: 2025-12-21T03:47:42+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project callcard-ws-api: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[83,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[84,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[95,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[134,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[135,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[136,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[137,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[152,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[191,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[192,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[193,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[194,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[209,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[249,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[250,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[266,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[300,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[301,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[309,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[349,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[350,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[366,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[403,30] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[404,27] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/resources/CallCardStatisticsResources.java:[420,13] unreported exception com.saicon.games.callcard.exception.BusinessLayerException; must be caught or declared to be thrown
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :callcard-ws-api

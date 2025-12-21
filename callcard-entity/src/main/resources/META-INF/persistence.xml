@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="callcard-pu" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- CallCard Entities -->
+        <class>com.saicon.games.entities.CallCard</class>
+        <class>com.saicon.games.entities.CallCardRefUser</class>
+        <class>com.saicon.games.entities.CallCardRefUserIndex</class>
+        <class>com.saicon.games.entities.CallCardTemplate</class>
+        <class>com.saicon.games.entities.CallCardTemplateEntry</class>
+        <class>com.saicon.games.entities.CallCardTemplatePOS</class>
+        <class>com.saicon.games.entities.CallCardTemplateUser</class>
+        <class>com.saicon.games.entities.CallCardTemplateUserReferences</class>
+        <class>com.saicon.games.callcard.entity.CallCardTransaction</class>
+
+        <!-- Related Entities -->
+        <class>com.saicon.games.salesorder.entities.SalesOrder</class>
+        <class>com.saicon.games.salesorder.entities.SalesOrderDetails</class>
+        <class>com.saicon.games.salesorder.entities.SalesOrderType</class>
+        <class>com.saicon.games.salesorder.entities.SalesOrderTypeGameType</class>
+        <class>com.saicon.games.salesorder.entities.SalesOrderTypeGameTypePK</class>
+        <class>com.saicon.games.invoice.entities.Invoice</class>
+        <class>com.saicon.games.invoice.entities.InvoiceDetails</class>
+        <class>com.saicon.user.entities.Users</class>
+        <class>com.saicon.application.entities.Application</class>
+        <class>com.saicon.addressbook.entities.Postcode</class>
+        <class>com.saicon.generic.entities.ItemTypes</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+        <properties>
+            <!-- Hibernate Properties - managed by Spring Boot -->
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.JCacheRegionFactory"/>
+            <property name="hibernate.generate_statistics" value="true"/>
+            <property name="hibernate.cache.use_structured_entries" value="true"/>
+
+            <!-- Dialect will be auto-configured by Spring Boot based on datasource -->
+            <!-- Connection pool managed by HikariCP via Spring Boot -->
+        </properties>
+    </persistence-unit>
+</persistence>

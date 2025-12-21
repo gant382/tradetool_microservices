@@ -1,0 +1,18 @@
+# Staging Environment Configuration
+spring:
+  datasource:
+    url: jdbc:sqlserver://${DB_HOST:staging-db.internal}:1433;databaseName=gameserver_v3_staging;encrypt=true;trustServerCertificate=false
+    username: ${DB_USERNAME:callcard_svc}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    show-sql: false
+
+callcard:
+  talos-core:
+    session-validation-url: ${TALOS_CORE_URL:http://talos-core-staging:8080}/Game_Server_WS/cxf/GAMEInternalService
+
+logging:
+  level:
+    com.saicon.games.callcard: INFO
+    org.hibernate.SQL: WARN

@@ -1,0 +1,178 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] CallCard Microservice Parent                                       [pom]
+[INFO] CallCard Entity Layer                                              [jar]
+[INFO] CallCard WS API Layer                                              [jar]
+[INFO] CallCard Components Layer                                          [jar]
+[INFO] CallCard Service Layer                                             [jar]
+[INFO] CallCard Server WS                                                 [war]
+[INFO] 
+[INFO] ---------------< com.saicon.games:tradetool_middleware >----------------
+[INFO] Building CallCard Microservice Parent 1.0.0-SNAPSHOT               [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tradetool_middleware ---
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-entity >------------------
+[INFO] Building CallCard Entity Layer 1.0.0-SNAPSHOT                      [2/6]
+[INFO]   from callcard-entity\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-entity ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-entity\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-entity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to C:\Users\dimit\tradetool_middleware\callcard-entity\target\classes
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: C:\Users\dimit\tradetool_middleware\callcard-entity\src\main\java\com\saicon\games\callcard\entity\CallCardTransaction.java uses or overrides a deprecated API.
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-ws-api >------------------
+[INFO] Building CallCard WS API Layer 1.0.0-SNAPSHOT                      [3/6]
+[INFO]   from callcard-ws-api\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-ws-api ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-ws-api\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-ws-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 54 source files to C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[5,42] package com.saicon.games.commons.utilities does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[4,32] package com.saicon.resources.dto does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[11,56] cannot find symbol
+  symbol: class AbstractDTOWithMetadata
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[4,34] package com.saicon.multiplayer.dto does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[66,18] cannot find symbol
+  symbol:   class KeyValueDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[89,248] cannot find symbol
+  symbol:   class KeyValueDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[201,17] cannot find symbol
+  symbol:   class KeyValueDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[205,47] cannot find symbol
+  symbol:   class KeyValueDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[4,36] package com.saicon.games.client.data does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[38,13] cannot find symbol
+  symbol:   class DecimalDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[46,210] cannot find symbol
+  symbol:   class DecimalDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[123,12] cannot find symbol
+  symbol:   class DecimalDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[127,27] cannot find symbol
+  symbol:   class DecimalDTO
+  location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[17,13] cannot find symbol
+  symbol:   class ResourceDTO
+  location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[19,12] cannot find symbol
+  symbol:   class ResourceDTO
+  location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[23,30] cannot find symbol
+  symbol:   class ResourceDTO
+  location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/response/WSResponse.java:[33,12] constructor WSResponse(java.lang.String,com.saicon.games.callcard.ws.response.ResponseStatus) is already defined in class com.saicon.games.callcard.ws.response.WSResponse
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[76,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[163,20] cannot find symbol
+  symbol:   variable UUIDUtilities
+  location: class com.saicon.games.callcard.ws.dto.CallCardDTO.ExistingCallCardFirst
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardGroupDTO.java:[41,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/SimplifiedCallCardDTO.java:[42,5] method does not override or implement a method from a supertype
+[INFO] 21 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for CallCard Microservice Parent 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] CallCard Microservice Parent ....................... SUCCESS [  0.411 s]
+[INFO] CallCard Entity Layer .............................. SUCCESS [  5.370 s]
+[INFO] CallCard WS API Layer .............................. FAILURE [  3.596 s]
+[INFO] CallCard Components Layer .......................... SKIPPED
+[INFO] CallCard Service Layer ............................. SKIPPED
+[INFO] CallCard Server WS ................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.400 s
+[INFO] Finished at: 2025-12-21T03:42:10+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project callcard-ws-api: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[5,42] package com.saicon.games.commons.utilities does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[4,32] package com.saicon.resources.dto does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[11,56] cannot find symbol
+[ERROR]   symbol: class AbstractDTOWithMetadata
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[4,34] package com.saicon.multiplayer.dto does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[66,18] cannot find symbol
+[ERROR]   symbol:   class KeyValueDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[89,248] cannot find symbol
+[ERROR]   symbol:   class KeyValueDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[201,17] cannot find symbol
+[ERROR]   symbol:   class KeyValueDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardRefUserDTO.java:[205,47] cannot find symbol
+[ERROR]   symbol:   class KeyValueDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardRefUserDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[4,36] package com.saicon.games.client.data does not exist
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[38,13] cannot find symbol
+[ERROR]   symbol:   class DecimalDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[46,210] cannot find symbol
+[ERROR]   symbol:   class DecimalDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[123,12] cannot find symbol
+[ERROR]   symbol:   class DecimalDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardActionItemAttributesDTO.java:[127,27] cannot find symbol
+[ERROR]   symbol:   class DecimalDTO
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardActionItemAttributesDTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[17,13] cannot find symbol
+[ERROR]   symbol:   class ResourceDTO
+[ERROR]   location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[19,12] cannot find symbol
+[ERROR]   symbol:   class ResourceDTO
+[ERROR]   location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/common/AbstractDTOWithResources.java:[23,30] cannot find symbol
+[ERROR]   symbol:   class ResourceDTO
+[ERROR]   location: class com.saicon.games.common.AbstractDTOWithResources
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/response/WSResponse.java:[33,12] constructor WSResponse(java.lang.String,com.saicon.games.callcard.ws.response.ResponseStatus) is already defined in class com.saicon.games.callcard.ws.response.WSResponse
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[76,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardDTO.java:[163,20] cannot find symbol
+[ERROR]   symbol:   variable UUIDUtilities
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.CallCardDTO.ExistingCallCardFirst
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/CallCardGroupDTO.java:[41,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-ws-api/src/main/java/com/saicon/games/callcard/ws/dto/SimplifiedCallCardDTO.java:[42,5] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :callcard-ws-api

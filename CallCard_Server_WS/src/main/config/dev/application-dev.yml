@@ -1,0 +1,20 @@
+# Development Environment Configuration
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=gameserver_v3_dev;encrypt=false;trustServerCertificate=true
+    username: sa
+    password: ${DB_PASSWORD:dev_password}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+callcard:
+  talos-core:
+    session-validation-url: http://localhost:8080/Game_Server_WS/cxf/GAMEInternalService
+
+logging:
+  level:
+    com.saicon.games.callcard: DEBUG
+    org.hibernate.SQL: DEBUG
