@@ -1,5 +1,6 @@
 package com.saicon.games.callcard.components;
 
+import com.saicon.games.callcard.exception.BusinessLayerException;
 import com.saicon.games.callcard.ws.dto.CallCardDTO;
 import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 import com.saicon.games.callcard.ws.dto.CallCardStatsDTO;
@@ -32,7 +33,7 @@ public interface ICallCardManagement {
 
     CallCardDTO getNewOrPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId, String callCardId, List<String> filterProperties);
 
-    CallCardDTO updateCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, List<CallCardDTO> callCards);
+    CallCardDTO updateCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, List<CallCardDTO> callCards) throws BusinessLayerException;
 
     void addOrUpdateSimplifiedCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, SimplifiedCallCardDTO callCard);
 

@@ -188,6 +188,10 @@ public class Users implements Serializable {
         this.lastName = lastName;
     }
 
+    public Object getUserAddress() {
+        return null; // Stub implementation for CallCard microservice
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

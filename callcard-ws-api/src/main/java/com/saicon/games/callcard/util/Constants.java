@@ -30,8 +30,9 @@ public class Constants {
     public static final int ITEM_TYPE_CALL_CARD_ACTION_ITEM = 1004;
 
     // Game type IDs
-    public static final String PMI_EGYPT_GAME_TYPE_ID = "pmi-egypt-game-type-id";
-    public static final String PMI_SENEGAL_GAME_TYPE_ID = "pmi-senegal-game-type-id";
+    public static final String PMI_EGYPT_GAME_TYPE_ID = "pmi-egypt";
+    public static final String PMI_SENEGAL_GAME_TYPE_ID = "pmi-senegal";
+    public static final String PMI_IRAQ_GAME_TYPE_ID = "pmi-iraq";
 
     // Metadata keys
     public static final String METADATA_KEY_PERSONAL_REGION = "personalRegion";

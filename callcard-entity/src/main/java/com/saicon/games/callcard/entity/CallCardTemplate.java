@@ -115,6 +115,14 @@ public class CallCardTemplate {
         this.name = name;
     }
 
+    public String getDescription() {
+        return this.name;
+    }
+
+    public void setDescription(String description) {
+        this.name = description;
+    }
+
     @Override
     public boolean equals(Object object) {
 

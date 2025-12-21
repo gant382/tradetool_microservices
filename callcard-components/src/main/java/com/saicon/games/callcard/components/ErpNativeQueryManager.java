@@ -131,4 +131,43 @@ public class ErpNativeQueryManager {
         LOGGER.warn("listInvoiceDetailsPreviousValues is not yet implemented - invoice integration pending");
         return new HashMap<>();
     }
+
+    /**
+     * Execute a native SQL query with named parameters.
+     * Stub implementation for CallCard microservice.
+     *
+     * @param query       Native SQL query string
+     * @param paramNames  Parameter names
+     * @param paramValues Parameter values
+     * @return Query results as Object arrays
+     */
+    @SuppressWarnings("unused")
+    public List<Object[]> executeNativeQuery(String query, String[] paramNames, Object[] paramValues) {
+        LOGGER.warn("executeNativeQuery is a stub implementation");
+        return new ArrayList<>();
+    }
+
+    /**
+     * List CallCardRefUserIndex previous values summary with aggregation.
+     * Stub implementation for CallCard microservice.
+     *
+     * @param userGroupId         Filter by user group
+     * @param callCardIds         Filter by call card IDs
+     * @param metadataKeys        Metadata keys to include
+     * @param limit               Maximum results per partition
+     * @param previousVisitsCounts Previous visits count filter
+     * @param includeGeoInfo      Include geographical information
+     * @return Summary results as Object arrays
+     */
+    @SuppressWarnings("unused")
+    public List<Object[]> listCallCardRefUserIndexesPreviousValuesSummary(
+            String userGroupId,
+            List<String> callCardIds,
+            List<String> metadataKeys,
+            Integer limit,
+            List<Integer> previousVisitsCounts,
+            boolean includeGeoInfo) {
+        LOGGER.warn("listCallCardRefUserIndexesPreviousValuesSummary is a stub implementation");
+        return new ArrayList<>();
+    }
 }

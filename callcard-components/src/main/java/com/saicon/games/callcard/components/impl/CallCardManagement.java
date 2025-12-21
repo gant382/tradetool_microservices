@@ -32,10 +32,14 @@ import com.saicon.games.callcard.components.external.SolrClient;
 import com.saicon.games.callcard.entity.*;
 import com.saicon.games.callcard.dao.IGenericDAO;
 import com.saicon.games.callcard.components.util.CallCardTemplateEntryComparator;
-// TODO: InvoiceDetails entity stub needed
+import com.saicon.games.callcard.components.external.InvoiceDetails;
 // TODO: import com.saicon.games.callcard.ws.dto.MetadataDTO;
-// TODO: SalesOrder entities stub needed
-// SalesOrderDetails stub needed
+import com.saicon.games.callcard.components.external.SalesOrder;
+import com.saicon.games.callcard.components.external.SalesOrderDetails;
+import com.saicon.games.callcard.components.external.State;
+import com.saicon.games.callcard.components.external.Addressbook;
+import com.saicon.games.callcard.components.external.InvoiceDTO;
+import com.saicon.games.callcard.components.external.Postcode;
 // SalesOrderStatus enum stub needed
 import com.saicon.games.callcard.util.Constants;
 import com.saicon.games.callcard.util.EventTO;

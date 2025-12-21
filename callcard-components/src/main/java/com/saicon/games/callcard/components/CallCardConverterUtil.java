@@ -124,14 +124,14 @@ public class CallCardConverterUtil {
         dto.setId(entity.getCallCardRefUserId());
 
         // User info (issuer and recipient)
-        if (entity.getIssuerUserId() != null) {
-            dto.setIssuerUserId(entity.getIssuerUserId().getUserId());
-            dto.setIssuerUserName(entity.getIssuerUserId().getUsername());
+        if (entity.getSourceUserId() != null) {
+            dto.setIssuerUserId(entity.getSourceUserId().getUserId());
+            dto.setIssuerUserName(entity.getSourceUserId().getUsername());
         }
 
-        if (entity.getRecipientUserId() != null) {
-            dto.setRecipientUserId(entity.getRecipientUserId().getUserId());
-            dto.setRecipientUserName(entity.getRecipientUserId().getUsername());
+        if (entity.getRefUserId() != null) {
+            dto.setRecipientUserId(entity.getRefUserId().getUserId());
+            dto.setRecipientUserName(entity.getRefUserId().getUsername());
         }
 
         // Dates

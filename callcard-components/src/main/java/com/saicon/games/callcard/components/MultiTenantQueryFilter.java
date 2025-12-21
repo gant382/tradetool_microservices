@@ -110,7 +110,9 @@ public class MultiTenantQueryFilter {
         Session session = entityManager.unwrap(Session.class);
         Filter filter = session.getEnabledFilter(USER_GROUP_FILTER);
         if (filter != null) {
-            return (String) filter.getParameter("userGroupId");
+            // Hibernate 5.6 Filter API limitations - cannot retrieve parameter values easily
+            // Return null for now - this method is informational only
+            return null; // (String) filter.getParameter("userGroupId") not available in 5.6
         }
         return null;
     }

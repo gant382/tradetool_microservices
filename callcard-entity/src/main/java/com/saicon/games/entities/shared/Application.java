@@ -121,6 +121,14 @@ public class Application implements Serializable {
         this.expirationSeconds = expirationSeconds;
     }
 
+    /**
+     * Stub method for client type compatibility.
+     * @return Stub client type (0)
+     */
+    public int getClientType() {
+        return 0; // Stub - returns default client type
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

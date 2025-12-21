@@ -1,0 +1,48 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-ws-api >------------------
+[INFO] Building CallCard WS API Layer 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from nexus-internal-snapshots: https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/com/saicon/games/callcard-entity/1.0.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.saicon.games:callcard-entity:1.0.0-SNAPSHOT/maven-metadata.xml from/to nexus-internal-snapshots (https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/): No such host is known (nexusdev.saicongames.com)
+[WARNING] com.saicon.games:callcard-entity:1.0.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of nexus-internal-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata com.saicon.games:callcard-entity:1.0.0-SNAPSHOT/maven-metadata.xml from/to nexus-internal-snapshots (https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/): No such host is known (nexusdev.saicongames.com)
+Downloading from nexus-internal-snapshots: https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/com/saicon/games/tradetool_middleware/1.0.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.saicon.games:tradetool_middleware:1.0.0-SNAPSHOT/maven-metadata.xml from/to nexus-internal-snapshots (https://nexusdev.saicongames.com/nexus/content/repositories/snapshots/): nexusdev.saicongames.com
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-ws-api ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-ws-api\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-ws-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 66 source files to C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ callcard-ws-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ callcard-ws-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.2.2:jar (default-jar) @ callcard-ws-api ---
+[INFO] Building jar: C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\callcard-ws-api-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:2.5.2:install (default-install) @ callcard-ws-api ---
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\callcard-ws-api-1.0.0-SNAPSHOT.jar to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-ws-api\1.0.0-SNAPSHOT\callcard-ws-api-1.0.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-ws-api\pom.xml to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-ws-api\1.0.0-SNAPSHOT\callcard-ws-api-1.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.083 s
+[INFO] Finished at: 2025-12-21T14:23:17+02:00
+[INFO] ------------------------------------------------------------------------

@@ -27,6 +27,7 @@ public class ExceptionTypeTO implements Serializable {
     public static final String ITEM_BELONGS_TO_OTHER_USER = "1012";
     public static final String CMS_CONFIGURATION_ERROR = "1013";
     public static final String GENERIC = "9999";
+    public static final String GENERIC_ERROR = "9999"; // Alias for GENERIC
 
     private String errorCode;
     private String message;

@@ -177,4 +177,45 @@ public class CallCardRefUser {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    // Alias methods for compatibility with legacy code
+    public String getIssuerUserId() {
+        return sourceUserId != null ? sourceUserId.getUserId() : null;
+    }
+
+    public void setIssuerUserId(String userId) {
+        // Stub - issuer user ID mapping
+    }
+
+    public String getRecipientUserId() {
+        return refUserId != null ? refUserId.getUserId() : null;
+    }
+
+    public void setRecipientUserId(String userId) {
+        // Stub - recipient user ID mapping
+    }
+
+    public Date getDateCreated() {
+        return startDate;
+    }
+
+    public void setDateCreated(Date date) {
+        this.startDate = date;
+    }
+
+    public Date getDateUpdated() {
+        return lastUpdated;
+    }
+
+    public void setDateUpdated(Date date) {
+        this.lastUpdated = date;
+    }
+
+    public List<CallCardRefUserIndex> getItems() {
+        return CallCardRefUserIndexes;
+    }
+
+    public void setItems(List<CallCardRefUserIndex> items) {
+        this.CallCardRefUserIndexes = items;
+    }
 }

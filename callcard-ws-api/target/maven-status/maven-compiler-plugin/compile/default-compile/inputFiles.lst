@@ -1,5 +1,6 @@
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\resources\CallCardResources.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\response\ResponseStatus.java
+C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\core\dto\SalesOrderDetailsDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\CallCardBulkResponseDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\ICallCardTransactionService.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\SortOrderTypes.java
@@ -17,6 +18,7 @@ C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\gam
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\response\ResponseListItemStatistics.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\exception\BusinessLayerException.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\exception\BusinessLayerException.java
+C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\core\dto\MetadataDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\ICallCardStatisticsService.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\UserEngagementDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\SimplifiedCallCardRefUserV2DTO.java
@@ -32,6 +34,7 @@ C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\gam
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\DTOParam.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\EventTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\SimplifiedCallCardV2DTO.java
+C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\core\dto\SalesOrderDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\EventTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\CallCardActionsDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\data\ResponseListCallCard.java
@@ -42,6 +45,7 @@ C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\gam
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\SimplifiedCallCardRefUserDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\response\ResponseListSimplifiedCallCard.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\CallCardGroupDTO.java
+C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\metadata\dto\MetadataDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\ScopeType.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\Assert.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\CallCardDTO.java
@@ -50,6 +54,7 @@ C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\gam
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\EventType.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\ICallCardService.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\TalosUtil.java
+C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\core\util\SalesOrderStatus.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\util\Constants.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\CallCardSummaryDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\java\com\saicon\games\callcard\ws\dto\TemplateUsageDTO.java

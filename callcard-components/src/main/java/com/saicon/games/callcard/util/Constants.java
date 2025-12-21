@@ -15,4 +15,8 @@ public class Constants {
     public static final int ITEM_TYPE_BRAND_PRODUCT = 1002;
     public static final int ITEM_TYPE_QUIZ = 1003;
     public static final int ITEM_TYPE_CALL_CARD_REFUSER = 1005;
+    // PMI Game Type IDs (duplicated from ws-api for module independence)
+    public static final String PMI_EGYPT_GAME_TYPE_ID = "pmi-egypt";
+    public static final String PMI_SENEGAL_GAME_TYPE_ID = "pmi-senegal";
+    public static final String PMI_IRAQ_GAME_TYPE_ID = "pmi-iraq";
 }

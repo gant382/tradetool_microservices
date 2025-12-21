@@ -2,6 +2,8 @@ package com.saicon.games.entities.shared;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "POSTCODE")
@@ -54,5 +56,31 @@ public class Postcode implements Serializable {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    /**
+     * Stub method - returns list of cities associated with this postcode
+     * In a full implementation, this would be a @OneToMany relationship
+     * @return Stub list of City objects
+     */
+    public List<City> getCities() {
+        // Stub - would normally fetch from database via JPA relationship
+        List<City> cities = new ArrayList<>();
+        if (city != null) {
+            City cityObj = new City();
+            cityObj.setCityName(city);
+            cities.add(cityObj);
+        }
+        return cities;
+    }
+
+    /**
+     * Stub method - returns the country ID for this postcode
+     * @return Empty string (no country association in this stub)
+     */
+    @SuppressWarnings("unused")
+    public String getCountryId() {
+        // Stub - would normally be a foreign key to Country table
+        return "";
     }
 }

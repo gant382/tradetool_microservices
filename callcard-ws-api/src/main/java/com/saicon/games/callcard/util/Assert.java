@@ -30,6 +30,25 @@ public class Assert {
         }
     }
 
+    /**
+     * Validates that a UUID string value is not null/empty and is a valid UUID format.
+     * Throws BusinessLayerException with fieldName-prefixed message if validation fails.
+     *
+     * @param value the UUID string to validate
+     * @param fieldName the field name for error message context
+     * @throws BusinessLayerException if value is null, empty, or not a valid UUID
+     */
+    public static void isValidUUID(String value, String fieldName) throws BusinessLayerException {
+        if (value == null || value.trim().isEmpty()) {
+            throw new BusinessLayerException(fieldName + " cannot be null or empty", ExceptionTypeTO.GENERAL_ERROR);
+        }
+        try {
+            UUID.fromString(value);
+        } catch (IllegalArgumentException e) {
+            throw new BusinessLayerException(fieldName + " must be a valid UUID", ExceptionTypeTO.GENERAL_ERROR);
+        }
+    }
+
     public static void isTrue(boolean condition, String message) throws BusinessLayerException {
         if (!condition) {
             throw new BusinessLayerException(message, ExceptionTypeTO.GENERAL_ERROR);

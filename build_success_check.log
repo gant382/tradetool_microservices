@@ -1,0 +1,343 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] CallCard Microservice Parent                                       [pom]
+[INFO] CallCard Entity Layer                                              [jar]
+[INFO] CallCard WS API Layer                                              [jar]
+[INFO] CallCard Components Layer                                          [jar]
+[INFO] CallCard Service Layer                                             [jar]
+[INFO] CallCard Server WS                                                 [war]
+[INFO] 
+[INFO] ---------------< com.saicon.games:tradetool_middleware >----------------
+[INFO] Building CallCard Microservice Parent 1.0.0-SNAPSHOT               [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tradetool_middleware ---
+[INFO] 
+[INFO] --- install:2.5.2:install (default-install) @ tradetool_middleware ---
+[INFO] Installing C:\Users\dimit\tradetool_middleware\pom.xml to C:\Users\dimit\.m2\repository\com\saicon\games\tradetool_middleware\1.0.0-SNAPSHOT\tradetool_middleware-1.0.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-entity >------------------
+[INFO] Building CallCard Entity Layer 1.0.0-SNAPSHOT                      [2/6]
+[INFO]   from callcard-entity\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-entity ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-entity\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-entity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 24 source files to C:\Users\dimit\tradetool_middleware\callcard-entity\target\classes
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: C:\Users\dimit\tradetool_middleware\callcard-entity\src\main\java\com\saicon\games\callcard\entity\CallCardTransaction.java uses or overrides a deprecated API.
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-entity/src/main/java/com/saicon/games/callcard/entity/CallCardTransaction.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ callcard-entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-entity\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ callcard-entity ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ callcard-entity ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.2.2:jar (default-jar) @ callcard-entity ---
+[INFO] Building jar: C:\Users\dimit\tradetool_middleware\callcard-entity\target\callcard-entity-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:2.5.2:install (default-install) @ callcard-entity ---
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-entity\target\callcard-entity-1.0.0-SNAPSHOT.jar to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-entity\1.0.0-SNAPSHOT\callcard-entity-1.0.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-entity\pom.xml to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-entity\1.0.0-SNAPSHOT\callcard-entity-1.0.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ------------------< com.saicon.games:callcard-ws-api >------------------
+[INFO] Building CallCard WS API Layer 1.0.0-SNAPSHOT                      [3/6]
+[INFO]   from callcard-ws-api\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-ws-api ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-ws-api\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-ws-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 66 source files to C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ callcard-ws-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-ws-api\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ callcard-ws-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ callcard-ws-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.2.2:jar (default-jar) @ callcard-ws-api ---
+[INFO] Building jar: C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\callcard-ws-api-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:2.5.2:install (default-install) @ callcard-ws-api ---
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-ws-api\target\callcard-ws-api-1.0.0-SNAPSHOT.jar to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-ws-api\1.0.0-SNAPSHOT\callcard-ws-api-1.0.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\dimit\tradetool_middleware\callcard-ws-api\pom.xml to C:\Users\dimit\.m2\repository\com\saicon\games\callcard-ws-api\1.0.0-SNAPSHOT\callcard-ws-api-1.0.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ----------------< com.saicon.games:callcard-components >----------------
+[INFO] Building CallCard Components Layer 1.0.0-SNAPSHOT                  [4/6]
+[INFO]   from callcard-components\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-components ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-components\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-components ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-components\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-components\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-components ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to C:\Users\dimit\tradetool_middleware\callcard-components\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3346,9] illegal start of type
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3346,23] <identifier> expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3349,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3352,9] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3355,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3357,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3360,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3365,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3367,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3368,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3370,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3373,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3374,25] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3380,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3381,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3383,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3386,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3390,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3392,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3397,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3398,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3404,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3406,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3408,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3410,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3412,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3414,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3416,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3418,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3420,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3422,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3424,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3426,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3428,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3430,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3432,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3434,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3436,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3438,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3440,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3442,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3444,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3446,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3448,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3450,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3452,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3454,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3456,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3458,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3460,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3462,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3464,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3466,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3468,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3470,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3472,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3474,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3476,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3478,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3480,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3482,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3484,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3486,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3488,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3490,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3492,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3494,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3496,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3498,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3500,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3502,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3504,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3506,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3508,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3510,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3512,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3514,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3516,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3518,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3520,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3522,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3524,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3526,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3528,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3530,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3532,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3534,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3536,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3538,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3540,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3542,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3544,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3546,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3548,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3550,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3552,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3554,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3556,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3564,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3568,9] class, interface, or enum expected
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for CallCard Microservice Parent 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] CallCard Microservice Parent ....................... SUCCESS [  1.093 s]
+[INFO] CallCard Entity Layer .............................. SUCCESS [  9.989 s]
+[INFO] CallCard WS API Layer .............................. SUCCESS [  7.420 s]
+[INFO] CallCard Components Layer .......................... FAILURE [  1.861 s]
+[INFO] CallCard Service Layer ............................. SKIPPED
+[INFO] CallCard Server WS ................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.416 s
+[INFO] Finished at: 2025-12-21T15:44:54+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project callcard-components: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3346,9] illegal start of type
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3346,23] <identifier> expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3349,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3352,9] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3355,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3357,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3360,13] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3365,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3367,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3368,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3370,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3373,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3374,25] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3380,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3381,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3383,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3386,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3390,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3392,29] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3397,21] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3398,17] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3404,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3406,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3408,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3410,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3412,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3414,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3416,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3418,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3420,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3422,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3424,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3426,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3428,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3430,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3432,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3434,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3436,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3438,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3440,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3442,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3444,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3446,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3448,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3450,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3452,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3454,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3456,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3458,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3460,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3462,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3464,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3466,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3468,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3470,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3472,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3474,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3476,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3478,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3480,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3482,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3484,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3486,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3488,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3490,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3492,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3494,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3496,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3498,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3500,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3502,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3504,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3506,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3508,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3510,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3512,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3514,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3516,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3518,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3520,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3522,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3524,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3526,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3528,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3530,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3532,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3534,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3536,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3538,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3540,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3542,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3544,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3546,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3548,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3550,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3552,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3554,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3556,5] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3564,12] class, interface, or enum expected
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3568,9] class, interface, or enum expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :callcard-components
