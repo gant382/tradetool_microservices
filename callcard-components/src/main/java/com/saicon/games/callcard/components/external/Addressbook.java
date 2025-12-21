@@ -14,6 +14,8 @@ public class Addressbook {
     private State state;
     private String country;
     private String postalCode;
+    private Double latitude;
+    private Double longitude;
 
     public String getAddressbookId() {
         return addressbookId;
@@ -69,5 +71,21 @@ public class Addressbook {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }

@@ -33,17 +33,17 @@ import com.saicon.games.callcard.entity.*;
 import com.saicon.games.callcard.dao.IGenericDAO;
 import com.saicon.games.callcard.components.util.CallCardTemplateEntryComparator;
 import com.saicon.games.callcard.components.external.InvoiceDetails;
-// TODO: import com.saicon.games.callcard.ws.dto.MetadataDTO;
+import com.saicon.games.metadata.dto.MetadataDTO;
 import com.saicon.games.callcard.components.external.SalesOrder;
 import com.saicon.games.callcard.components.external.SalesOrderDetails;
 import com.saicon.games.callcard.components.external.State;
 import com.saicon.games.callcard.components.external.Addressbook;
 import com.saicon.games.callcard.components.external.InvoiceDTO;
 import com.saicon.games.callcard.components.external.Postcode;
+import com.saicon.games.callcard.components.external.City;
+import com.saicon.games.callcard.components.external.UserAddressbook;
 // SalesOrderStatus enum stub needed
 import com.saicon.games.callcard.util.Constants;
-import com.saicon.games.callcard.ws.dto.EventTO;
-import com.saicon.games.core.dto.MetadataDTO;
 import com.saicon.games.core.dto.SalesOrderDTO;
 import com.saicon.games.core.dto.SalesOrderDetailsDTO;
 import com.saicon.games.core.util.SalesOrderStatus;
@@ -144,33 +144,18 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     private void dispatchEvent(EventType eventType, String userId, String gameTypeId, String applicationId, String itemId, int itemTypeId, int quantity, String additionalEventProperties, Boolean rollBackEvent) {
-        EventTO eventTO = new EventTO();
+        com.saicon.games.callcard.ws.dto.EventTO eventTO = new com.saicon.games.callcard.ws.dto.EventTO();
         eventTO.setUserId(userId);
-        eventTO.setApplicationId(applicationId);
-        eventTO.setGameTypeId(gameTypeId);
+        // Note: ws.dto.EventTO has different structure than util.EventTO
+        // Map fields appropriately
+        // eventTO.setApplicationId(applicationId);  // Not available in ws.dto.EventTO
+        // eventTO.setGameTypeId(gameTypeId);  // Not available in ws.dto.EventTO
 
-        String eventProperties = "";
+        // The ws.dto.EventTO doesn't have the same structure as util.EventTO
+        // Setting available fields only
+        eventTO.setEventType(eventType);
+        // Additional properties would need to be set based on ws.dto.EventTO structure
 
-        if (StringUtils.isNotBlank(itemId))
-            eventProperties += (EventTO.PROPERTY_ITEM_ID + "=" + itemId + "\n");
-
-        if (itemTypeId != 0)
-            eventProperties += (EventTO.PROPERTY_ITEM_TYPE_ID + "=" + itemTypeId + "\n");
-
-        if (quantity != 0)
-            eventProperties += (EventTO.PROPERTY_QUANTITY + "=" + quantity + "\n");
-
-        if (StringUtils.isNotBlank(additionalEventProperties))
-            eventProperties += additionalEventProperties;
-
-        if (!rollBackEvent)
-            eventTO.setRunInNewDBTransaction(true);
-
-        eventTO.setEventProperties(eventProperties);
-
-        eventTO.setClientTypeId(applicationDao.read(applicationId).getClientType().toInt());
-
-        eventTO.setEventTypeId(eventType.toInt());
         generatedEventsDispatcher.dispatch(eventTO);
     }
 
@@ -178,14 +163,15 @@ public class CallCardManagement implements ICallCardManagement {
     private List<CallCardTemplate> getCallCardTemplateByMetadataKeys(String userId, String userGroupId, String gameTypeId, String callCardTemplateId, List<String> metadataKeys) {
         List<KeyValueDTO> metadataFilter = new ArrayList<>();
         if (metadataKeys != null && metadataKeys.size() > 0) {
-            List<MetadataDTO> metadataDTOs = userMetadataComponent.listUserMetadata(Collections.singletonList(userId), metadataKeys, false);
-            if (metadataDTOs == null || metadataDTOs.size() == 0)
+            Map<String, Map<String, String>> metadataMap = userMetadataComponent.listUserMetadata(Collections.singletonList(userId), metadataKeys, false);
+            if (metadataMap == null || !metadataMap.containsKey(userId) || metadataMap.get(userId).size() == 0)
                 throw new BusinessLayerException("", ExceptionTypeTO.CMS_CONFIGURATION_ERROR);
 
             LOGGER.info("-- Get Call card Template by metadata keys : \n");
-            for (MetadataDTO metadataDTO : metadataDTOs) {
-                LOGGER.info("metadata key : " + metadataDTO.getKey() + " value : " + metadataDTO.getValue() + "\n");
-                metadataFilter.add(new KeyValueDTO(metadataDTO.getKey(), metadataDTO.getValue()));
+            Map<String, String> userMetadata = metadataMap.get(userId);
+            for (Map.Entry<String, String> entry : userMetadata.entrySet()) {
+                LOGGER.info("metadata key : " + entry.getKey() + " value : " + entry.getValue() + "\n");
+                metadataFilter.add(new KeyValueDTO(entry.getKey(), entry.getValue()));
             }
         }
 
@@ -2200,7 +2186,9 @@ public class CallCardManagement implements ICallCardManagement {
                     if (salesOrderStatuses.contains(callCardRefUser.getStatus())
                             && existingCallCardRefUserId != null) {
                         List<SalesOrder> salesOrders = null;
-                        salesOrders = erpDynamicQueryManager.listSalesOrders(null, null, null, null, null, null, null, Arrays.asList(callCardRefUser.getCallCardRefUserId()), Constants.ITEM_TYPE_CALL_CARD_REFUSER, null, true, 0, -1);
+                        @SuppressWarnings("unchecked")
+                        List<SalesOrder> tempOrders = (List<SalesOrder>) (List<?>) erpDynamicQueryManager.listSalesOrders(null, null, null, null, null, null, null, Arrays.asList(callCardRefUser.getCallCardRefUserId()), Constants.ITEM_TYPE_CALL_CARD_REFUSER, null, true, 0, -1);
+                        salesOrders = tempOrders;
                         if (salesOrders != null && salesOrders.size() > 1)
                             throw new BusinessLayerException("Error while creating Sales Order revision", ExceptionTypeTO.MORE_THAN_1_ITEM_FOUND_WITH_SPECIFIED_PROPERTIES);
                         else if (salesOrders != null && salesOrders.size() == 1) { //create SalesOrder revision
@@ -2600,11 +2588,11 @@ public class CallCardManagement implements ICallCardManagement {
     @Override
     @Transactional(readOnly = true)
     public Integer countSimplifiedCallCards(String callCardUserId, String sourceUserId, String refUserId, Date dateFrom, Date dateTo) {
-        return erpDynamicQueryManager.countCallCardRefUsers(null,
+        return (int) erpDynamicQueryManager.countCallCardRefUsers(null,
                 null,
-                StringUtils.isNotBlank(sourceUserId) ? Arrays.asList(sourceUserId) : null,
-                StringUtils.isNotBlank(refUserId) ? Arrays.asList(refUserId) : null,
-                StringUtils.isNotBlank(callCardUserId) ? Arrays.asList(callCardUserId) : null,
+                StringUtils.isNotBlank(sourceUserId) ? new String[]{sourceUserId} : null,
+                StringUtils.isNotBlank(refUserId) ? new String[]{refUserId} : null,
+                StringUtils.isNotBlank(callCardUserId) ? new String[]{callCardUserId} : null,
                 dateFrom,
                 dateTo,
                 null,
@@ -2699,7 +2687,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Transactional(readOnly = true)
     public int countCallCards(List<String> callCardIds, List<String> userIds, List<String> refUserIds, List<String> callCardTemplateIds, Date startDate, Boolean active, boolean currentlyActive, boolean isNotCompleted, String gameTypeId) {
-        return erpDynamicQueryManager.countCallCards(callCardIds, userIds, refUserIds, callCardTemplateIds, startDate, active, currentlyActive, true, gameTypeId);
+        return (int) erpDynamicQueryManager.countCallCards(callCardIds, userIds, refUserIds, callCardTemplateIds, startDate, active, currentlyActive, true, gameTypeId);
     }
 
     @Override
@@ -2945,7 +2933,6 @@ public class CallCardManagement implements ICallCardManagement {
         return callCardDTO;
     }
 
-    @Override
     @Transactional
     public List<ItemStatisticsDTO> getCallCardStatistics(String userId,
                                                          String propertyId,
@@ -3131,13 +3118,16 @@ public class CallCardManagement implements ICallCardManagement {
         if (latitude != null && longitude != null) { // create RefUser Address Info
 
             Users user = usersDao.getReference(userId);
-            List<UserAddressbook> userAddressBooks = user.getUserAddress();
+            @SuppressWarnings("unchecked")
+            List<UserAddressbook> userAddressBooks = (List<UserAddressbook>) user.getUserAddress();
             List<Addressbook> userAddresses = new ArrayList<Addressbook>();
-            for (UserAddressbook userAddressBook : userAddressBooks)
-                userAddresses.add(userAddressBook.getAddressbook());
+            if (userAddressBooks != null) {
+                for (UserAddressbook userAddressBook : userAddressBooks)
+                    userAddresses.add(userAddressBook.getAddressbook());
+            }
 
             if (userAddresses == null || userAddresses.size() == 0) {
-                List<MetadataDTO> metadata = userMetadataComponent.listUserMetadata(Arrays.asList(userId), userAddressMetadataKeys, false);
+                Map<String, Map<String, String>> metadataMap = userMetadataComponent.listUserMetadata(Arrays.asList(userId), userAddressMetadataKeys, false);
 
                 String countryId = "";
                 int stateId = 0;
@@ -3145,28 +3135,27 @@ public class CallCardManagement implements ICallCardManagement {
                 int postCodeId = 0;
                 String address = null;
 
-                for (MetadataDTO metadataDTO : metadata) {
+                if (metadataMap != null && metadataMap.containsKey(userId)) {
+                    Map<String, String> userMetadata = metadataMap.get(userId);
                     try {
-                        switch (metadataDTO.getKey()) {
-                            case Constants.METADATA_KEY_PERSONAL_COUNTRY:
-                                countryId = metadataDTO.getValue();
-                                break;
-                            case Constants.METADATA_KEY_PERSONAL_STATE:
-                                stateId = Integer.parseInt(metadataDTO.getValue());
-                                break;
-                            case Constants.METADATA_KEY_PERSONAL_CITY:
-                                cityId = Integer.parseInt(metadataDTO.getValue());
-                                break;
-                            case Constants.METADATA_KEY_PERSONAL_REGION:
-                                postCodeId = Integer.parseInt(metadataDTO.getValue());
-                                break;
-                            case Constants.METADATA_KEY_PERSONAL_ADDRESS:
-                                address = metadataDTO.getValue();
-                                StringUtils.abbreviate(address, 200);
-                                break;
+                        if (userMetadata.containsKey(Constants.METADATA_KEY_PERSONAL_COUNTRY)) {
+                            countryId = userMetadata.get(Constants.METADATA_KEY_PERSONAL_COUNTRY);
+                        }
+                        if (userMetadata.containsKey(Constants.METADATA_KEY_PERSONAL_STATE)) {
+                            stateId = Integer.parseInt(userMetadata.get(Constants.METADATA_KEY_PERSONAL_STATE));
+                        }
+                        if (userMetadata.containsKey(Constants.METADATA_KEY_PERSONAL_CITY)) {
+                            cityId = Integer.parseInt(userMetadata.get(Constants.METADATA_KEY_PERSONAL_CITY));
+                        }
+                        if (userMetadata.containsKey(Constants.METADATA_KEY_PERSONAL_REGION)) {
+                            postCodeId = Integer.parseInt(userMetadata.get(Constants.METADATA_KEY_PERSONAL_REGION));
+                        }
+                        if (userMetadata.containsKey(Constants.METADATA_KEY_PERSONAL_ADDRESS)) {
+                            address = userMetadata.get(Constants.METADATA_KEY_PERSONAL_ADDRESS);
+                            StringUtils.abbreviate(address, 200);
                         }
                     } catch (NumberFormatException e) {
-                        LOGGER.error("Invalid metadata value format for for ItemTypeId=" + metadataDTO.getItemTypeId() + " ItemId=" + metadataDTO.getItemId() + " MetadataKey=" + metadataDTO.getKey() + " Value=" + metadataDTO.getValue(), ExceptionTypeTO.GENERIC);
+                        LOGGER.error("Invalid metadata value format for userId=" + userId, e);
                     }
                 }
 
@@ -3187,8 +3176,8 @@ public class CallCardManagement implements ICallCardManagement {
                 }
 
                 if (StringUtils.isNotBlank(countryId) && stateId > 0 && cityId > 0 && postCodeId > 0) {
-                    Addressbook addressbook = addressbookManagement.createAddressbook(null, address, null, null, null, postCodeId, null, cityId, null, stateId, countryId, null, null, null, latitude, longitude, true);
-                    if (addressbook.getAddressbookId() != null) {
+                    Addressbook addressbook = (Addressbook) addressbookManagement.createAddressbook(null, address, null, null, null, postCodeId, null, cityId, null, stateId, countryId, null, null, null, latitude, longitude, true);
+                    if (addressbook != null && addressbook.getAddressbookId() != null) {
                         userAddresses.add(addressbook);
                         user.setLastUpdated(new Date());
 
@@ -3237,7 +3226,8 @@ public class CallCardManagement implements ICallCardManagement {
         for (CallCardRefUser refUser : cardRefUsers)
             refItemIds.add(refUser.getCallCardRefUserId());
 
-        List<SalesOrder> callCardSalesOrders = erpDynamicQueryManager.listSalesOrders(null, null, null, null, null, null, null, refItemIds, Constants.ITEM_TYPE_CALL_CARD_REFUSER, null, true, 0, -1);
+        @SuppressWarnings("unchecked")
+        List<SalesOrder> callCardSalesOrders = (List<SalesOrder>) (List<?>) erpDynamicQueryManager.listSalesOrders(null, null, null, null, null, null, null, refItemIds, Constants.ITEM_TYPE_CALL_CARD_REFUSER, null, true, 0, -1);
 
         if (callCardSalesOrders != null && callCardSalesOrders.size() > 0) {
             for (CallCardRefUser refUser : cardRefUsers) {

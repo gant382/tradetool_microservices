@@ -16,6 +16,7 @@ com\saicon\games\callcard\components\external\SalesOrderDetails.class
 com\saicon\games\callcard\components\CallCardConverterUtil.class
 com\saicon\games\callcard\components\external\Addressbook.class
 com\saicon\games\callcard\util\EventType.class
+com\saicon\games\callcard\components\external\City.class
 com\saicon\games\callcard\components\external\GeneratedEventsDispatcher.class
 com\saicon\games\callcard\components\external\Postcode.class
 com\saicon\games\callcard\dao\GenericDAO.class

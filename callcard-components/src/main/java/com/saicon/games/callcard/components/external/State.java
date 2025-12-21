@@ -10,6 +10,7 @@ public class State {
     private Integer stateId;
     private String stateName;
     private String stateCode;
+    private String countryId;
 
     public Integer getStateId() {
         return stateId;
@@ -33,5 +34,13 @@ public class State {
 
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 }

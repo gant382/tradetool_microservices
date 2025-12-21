@@ -9,6 +9,14 @@ import com.saicon.games.callcard.util.EventType;
 public class EventTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    // Event property constants
+    public static final String PROPERTY_TYPE = "PROPERTY_TYPE";
+    public static final String PROPERTY_UNIT_TYPE_ID = "PROPERTY_UNIT_TYPE_ID";
+    public static final String PROPERTY_REF_ITEM_ID = "PROPERTY_REF_ITEM_ID";
+    public static final String PROPERTY_STATUS = "PROPERTY_STATUS";
+    public static final String PROPERTY_FROM_USER_ID = "PROPERTY_FROM_USER_ID";
+    public static final String PROPERTY_DATE = "PROPERTY_DATE";
+
     private String eventId;
     private EventType eventType;
     private String entityId;

@@ -1,5 +1,7 @@
 package com.saicon.games.callcard.components.external;
 
+import java.util.List;
+
 /**
  * Stub class for Postcode entity from addressbook/location subsystem.
  * This is a placeholder to allow CallCard microservice to compile without
@@ -12,6 +14,7 @@ public class Postcode {
     private String city;
     private String stateCode;
     private String countryCode;
+    private List<City> cities;
 
     public Integer getPostcodeId() {
         return postcodeId;
@@ -51,5 +54,13 @@ public class Postcode {
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
+    }
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }

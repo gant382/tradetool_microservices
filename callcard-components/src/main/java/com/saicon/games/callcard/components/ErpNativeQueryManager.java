@@ -148,6 +148,26 @@ public class ErpNativeQueryManager {
     }
 
     /**
+     * List invoice details summaries with aggregation.
+     * Stub implementation for CallCard microservice.
+     *
+     * @param userGroupId          Filter by user group
+     * @param callCardIds          Filter by call card IDs
+     * @param limit                Maximum results per partition
+     * @param previousVisitsCounts Previous visits count filter
+     * @return Summary results as Object arrays
+     */
+    @SuppressWarnings("unused")
+    public List<Object[]> listInvoiceDetailsSummaries(
+            String userGroupId,
+            List<String> callCardIds,
+            Integer limit,
+            List<Integer> previousVisitsCounts) {
+        LOGGER.warn("listInvoiceDetailsSummaries is a stub implementation");
+        return new ArrayList<>();
+    }
+
+    /**
      * List CallCardRefUserIndex previous values summary with aggregation.
      * Stub implementation for CallCard microservice.
      *

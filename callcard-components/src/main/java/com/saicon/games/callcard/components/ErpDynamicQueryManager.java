@@ -266,6 +266,22 @@ public class ErpDynamicQueryManager {
 
 
     /**
+     * List SalesOrderDetails entries with filters.
+     * Stub implementation for CallCard microservice.
+     * Returns empty list as SalesOrderDetails is not part of CallCard microservice.
+     */
+    @SuppressWarnings("unused")
+    public List<Object> listSalesOrderDetails(
+            Object salesOrderId,
+            String productId,
+            Object itemTypeId,
+            Object itemId,
+            int offset,
+            int limit) {
+        return new ArrayList<>();
+    }
+
+    /**
      * List SalesOrder entries with filters.
      * Stub implementation for CallCard microservice.
      * Returns empty list as SalesOrder is not part of CallCard microservice.

@@ -5,10 +5,12 @@ C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\CallCardConverterUtil.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\SalesOrder.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\Addressbook.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\UserAddressbook.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\appsettings\dto\AppSettingsDTO.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\SalesOrderDetails.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\State.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\solr\dto\SolrBrandProductDTO.java
+C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\City.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IUserMetadataComponent.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\external\IAppSettingsComponent.java
 C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\util\CallCardTemplateEntryComparator.java

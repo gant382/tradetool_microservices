@@ -1,0 +1,327 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.saicon.games:callcard-components >----------------
+[INFO] Building CallCard Components Layer 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ callcard-components ---
+[INFO] Deleting C:\Users\dimit\tradetool_middleware\callcard-components\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ callcard-components ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-components\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\dimit\tradetool_middleware\callcard-components\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ callcard-components ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 34 source files to C:\Users\dimit\tradetool_middleware\callcard-components\target\classes
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/ErpDynamicQueryManager.java: C:\Users\dimit\tradetool_middleware\callcard-components\src\main\java\com\saicon\games\callcard\components\ErpDynamicQueryManager.java uses or overrides a deprecated API.
+[INFO] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/ErpDynamicQueryManager.java: Recompile with -Xlint:deprecation for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[188,64] cannot find symbol
+  symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+  location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[245,79] cannot find symbol
+  symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+  location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[514,64] cannot find symbol
+  symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+  location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[571,79] cannot find symbol
+  symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+  location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1302,49] cannot find symbol
+  symbol:   variable PROPERTY_STATUS
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1312,53] cannot find symbol
+  symbol:   variable PROPERTY_STATUS
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1326,64] cannot find symbol
+  symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+  location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1383,79] cannot find symbol
+  symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+  location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2193,326] cannot find symbol
+  symbol:   method getSalesOrderStatus()
+  location: class com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2221,362] cannot find symbol
+  symbol:   method getStatusId()
+  location: variable SUBMITTED of type com.saicon.games.core.util.SalesOrderStatus
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2225,102] no suitable constructor found for SalesOrderDetailsDTO(<nulltype>,<nulltype>,java.lang.String,int,<nulltype>,com.saicon.games.client.data.DecimalDTO,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>)
+    constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO() is not applicable
+      (actual and formal argument lists differ in length)
+    constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO(java.lang.String,java.lang.String,java.lang.String,int) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO(java.lang.String,java.lang.String,java.lang.String,int,java.util.Date) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2284,72] incompatible types: java.lang.Object cannot be converted to com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2287,46] cannot find symbol
+  symbol:   method getSalesOrderDetails()
+  location: variable revisedSalesOrder of type com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2289,78] cannot find symbol
+  symbol:   method getSalesOrderDetails()
+  location: variable revisedSalesOrder of type com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2294,91] bad operand types for binary operator '!='
+  first type:  double
+  second type: <nulltype>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2295,80] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2318,87] incompatible types: java.lang.Object cannot be converted to com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2324,93] method addSalesOrderDetails in interface com.saicon.games.callcard.components.external.ISalesOrderManagement cannot be applied to given types;
+  required: java.lang.String,java.lang.String,int,java.lang.Double,java.lang.Double,java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.Integer,<nulltype>,detailDTO.[...] null,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,int,<nulltype>,<nulltype>,<nulltype>,java.util.Date,<nulltype>,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,62] bad operand types for binary operator '!='
+  first type:  double
+  second type: <nulltype>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,130] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,168] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2355,59] cannot find symbol
+  symbol:   variable PROPERTY_TYPE
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2364,63] cannot find symbol
+  symbol:   variable PROPERTY_UNIT_TYPE_ID
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2365,57] cannot find symbol
+  symbol:   variable PROPERTY_REF_ITEM_ID
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2471,63] cannot find symbol
+  symbol:   variable PROPERTY_UNIT_TYPE_ID
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2472,57] cannot find symbol
+  symbol:   variable PROPERTY_REF_ITEM_ID
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2833,14] cannot find symbol
+  symbol:   class MetadataDTO
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2839,14] cannot find symbol
+  symbol:   class MetadataDTO
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2934,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3027,49] cannot find symbol
+  symbol:   variable PROPERTY_STATUS
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3039,45] cannot find symbol
+  symbol:   variable PROPERTY_FROM_USER_ID
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3040,45] cannot find symbol
+  symbol:   variable PROPERTY_DATE
+  location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3121,18] cannot find symbol
+  symbol:   class UserAddressbook
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3121,60] cannot find symbol
+  symbol:   class UserAddressbook
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3124,22] cannot find symbol
+  symbol:   class UserAddressbook
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3165,53] cannot find symbol
+  symbol:   method getCities()
+  location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3165,85] cannot find symbol
+  symbol:   method getCities()
+  location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3166,25] cannot find symbol
+  symbol:   class City
+  location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3166,45] cannot find symbol
+  symbol:   method getCities()
+  location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3172,46] cannot find symbol
+  symbol:   method getCountryId()
+  location: variable state of type com.saicon.games.callcard.components.external.State
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3172,77] cannot find symbol
+  symbol:   method getCountryId()
+  location: variable state of type com.saicon.games.callcard.components.external.State
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3203,81] cannot find symbol
+  symbol:   method size()
+  location: class java.lang.Object
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3204,67] cannot find symbol
+  symbol:   method get(int)
+  location: class java.lang.Object
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3205,32] cannot find symbol
+  symbol:   method getLatitude()
+  location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3205,65] cannot find symbol
+  symbol:   method getLongitude()
+  location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3206,104] cannot find symbol
+  symbol:   method getLatitude()
+  location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3207,105] cannot find symbol
+  symbol:   method getLongitude()
+  location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3238,99] cannot find symbol
+  symbol:   method listSalesOrderDetails(<nulltype>,java.lang.String,<nulltype>,<nulltype>,int,int)
+  location: variable erpDynamicQueryManager of type com.saicon.games.callcard.components.ErpDynamicQueryManager
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3292,97] incompatible types: java.util.List<java.lang.Object[]> cannot be converted to java.util.Map<java.lang.String,java.util.List<com.saicon.games.callcard.entity.CallCardRefUserIndex>>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3296,49] cannot find symbol
+  symbol:   method listInvoiceDetailsSummaries(java.lang.String,java.util.List<java.lang.String>,java.lang.Integer,java.util.List<java.lang.Integer>)
+  location: variable erpNativeQueryManager of type com.saicon.games.callcard.components.ErpNativeQueryManager
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3313,76] incompatible types: java.lang.Integer cannot be converted to com.saicon.games.entities.shared.ItemTypes
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3942,45] incompatible types: java.lang.Object[] cannot be converted to java.lang.Number
+[INFO] 52 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.841 s
+[INFO] Finished at: 2025-12-21T19:00:53+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project callcard-components: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[188,64] cannot find symbol
+[ERROR]   symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+[ERROR]   location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[245,79] cannot find symbol
+[ERROR]   symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+[ERROR]   location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[514,64] cannot find symbol
+[ERROR]   symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+[ERROR]   location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[571,79] cannot find symbol
+[ERROR]   symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+[ERROR]   location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1302,49] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_STATUS
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1312,53] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_STATUS
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1326,64] cannot find symbol
+[ERROR]   symbol:   method get(<nulltype>,java.lang.String,java.util.List<com.saicon.games.callcard.util.ScopeType>)
+[ERROR]   location: variable appSettingsComponent of type com.saicon.games.callcard.components.external.IAppSettingsComponent
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[1383,79] cannot find symbol
+[ERROR]   symbol:   method getMultipleBrandProducts(java.lang.String,<nulltype>,java.lang.String,<nulltype>,<nulltype>,java.lang.String[],java.lang.Integer[],java.lang.String[],java.lang.String[],java.lang.String[],int,int,boolean,boolean,<nulltype>,<nulltype>,<nulltype>,boolean,<nulltype>,<nulltype>,boolean,<nulltype>,com.saicon.games.callcard.util.SortOrderTypes)
+[ERROR]   location: variable solrClient of type com.saicon.games.callcard.components.external.SolrClient
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2193,326] cannot find symbol
+[ERROR]   symbol:   method getSalesOrderStatus()
+[ERROR]   location: class com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2221,362] cannot find symbol
+[ERROR]   symbol:   method getStatusId()
+[ERROR]   location: variable SUBMITTED of type com.saicon.games.core.util.SalesOrderStatus
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2225,102] no suitable constructor found for SalesOrderDetailsDTO(<nulltype>,<nulltype>,java.lang.String,int,<nulltype>,com.saicon.games.client.data.DecimalDTO,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>)
+[ERROR]     constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO() is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO(java.lang.String,java.lang.String,java.lang.String,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor com.saicon.games.core.dto.SalesOrderDetailsDTO.SalesOrderDetailsDTO(java.lang.String,java.lang.String,java.lang.String,int,java.util.Date) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2284,72] incompatible types: java.lang.Object cannot be converted to com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2287,46] cannot find symbol
+[ERROR]   symbol:   method getSalesOrderDetails()
+[ERROR]   location: variable revisedSalesOrder of type com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2289,78] cannot find symbol
+[ERROR]   symbol:   method getSalesOrderDetails()
+[ERROR]   location: variable revisedSalesOrder of type com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2294,91] bad operand types for binary operator '!='
+[ERROR]   first type:  double
+[ERROR]   second type: <nulltype>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2295,80] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2318,87] incompatible types: java.lang.Object cannot be converted to com.saicon.games.callcard.components.external.SalesOrder
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2324,93] method addSalesOrderDetails in interface com.saicon.games.callcard.components.external.ISalesOrderManagement cannot be applied to given types;
+[ERROR]   required: java.lang.String,java.lang.String,int,java.lang.Double,java.lang.Double,java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.Integer,<nulltype>,detailDTO.[...] null,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,int,<nulltype>,<nulltype>,<nulltype>,java.util.Date,<nulltype>,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,62] bad operand types for binary operator '!='
+[ERROR]   first type:  double
+[ERROR]   second type: <nulltype>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,130] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2329,168] double cannot be dereferenced
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2355,59] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_TYPE
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2364,63] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_UNIT_TYPE_ID
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2365,57] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_REF_ITEM_ID
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2471,63] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_UNIT_TYPE_ID
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2472,57] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_REF_ITEM_ID
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2833,14] cannot find symbol
+[ERROR]   symbol:   class MetadataDTO
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2839,14] cannot find symbol
+[ERROR]   symbol:   class MetadataDTO
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[2934,5] method does not override or implement a method from a supertype
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3027,49] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_STATUS
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3039,45] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_FROM_USER_ID
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3040,45] cannot find symbol
+[ERROR]   symbol:   variable PROPERTY_DATE
+[ERROR]   location: class com.saicon.games.callcard.ws.dto.EventTO
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3121,18] cannot find symbol
+[ERROR]   symbol:   class UserAddressbook
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3121,60] cannot find symbol
+[ERROR]   symbol:   class UserAddressbook
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3124,22] cannot find symbol
+[ERROR]   symbol:   class UserAddressbook
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3165,53] cannot find symbol
+[ERROR]   symbol:   method getCities()
+[ERROR]   location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3165,85] cannot find symbol
+[ERROR]   symbol:   method getCities()
+[ERROR]   location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3166,25] cannot find symbol
+[ERROR]   symbol:   class City
+[ERROR]   location: class com.saicon.games.callcard.components.impl.CallCardManagement
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3166,45] cannot find symbol
+[ERROR]   symbol:   method getCities()
+[ERROR]   location: variable postCode of type com.saicon.games.callcard.components.external.Postcode
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3172,46] cannot find symbol
+[ERROR]   symbol:   method getCountryId()
+[ERROR]   location: variable state of type com.saicon.games.callcard.components.external.State
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3172,77] cannot find symbol
+[ERROR]   symbol:   method getCountryId()
+[ERROR]   location: variable state of type com.saicon.games.callcard.components.external.State
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3203,81] cannot find symbol
+[ERROR]   symbol:   method size()
+[ERROR]   location: class java.lang.Object
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3204,67] cannot find symbol
+[ERROR]   symbol:   method get(int)
+[ERROR]   location: class java.lang.Object
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3205,32] cannot find symbol
+[ERROR]   symbol:   method getLatitude()
+[ERROR]   location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3205,65] cannot find symbol
+[ERROR]   symbol:   method getLongitude()
+[ERROR]   location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3206,104] cannot find symbol
+[ERROR]   symbol:   method getLatitude()
+[ERROR]   location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3207,105] cannot find symbol
+[ERROR]   symbol:   method getLongitude()
+[ERROR]   location: variable address of type com.saicon.games.callcard.components.external.Addressbook
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3238,99] cannot find symbol
+[ERROR]   symbol:   method listSalesOrderDetails(<nulltype>,java.lang.String,<nulltype>,<nulltype>,int,int)
+[ERROR]   location: variable erpDynamicQueryManager of type com.saicon.games.callcard.components.ErpDynamicQueryManager
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3292,97] incompatible types: java.util.List<java.lang.Object[]> cannot be converted to java.util.Map<java.lang.String,java.util.List<com.saicon.games.callcard.entity.CallCardRefUserIndex>>
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3296,49] cannot find symbol
+[ERROR]   symbol:   method listInvoiceDetailsSummaries(java.lang.String,java.util.List<java.lang.String>,java.lang.Integer,java.util.List<java.lang.Integer>)
+[ERROR]   location: variable erpNativeQueryManager of type com.saicon.games.callcard.components.ErpNativeQueryManager
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3313,76] incompatible types: java.lang.Integer cannot be converted to com.saicon.games.entities.shared.ItemTypes
+[ERROR] /C:/Users/dimit/tradetool_middleware/callcard-components/src/main/java/com/saicon/games/callcard/components/impl/CallCardManagement.java:[3942,45] incompatible types: java.lang.Object[] cannot be converted to java.lang.Number
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
