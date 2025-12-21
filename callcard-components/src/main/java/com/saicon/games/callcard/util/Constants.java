@@ -19,4 +19,9 @@ public class Constants {
     public static final String PMI_EGYPT_GAME_TYPE_ID = "pmi-egypt";
     public static final String PMI_SENEGAL_GAME_TYPE_ID = "pmi-senegal";
     public static final String PMI_IRAQ_GAME_TYPE_ID = "pmi-iraq";
+
+    // App setting keys
+    public static final String APP_SETTING_KEY_PREVIOUS_VISITS_SUMMARY = "PREVIOUS_VISITS_SUMMARY";
+    public static final String APP_SETTING_KEY_INCLUDE_VISITS_GEO_INFO = "INCLUDE_VISITS_GEO_INFO";
+    public static final String APP_SETTING_KEY_PRODUCT_TYPE_CATEGORIES = "PRODUCT_TYPE_CATEGORIES";
 }

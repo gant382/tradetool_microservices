@@ -133,7 +133,8 @@ public class CallCardManagement implements ICallCardManagement {
     private CallCard checkIfActiveCallCard(String userId, String userGroupId, String gameTypeId) {
         LOGGER.info("-- checkIfActiveCallCard : userId={} userGroupId={} gameTypeId={}", userId, userGroupId, gameTypeId);
 
-        List<CallCard> callCards = erpDynamicQueryManager.listCallCards(null, Arrays.asList(userId), null, null, null, true, true, true, gameTypeId, 0, -1);
+        @SuppressWarnings("unchecked")
+        List<CallCard> callCards = (List<CallCard>) (List<?>) erpDynamicQueryManager.listCallCards(null, Arrays.asList(userId), null, null, null, true, true, true, gameTypeId, 0, -1);
         if (callCards != null && callCards.size() > 0)
             return callCards.get(0);
 
