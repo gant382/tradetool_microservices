@@ -8,6 +8,7 @@ public class MetadataKeyDTO implements Serializable {
     private String metadataKeyId;
     private String metadataKeyName;
     private int itemTypeId;
+    private String dataTypeName;
 
     public MetadataKeyDTO() {
     }
@@ -40,6 +41,14 @@ public class MetadataKeyDTO implements Serializable {
 
     public void setItemTypeId(int itemTypeId) {
         this.itemTypeId = itemTypeId;
+    }
+
+    public String getDataTypeName() {
+        return dataTypeName;
+    }
+
+    public void setDataTypeName(String dataTypeName) {
+        this.dataTypeName = dataTypeName;
     }
 
     @Override

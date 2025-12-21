@@ -31,6 +31,7 @@ import com.saicon.games.callcard.components.external.IUserMetadataComponent;
 import com.saicon.games.callcard.components.external.SolrClient;
 import com.saicon.games.callcard.entity.*;
 import com.saicon.games.callcard.dao.IGenericDAO;
+import com.saicon.games.callcard.components.util.CallCardTemplateEntryComparator;
 // TODO: InvoiceDetails entity stub needed
 // TODO: import com.saicon.games.callcard.ws.dto.MetadataDTO;
 // TODO: SalesOrder entities stub needed
@@ -2231,7 +2232,7 @@ public class CallCardManagement implements ICallCardManagement {
                                                             attribute.getPropertyValue(),
                                                             attribute.getStatus() != null ? attribute.getStatus() : 1,
                                                             attribute.getDateSubmitted() != null ? attribute.getDateSubmitted() : new Date(),
-                                                            attribute.getAmount() != null ? new BigDecimal(BigInteger.valueOf(attribute.getAmount().getValue()), attribute.getAmount().getScale()) : null,
+                                                            attribute.getAmount() != null ? attribute.getAmount().getValue() : null,
                                                             attribute.getType());
                                                 }
                                             }
@@ -2421,7 +2422,7 @@ public class CallCardManagement implements ICallCardManagement {
                                         attribute.getPropertyValue(),
                                         attribute.getStatus() != null ? attribute.getStatus() : 1,
                                         attribute.getDateSubmitted() != null ? attribute.getDateSubmitted() : new Date(),
-                                        attribute.getAmount() != null ? new BigDecimal(BigInteger.valueOf(attribute.getAmount().getValue()), attribute.getAmount().getScale()) : null,
+                                        attribute.getAmount() != null ? attribute.getAmount().getValue() : null,
                                         attribute.getType());
                             }
                         }

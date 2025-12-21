@@ -14,12 +14,18 @@ public class ExceptionTypeTO implements Serializable {
     public static final String GENERAL_ERROR = "1000";
     public static final String INVALID_INPUT = "1001";
     public static final String NOT_FOUND = "1002";
+    public static final String ITEM_NOT_FOUND = "1002"; // Alias for NOT_FOUND
     public static final String UNAUTHORIZED = "1003";
     public static final String CONCURRENT_MODIFICATION = "1004";
     public static final String VALIDATION_ERROR = "1005";
     public static final String SESSION_EXPIRED = "1006";
     public static final String DUPLICATE_ENTRY = "1007";
     public static final String USER_SESSION_ID_NOT_VALID = "1008";
+    public static final String MORE_THAN_1_ITEM_FOUND_WITH_SPECIFIED_PROPERTIES = "1009";
+    public static final String INTERFACE_ERROR = "1010";
+    public static final String NO_ITEM_FOUND_WITH_SPECIFIED_PROPERTIES = "1011";
+    public static final String ITEM_BELONGS_TO_OTHER_USER = "1012";
+    public static final String CMS_CONFIGURATION_ERROR = "1013";
     public static final String GENERIC = "9999";
 
     private String errorCode;

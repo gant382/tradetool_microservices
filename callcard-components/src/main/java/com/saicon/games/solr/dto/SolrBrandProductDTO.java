@@ -1,6 +1,7 @@
 package com.saicon.games.solr.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class SolrBrandProductDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -10,6 +11,8 @@ public class SolrBrandProductDTO implements Serializable {
     private String brandId;
     private String brandName;
     private int ordering;
+    private String brandProductId;
+    private List<String> subcategoryIds;
 
     public SolrBrandProductDTO() {
     }
@@ -60,6 +63,22 @@ public class SolrBrandProductDTO implements Serializable {
 
     public void setOrdering(int ordering) {
         this.ordering = ordering;
+    }
+
+    public String getBrandProductId() {
+        return brandProductId;
+    }
+
+    public void setBrandProductId(String brandProductId) {
+        this.brandProductId = brandProductId;
+    }
+
+    public List<String> getSubcategoryIds() {
+        return subcategoryIds;
+    }
+
+    public void setSubcategoryIds(List<String> subcategoryIds) {
+        this.subcategoryIds = subcategoryIds;
     }
 
     @Override

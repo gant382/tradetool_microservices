@@ -41,6 +41,9 @@ public class Constants {
     public static final String METADATA_KEY_PERSONAL_COUNTRY = "personalCountry";
     public static final String METADATA_KEY_PERSONAL_STATE = "personalState";
 
+    // Item type for call card refuser (legacy)
+    public static final int ITEM_TYPE_CALL_CARD_REFUSER = 1005;
+
     // App Setting Keys
     public static final String APP_SETTING_KEY_PREVIOUS_VISITS_SUMMARY = "PREVIOUS_VISITS_SUMMARY";
     public static final String APP_SETTING_KEY_INCLUDE_VISITS_GEO_INFO = "INCLUDE_VISITS_GEO_INFO";

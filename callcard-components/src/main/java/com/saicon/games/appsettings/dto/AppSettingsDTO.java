@@ -52,6 +52,15 @@ public class AppSettingsDTO implements Serializable {
         this.userGroupId = userGroupId;
     }
 
+    // Alias methods for compatibility
+    public String getKey() {
+        return settingKey;
+    }
+
+    public String getValue() {
+        return settingValue;
+    }
+
     @Override
     public String toString() {
         return "AppSettingsDTO{" +
