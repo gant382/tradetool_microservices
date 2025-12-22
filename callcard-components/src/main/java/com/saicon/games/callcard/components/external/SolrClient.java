@@ -1,5 +1,9 @@
 package com.saicon.games.callcard.components.external;
 
+import com.saicon.games.callcard.util.SortOrderTypes;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Stub implementation for Apache Solr search integration.
  * In production, this component manages the search index for CallCards
@@ -32,5 +36,36 @@ public class SolrClient {
         // - Send delete command to Solr by ID
         // - Commit changes to index
         // - Handle deletion errors
+    }
+
+    /**
+     * Get multiple brand products with various filters.
+     * Stub implementation for CallCard microservice.
+     */
+    public List<Object> getMultipleBrandProducts(
+            String gameTypeId,
+            Object organizationId,
+            String searchTerm,
+            Object itemTypeId,
+            Object categoryId,
+            String[] brands,
+            Integer[] priceRange,
+            String[] sizes,
+            String[] colors,
+            String[] tags,
+            int offset,
+            int limit,
+            boolean sortByPrice,
+            boolean sortByPopularity,
+            Object minPrice,
+            Object maxPrice,
+            Object rating,
+            boolean onlyAvailable,
+            Object supplierId,
+            Object regionId,
+            boolean includeDeleted,
+            Object customFilter,
+            SortOrderTypes sortOrder) {
+        return new ArrayList<>();
     }
 }

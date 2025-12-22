@@ -25,21 +25,21 @@ public interface ICallCardManagement {
 
     CallCardDTO listPendingCallCard(String userId, String userGroupId, String gameTypeId);
 
-    void submitTransactions(String userId, String userGroupId, String gameTypeId, String applicationId, String indirectUserId, CallCardDTO callCardDTO);
+    void submitTransactions(String userId, String userGroupId, String gameTypeId, String applicationId, String indirectUserId, CallCardDTO callCardDTO) throws BusinessLayerException;
 
-    List<CallCardDTO> getCallCardsFromTemplate(String userId, String userGroupId, String gameTypeId, String applicationId);
+    List<CallCardDTO> getCallCardsFromTemplate(String userId, String userGroupId, String gameTypeId, String applicationId) throws BusinessLayerException;
 
-    CallCardDTO getPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId);
+    CallCardDTO getPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId) throws BusinessLayerException;
 
-    CallCardDTO getNewOrPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId, String callCardId, List<String> filterProperties);
+    CallCardDTO getNewOrPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId, String callCardId, List<String> filterProperties) throws BusinessLayerException;
 
     CallCardDTO updateCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, List<CallCardDTO> callCards) throws BusinessLayerException;
 
-    void addOrUpdateSimplifiedCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, SimplifiedCallCardDTO callCard);
+    void addOrUpdateSimplifiedCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, SimplifiedCallCardDTO callCard) throws BusinessLayerException;
 
-    List<SimplifiedCallCardDTO> listSimplifiedCallCards(String callCardUserId, String sourceUserId, String refUserId, Date dateFrom, Date dateTo, int rangeFrom, int rangeTo);
+    List<SimplifiedCallCardDTO> listSimplifiedCallCards(String callCardUserId, String sourceUserId, String refUserId, Date dateFrom, Date dateTo, int rangeFrom, int rangeTo) throws BusinessLayerException;
 
-    Integer countSimplifiedCallCards(String callCardUserId, String sourceUserId, String refUserId, Date dateFrom, Date dateTo);
+    Integer countSimplifiedCallCards(String callCardUserId, String sourceUserId, String refUserId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     // ============================================================
     // Statistics Methods (User Story 2)
@@ -53,7 +53,7 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return CallCardStatsDTO containing aggregated statistics
      */
-    CallCardStatsDTO getOverallCallCardStatistics(String userGroupId, Date dateFrom, Date dateTo);
+    CallCardStatsDTO getOverallCallCardStatistics(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     /**
      * Get usage statistics for a specific template
@@ -64,7 +64,7 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return TemplateUsageDTO with template statistics
      */
-    TemplateUsageDTO getTemplateUsageStatistics(String templateId, String userGroupId, Date dateFrom, Date dateTo);
+    TemplateUsageDTO getTemplateUsageStatistics(String templateId, String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     /**
      * Get engagement statistics for a specific user
@@ -75,7 +75,7 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return UserEngagementDTO with user statistics
      */
-    UserEngagementDTO getUserEngagementStatistics(String userId, String userGroupId, Date dateFrom, Date dateTo);
+    UserEngagementDTO getUserEngagementStatistics(String userId, String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     /**
      * Get top N most used templates within a userGroup
@@ -86,7 +86,7 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return List of TemplateUsageDTO ordered by usage count
      */
-    List<TemplateUsageDTO> getTopTemplates(String userGroupId, Integer limit, Date dateFrom, Date dateTo);
+    List<TemplateUsageDTO> getTopTemplates(String userGroupId, Integer limit, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     /**
      * Get count of active users within a date range
@@ -96,7 +96,7 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return Count of unique active users
      */
-    Long getActiveUsersCount(String userGroupId, Date dateFrom, Date dateTo);
+    Long getActiveUsersCount(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     /**
      * Get engagement statistics for all users in a userGroup
@@ -107,7 +107,7 @@ public interface ICallCardManagement {
      * @param limit Optional. Maximum number of users to return (default: 100)
      * @return List of UserEngagementDTO ordered by activity
      */
-    List<UserEngagementDTO> getAllUserEngagementStatistics(String userGroupId, Date dateFrom, Date dateTo, Integer limit);
+    List<UserEngagementDTO> getAllUserEngagementStatistics(String userGroupId, Date dateFrom, Date dateTo, Integer limit) throws BusinessLayerException;
 
     /**
      * Get usage statistics for all templates in a userGroup
@@ -117,6 +117,6 @@ public interface ICallCardManagement {
      * @param dateTo Optional. End date for statistics (inclusive)
      * @return List of TemplateUsageDTO for all templates
      */
-    List<TemplateUsageDTO> getAllTemplateUsageStatistics(String userGroupId, Date dateFrom, Date dateTo);
+    List<TemplateUsageDTO> getAllTemplateUsageStatistics(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
 
     }

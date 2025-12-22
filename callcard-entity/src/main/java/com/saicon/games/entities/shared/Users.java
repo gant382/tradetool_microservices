@@ -188,8 +188,8 @@ public class Users implements Serializable {
         this.lastName = lastName;
     }
 
-    public Object getUserAddress() {
-        return null; // Stub implementation for CallCard microservice
+    public java.util.List<Object> getUserAddress() {
+        return new java.util.ArrayList<>(); // Stub implementation for CallCard microservice
     }
 
     @Override

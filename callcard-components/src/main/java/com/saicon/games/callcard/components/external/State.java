@@ -7,16 +7,16 @@ package com.saicon.games.callcard.components.external;
  */
 public class State {
     // Stub implementation - add fields/methods as needed for compilation
-    private Integer stateId;
+    private int stateId;
     private String stateName;
     private String stateCode;
-    private String countryId;
+    private Country countryId;
 
-    public Integer getStateId() {
+    public int getStateId() {
         return stateId;
     }
 
-    public void setStateId(Integer stateId) {
+    public void setStateId(int stateId) {
         this.stateId = stateId;
     }
 
@@ -36,11 +36,11 @@ public class State {
         this.stateCode = stateCode;
     }
 
-    public String getCountryId() {
+    public Country getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(String countryId) {
+    public void setCountryId(Country countryId) {
         this.countryId = countryId;
     }
 }

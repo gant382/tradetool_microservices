@@ -1,0 +1,94 @@
+# Test Configuration for CallCard Microservice
+spring:
+  application:
+    name: callcard-ws-api
+    version: 1.0.0-TEST
+
+  # H2 Embedded Database Configuration (for testing)
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false;MODE=MSSQLServer
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+
+  # H2 Console (optional, for development/debugging)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # JPA/Hibernate Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+    show-sql: false
+
+  # Logging Configuration
+  logging:
+    level:
+      root: WARN
+      com.saicon.games: DEBUG
+      org.springframework: WARN
+      org.hibernate: WARN
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+  # Jackson Configuration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      adjust-dates-to-context-timezone: false
+    default-property-inclusion: non_null
+
+  # Server Configuration
+  server:
+    port: 8080
+    servlet:
+      context-path: /api
+
+  # CXF Configuration
+  cxf:
+    path: /ws
+    servlet:
+      init:
+        service-list-path: /services
+
+# Test-specific properties
+server:
+  port: 0  # Random port for tests
+  servlet:
+    context-path: /api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Disable unnecessary auto-configurations for tests
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+# Test Profile Configuration
+test:
+  enabled: true
+  mock-external-services: true

@@ -1,0 +1,510 @@
+# ============================================================================
+# CallCard Microservice - Spring Boot Configuration
+# ============================================================================
+# This is the main application configuration file for the CallCard microservice.
+# It defines server, database, logging, and service-specific configurations.
+# ============================================================================
+
+# ============================================================================
+# SERVER CONFIGURATION
+# ============================================================================
+server:
+  port: 8080
+  servlet:
+    context-path: /callcard
+  compression:
+    enabled: true
+    min-response-size: 1024
+  error:
+    include-message: always
+    include-stacktrace: on_param
+    include-exception: false
+
+# ============================================================================
+# SPRING APPLICATION CONFIGURATION
+# ============================================================================
+spring:
+  application:
+    name: callcard-microservice
+    description: Call Card API extraction from TALOS Core as independent microservice
+    version: 1.0.0-SNAPSHOT
+
+  # ========================================================================
+  # DATASOURCE CONFIGURATION
+  # ========================================================================
+  # Connects to the existing gameserver_v3 Microsoft SQL Server database.
+  # This microservice shares the same database schema with the legacy
+  # gameserver_v3 platform but provides independent API access.
+  # ========================================================================
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=gameserver_v3;trustServerCertificate=true;encrypt=false
+    username: sa
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # Connection Pool Configuration
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000          # 30 seconds
+      idle-timeout: 600000               # 10 minutes
+      max-lifetime: 1800000              # 30 minutes
+      auto-commit: true
+      connection-test-query: "SELECT 1"
+      # Leaked connection detection (logs warnings for connections held > 60s)
+      leak-detection-threshold: 60000
+
+  # ========================================================================
+  # JPA / HIBERNATE CONFIGURATION
+  # ========================================================================
+  # ORM configuration for mapping Java entities to database tables.
+  # Uses Hibernate 5.6.x (compatible with Spring Boot 2.7.18).
+  # ========================================================================
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    database: SQL_SERVER
+    open-in-view: false
+    hibernate:
+      # ddl-auto options:
+      # - validate: Only validate schema matches entities (recommended for production)
+      # - update: Automatically create missing tables/columns (for development)
+      # - create: Drop and recreate schema on startup (use cautiously)
+      # - create-drop: Create on startup, drop on shutdown (use for testing)
+      # - none: Do nothing (manual schema management)
+      ddl-auto: validate
+      naming:
+        # Use standard JPA naming strategy (e.g., CamelCase -> camel_case)
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+    show-sql: false
+    properties:
+      hibernate:
+        # SQL formatting and logging
+        format_sql: true
+        use_sql_comments: true
+        # Batch processing for improved performance
+        jdbc:
+          batch_size: 20
+          fetch_size: 50
+          batch_versioned_data: true
+        # Query optimization
+        order_inserts: true
+        order_updates: true
+        # Connection pool settings
+        connection:
+          provider_class: org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl
+        # Entity listener support
+        entity_manager_factory:
+          persistenceUnitName: callcard-pu
+        # Cache configuration (L2 cache via EhCache if needed)
+        cache:
+          use_second_level_cache: false
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+        # JSON type support for SQL Server
+        type_json_format_mapper: org.hibernate.type.format.JsonFormatMapper
+      javax:
+        persistence:
+          schema-generation: validate
+
+  # ========================================================================
+  # SPRING DATA JPA CONFIGURATION
+  # ========================================================================
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+
+  # ========================================================================
+  # CXF SOAP WEB SERVICES CONFIGURATION
+  # ========================================================================
+  # Apache CXF configuration for SOAP endpoint exposure and client access.
+  # Used for integrating with legacy TALOS Core SOAP services.
+  # ========================================================================
+  cxf:
+    path: /cxf
+    servlet:
+      init:
+        service-list-path: /info
+        disable-address-location-check: true
+    interceptors:
+      logging-enabled: false
+
+  # ========================================================================
+  # JSON SERIALIZATION CONFIGURATION
+  # ========================================================================
+  # Jackson configuration for JSON request/response serialization.
+  # ========================================================================
+  jackson:
+    serialization:
+      indent-output: false
+      write-dates-as-timestamps: true
+      write-date-timestamps-as-nanoseconds: false
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: false
+      accept-single-value-as-array: true
+    default-property-inclusion: non_null
+    time-zone: UTC
+    locale: en_US
+
+  # ========================================================================
+  # MVC CONFIGURATION
+  # ========================================================================
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /static/**
+    async:
+      request-timeout: 300000             # 5 minutes
+
+  # ========================================================================
+  # SERVLET CONFIGURATION
+  # ========================================================================
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+      enabled: true
+      file-size-threshold: 2KB
+
+  # ========================================================================
+  # ACTIVEMQ CONFIGURATION (Optional - for async messaging)
+  # ========================================================================
+  # Uncomment if using ActiveMQ for async operations
+  # activemq:
+  #   broker-url: tcp://localhost:61616
+  #   user: admin
+  #   password: ${ACTIVEMQ_PASSWORD:admin}
+
+  # ========================================================================
+  # REDIS CONFIGURATION (Optional - for distributed caching)
+  # ========================================================================
+  # Uncomment if using Redis for session/distributed cache
+  # redis:
+  #   host: localhost
+  #   port: 6379
+  #   password: ${REDIS_PASSWORD:}
+  #   timeout: 60000
+  #   jedis:
+  #     pool:
+  #       max-active: 8
+  #       max-idle: 8
+  #       min-idle: 0
+  #       max-wait: -1ms
+  # session:
+  #   store-type: redis
+  #   redis:
+  #     namespace: callcard-session
+
+# ============================================================================
+# LOGGING CONFIGURATION
+# ============================================================================
+# Logback configuration for application logging.
+# Use logback-spring.xml in src/main/resources for more granular control.
+# ============================================================================
+logging:
+  level:
+    # Root logger level
+    root: INFO
+
+    # Application loggers
+    com.saicon.games.callcard: DEBUG
+    com.saicon.games.commons: INFO
+    com.saicon.games.callcard.service: DEBUG
+    com.saicon.games.callcard.ws: DEBUG
+
+    # Framework loggers
+    org.springframework: INFO
+    org.springframework.boot: INFO
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+    org.springframework.data: INFO
+
+    # Database loggers (uncomment for SQL debugging)
+    org.hibernate: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql: DEBUG
+
+    # JDBC logger (connection pool, statements)
+    org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+
+    # CXF SOAP/REST loggers
+    org.apache.cxf: INFO
+    org.apache.cxf.interceptor: INFO
+
+    # Jackson JSON serialization
+    org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor: DEBUG
+
+    # Connection pool
+    com.zaxxer.hikari: DEBUG
+    com.zaxxer.hikari.HikariConfig: INFO
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/callcard.log
+    max-size: 10MB
+    max-history: 10
+
+# ============================================================================
+# MANAGEMENT / ACTUATOR CONFIGURATION
+# ============================================================================
+# Spring Boot Actuator provides monitoring and management endpoints.
+# ============================================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+      show-components: when-authorized
+  metrics:
+    export:
+      simple:
+        enabled: true
+
+# ============================================================================
+# RESILIENCE4J CIRCUIT BREAKER CONFIGURATION
+# ============================================================================
+# Circuit breaker configuration for external service calls (TALOS Core, etc).
+# ============================================================================
+resilience4j:
+  circuitbreaker:
+    instances:
+      # Circuit breaker for TALOS Core session validation service
+      talos-core-service:
+        failure-rate-threshold: 50                     # Fail if 50% of calls fail
+        slow-call-rate-threshold: 100
+        slow-call-duration-threshold: 5000             # 5 seconds
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5000              # 5 seconds
+        record-exceptions:
+          - java.net.SocketTimeoutException
+          - java.net.ConnectException
+          - org.springframework.web.client.HttpClientErrorException
+  retry:
+    instances:
+      talos-core-service:
+        max-attempts: 3
+        wait-duration: 1000
+        retry-exceptions:
+          - java.net.SocketTimeoutException
+          - java.net.ConnectException
+  timelimiter:
+    instances:
+      talos-core-service:
+        timeout-duration: 5000
+        cancel-running-future: true
+
+# ============================================================================
+# CALLCARD SERVICE CONFIGURATION
+# ============================================================================
+# Application-specific configuration for CallCard microservice features.
+# ============================================================================
+callcard:
+  service:
+    enabled: true
+    description: "CallCard Microservice - Call card management and transactions"
+    version: "1.0.0-SNAPSHOT"
+
+  # ========================================================================
+  # Feature toggles
+  # ========================================================================
+  features:
+    # ERP Integration with Platform_Core ERP module
+    erp-integration: false
+
+    # Solr full-text search integration
+    solr-search: false
+
+    # Redis-based distributed caching
+    redis-cache: false
+
+    # Async processing via ActiveMQ
+    async-processing: false
+
+    # API documentation (Swagger/OpenAPI)
+    swagger-enabled: true
+
+  # ========================================================================
+  # Service integration endpoints
+  # ========================================================================
+  integration:
+    # TALOS Core session validation service
+    talos-core:
+      enabled: true
+      soap-endpoint: http://localhost:8080/Game_Server_WS/cxf/GAMEService
+      timeout-seconds: 30
+      retry-attempts: 3
+
+    # TALOS Core ERP service (if erp-integration enabled)
+    erp-service:
+      enabled: false
+      soap-endpoint: http://localhost:8080/Game_Server_WS/cxf/ERPService
+      timeout-seconds: 30
+
+  # ========================================================================
+  # Database configuration
+  # ========================================================================
+  database:
+    # Primary datasource for CallCard entities
+    primary: gameserver_v3
+    # Schema prefix for CallCard-specific tables
+    schema-prefix: dbo
+    # Enable stored procedure support
+    stored-procedures-enabled: true
+
+  # ========================================================================
+  # API configuration
+  # ========================================================================
+  api:
+    # API version
+    version: v1
+    # Base path for REST API
+    base-path: /api/v1
+    # Maximum page size for paginated requests
+    max-page-size: 100
+    # Default page size if not specified
+    default-page-size: 20
+    # Enable request logging
+    request-logging-enabled: true
+    # Enable response timing headers
+    timing-headers-enabled: true
+
+  # ========================================================================
+  # Security configuration
+  # ========================================================================
+  security:
+    # JWT token validation against TALOS Core
+    jwt-validation-enabled: true
+    # Enable CORS for cross-origin requests
+    cors-enabled: true
+    # Allowed origins for CORS
+    cors-origins: http://localhost:3000,http://localhost:4000
+    # Token expiry time (minutes)
+    token-expiry-minutes: 60
+
+# ============================================================================
+# ENVIRONMENT-SPECIFIC CONFIGURATIONS
+# ============================================================================
+# Override these settings using Spring profiles:
+#   - application-dev.yml (development)
+#   - application-staging.yml (staging)
+#   - application-prod.yml (production)
+#
+# Activate profile with:
+#   java -jar app.jar --spring.profiles.active=dev
+# ============================================================================
+
+---
+# ============================================================================
+# DEVELOPMENT PROFILE
+# ============================================================================
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=gameserver_v3;trustServerCertificate=true;encrypt=false
+    password: ${DB_PASSWORD:}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+logging:
+  level:
+    com.saicon.games.callcard: DEBUG
+    org.hibernate.SQL: DEBUG
+
+server:
+  port: 8080
+
+callcard:
+  api:
+    request-logging-enabled: true
+  integration:
+    talos-core:
+      soap-endpoint: http://localhost:8080/Game_Server_WS/cxf/GAMEService
+
+---
+# ============================================================================
+# STAGING PROFILE
+# ============================================================================
+spring:
+  config:
+    activate:
+      on-profile: staging
+
+  datasource:
+    url: jdbc:sqlserver://staging-db.example.com:1433;databaseName=gameserver_v3_staging;trustServerCertificate=true
+    password: ${DB_PASSWORD:}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+logging:
+  level:
+    com.saicon.games.callcard: INFO
+    org.hibernate.SQL: INFO
+
+server:
+  port: 8080
+
+callcard:
+  api:
+    request-logging-enabled: true
+  integration:
+    talos-core:
+      soap-endpoint: http://talos-core-staging.example.com:8080/Game_Server_WS/cxf/GAMEService
+
+---
+# ============================================================================
+# PRODUCTION PROFILE
+# ============================================================================
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:sqlserver://prod-db.example.com:1433;databaseName=gameserver_v3;trustServerCertificate=true;encrypt=true;authentication=ActiveDirectoryServicePrincipal
+    password: ${DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+logging:
+  level:
+    com.saicon.games.callcard: WARN
+    root: INFO
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    min-response-size: 1024
+
+callcard:
+  api:
+    request-logging-enabled: false
+  integration:
+    talos-core:
+      soap-endpoint: http://talos-core-prod.example.com:8080/Game_Server_WS/cxf/GAMEService

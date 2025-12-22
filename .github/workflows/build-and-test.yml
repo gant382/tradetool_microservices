@@ -1,0 +1,57 @@
+name: CallCard Microservice CI/CD
+
+on:
+  push:
+    branches: [ main, 001-callcard-microservice ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build callcard-entity
+      run: |
+        cd callcard-entity
+        mvn clean install -DskipTests
+
+    - name: Build callcard-ws-api
+      run: |
+        cd callcard-ws-api
+        mvn clean install -DskipTests
+
+    - name: Build callcard-components
+      run: |
+        cd callcard-components
+        mvn clean install -DskipTests
+
+    - name: Build callcard-service
+      run: |
+        cd callcard-service
+        mvn clean install -DskipTests
+
+    - name: Build CallCard_Server_WS
+      run: |
+        cd CallCard_Server_WS
+        mvn clean package -DskipTests
+
+    - name: Run tests
+      run: |
+        cd callcard-components
+        mvn test
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: callcard-microservice
+        path: CallCard_Server_WS/target/*.war

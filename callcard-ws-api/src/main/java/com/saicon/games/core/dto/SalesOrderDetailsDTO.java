@@ -1,6 +1,8 @@
 package com.saicon.games.core.dto;
 
+import com.saicon.games.client.data.DecimalDTO;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -16,7 +18,7 @@ public class SalesOrderDetailsDTO implements Serializable {
     private int quantity;
     private Date dateCreated;
     private Date lastUpdated;
-    private double itemPrice;
+    private DecimalDTO itemPrice;
 
     // Additional fields for extended functionality
     private String itemId;
@@ -38,6 +40,20 @@ public class SalesOrderDetailsDTO implements Serializable {
         this.productId = productId;
         this.quantity = quantity;
         this.dateCreated = dateCreated;
+    }
+
+    /**
+     * Full constructor for CallCard management (18 parameters)
+     */
+    public SalesOrderDetailsDTO(Object param1, Object param2, String itemId, Integer itemTypeId,
+                                Object param5, DecimalDTO itemPrice, Object param7, Object param8,
+                                Object param9, Object param10, Object param11, Integer quantity,
+                                Object param13, Object param14, Object param15, Object param16,
+                                Object param17, Object param18) {
+        this.itemId = itemId;
+        this.itemTypeId = itemTypeId;
+        this.itemPrice = itemPrice;
+        this.quantity = quantity != null ? quantity : 0;
     }
 
     public String getSalesOrderDetailsId() {
@@ -88,11 +104,11 @@ public class SalesOrderDetailsDTO implements Serializable {
         this.lastUpdated = lastUpdated;
     }
 
-    public double getItemPrice() {
+    public DecimalDTO getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(double itemPrice) {
+    public void setItemPrice(DecimalDTO itemPrice) {
         this.itemPrice = itemPrice;
     }
 

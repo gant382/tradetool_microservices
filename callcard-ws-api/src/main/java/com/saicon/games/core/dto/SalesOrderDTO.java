@@ -45,6 +45,28 @@ public class SalesOrderDTO implements Serializable {
         this.lastUpdated = lastUpdated;
     }
 
+    /**
+     * Full constructor for CallCard management
+     */
+    public SalesOrderDTO(String salesOrderId, String createdByUserId, String fromUserId, String toUserId,
+                         Date dateCreated, Date dateUpdated, Object param7, int param8, Object param9,
+                         String comments, Object param11, Object param12, Object param13, Object param14,
+                         int salesOrderStatus, Date dateSubmitted, Object param17, Object param18, Object param19,
+                         java.util.List<SalesOrderDetailsDTO> salesOrderDetailsDTOList, String refItemId, Integer refItemTypeId) {
+        this.salesOrderId = salesOrderId;
+        this.createdByUserId = createdByUserId;
+        this.fromUserId = fromUserId;
+        this.toUserId = toUserId;
+        this.dateCreated = dateCreated;
+        this.dateUpdated = dateUpdated;
+        this.comments = comments;
+        this.status = salesOrderStatus;
+        this.dateSubmitted = dateSubmitted;
+        this.salesOrderDetailsDTOList = salesOrderDetailsDTOList;
+        this.refItemId = refItemId;
+        this.refItemTypeId = refItemTypeId;
+    }
+
     public String getSalesOrderId() {
         return salesOrderId;
     }

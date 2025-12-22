@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  callcard-service:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://sqlserver:1433;databaseName=gameserver_v3
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - sqlserver
+    networks:
+      - callcard-network
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "1433:1433"
+    networks:
+      - callcard-network
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+networks:
+  callcard-network:
+    driver: bridge
+
+volumes:
+  sqlserver-data:

@@ -2,6 +2,7 @@ package com.saicon.games.client.data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  * Stub DTO for decimal values - extracted from gameserver_v3
@@ -9,22 +10,24 @@ import java.math.BigDecimal;
 public class DecimalDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private BigDecimal value;
+    private long value;
     private int scale;
 
     public DecimalDTO() {
     }
 
-    public DecimalDTO(BigDecimal value) {
-        this.value = value;
-        this.scale = value != null ? value.scale() : 0;
+    public DecimalDTO(BigDecimal bigDecimal) {
+        if (bigDecimal != null) {
+            this.scale = bigDecimal.scale();
+            this.value = bigDecimal.unscaledValue().longValue();
+        }
     }
 
-    public BigDecimal getValue() {
+    public long getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(long value) {
         this.value = value;
     }
 
@@ -34,5 +37,12 @@ public class DecimalDTO implements Serializable {
 
     public void setScale(int scale) {
         this.scale = scale;
+    }
+
+    /**
+     * Convert back to BigDecimal
+     */
+    public BigDecimal toBigDecimal() {
+        return new BigDecimal(BigInteger.valueOf(value), scale);
     }
 }

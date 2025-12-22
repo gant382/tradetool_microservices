@@ -1,6 +1,7 @@
 com\saicon\games\callcard\entity\CallCard.class
 com\saicon\games\callcard\entity\CallCardTransaction.class
 com\saicon\games\entities\shared\Postcode.class
+com\saicon\games\entities\shared\Country.class
 com\saicon\games\callcard\entity\CallCardTemplateUserReferences.class
 com\saicon\games\callcard\entity\CallCardTransactionType.class
 com\saicon\games\entities\shared\Addressbook.class

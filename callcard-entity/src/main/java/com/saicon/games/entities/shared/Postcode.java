@@ -18,10 +18,14 @@ public class Postcode implements Serializable {
     private String code;
 
     @Column(name = "CITY")
-    private String city;
+    private String cityName;
 
     @Column(name = "REGION")
     private String region;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "POSTCODE_ID", referencedColumnName = "POSTCODE_ID", insertable = false, updatable = false)
+    private List<City> cities;
 
     public Postcode() {
     }
@@ -42,12 +46,12 @@ public class Postcode implements Serializable {
         this.code = code;
     }
 
-    public String getCity() {
-        return city;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public String getRegion() {
@@ -59,19 +63,15 @@ public class Postcode implements Serializable {
     }
 
     /**
-     * Stub method - returns list of cities associated with this postcode
-     * In a full implementation, this would be a @OneToMany relationship
-     * @return Stub list of City objects
+     * Returns list of cities associated with this postcode
+     * @return List of City objects
      */
     public List<City> getCities() {
-        // Stub - would normally fetch from database via JPA relationship
-        List<City> cities = new ArrayList<>();
-        if (city != null) {
-            City cityObj = new City();
-            cityObj.setCityName(city);
-            cities.add(cityObj);
-        }
-        return cities;
+        return cities != null ? cities : new ArrayList<>();
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 
     /**

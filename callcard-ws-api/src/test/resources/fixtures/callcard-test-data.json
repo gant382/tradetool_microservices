@@ -1,0 +1,163 @@
+{
+  "callcards": [
+    {
+      "callCardId": "550e8400-e29b-41d4-a716-446655440100",
+      "callCardTemplateId": "550e8400-e29b-41d4-a716-446655440110",
+      "startDate": "2024-01-01T00:00:00Z",
+      "endDate": "2024-01-31T23:59:59Z",
+      "submitted": false,
+      "comments": "January 2024 CallCard",
+      "lastUpdated": "2024-01-01T00:00:00Z",
+      "groupIds": [
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440200"
+        },
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440201"
+        }
+      ]
+    },
+    {
+      "callCardId": "550e8400-e29b-41d4-a716-446655440101",
+      "callCardTemplateId": "550e8400-e29b-41d4-a716-446655440111",
+      "startDate": "2024-02-01T00:00:00Z",
+      "endDate": "2024-02-29T23:59:59Z",
+      "submitted": true,
+      "comments": "February 2024 CallCard - Submitted",
+      "lastUpdated": "2024-02-29T23:59:59Z",
+      "groupIds": [
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440200"
+        }
+      ]
+    },
+    {
+      "callCardId": "550e8400-e29b-41d4-a716-446655440102",
+      "callCardTemplateId": "550e8400-e29b-41d4-a716-446655440112",
+      "startDate": "2024-03-01T00:00:00Z",
+      "endDate": "2024-03-31T23:59:59Z",
+      "submitted": false,
+      "comments": "March 2024 CallCard",
+      "lastUpdated": "2024-03-15T12:30:00Z",
+      "groupIds": [
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440202"
+        },
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440203"
+        },
+        {
+          "groupId": "550e8400-e29b-41d4-a716-446655440204"
+        }
+      ]
+    }
+  ],
+  "simplifiedCallcards": [
+    {
+      "callCardId": "550e8400-e29b-41d4-a716-446655440150",
+      "startDate": "2024-04-01T00:00:00Z",
+      "endDate": "2024-04-30T23:59:59Z"
+    },
+    {
+      "callCardId": "550e8400-e29b-41d4-a716-446655440151",
+      "startDate": "2024-05-01T00:00:00Z",
+      "endDate": "2024-05-31T23:59:59Z"
+    }
+  ],
+  "statistics": [
+    {
+      "itemId": "550e8400-e29b-41d4-a716-446655440300",
+      "itemType": 1,
+      "count": 25,
+      "amount": 1500.50,
+      "date": "2024-01-15T10:30:00Z"
+    },
+    {
+      "itemId": "550e8400-e29b-41d4-a716-446655440301",
+      "itemType": 2,
+      "count": 15,
+      "amount": 850.75,
+      "date": "2024-02-20T14:45:00Z"
+    },
+    {
+      "itemId": "550e8400-e29b-41d4-a716-446655440302",
+      "itemType": 3,
+      "count": 30,
+      "amount": 2100.00,
+      "date": "2024-03-10T09:15:00Z"
+    }
+  ],
+  "users": [
+    {
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "userGroupId": "550e8400-e29b-41d4-a716-446655440001",
+      "userName": "testuser1",
+      "email": "testuser1@example.com"
+    },
+    {
+      "userId": "550e8400-e29b-41d4-a716-446655440010",
+      "userGroupId": "550e8400-e29b-41d4-a716-446655440011",
+      "userName": "testuser2",
+      "email": "testuser2@example.com"
+    },
+    {
+      "userId": "550e8400-e29b-41d4-a716-446655440020",
+      "userGroupId": "550e8400-e29b-41d4-a716-446655440021",
+      "userName": "testuser3",
+      "email": "testuser3@example.com"
+    }
+  ],
+  "gameTypes": [
+    {
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440003",
+      "gameTypeName": "PMI_EGYPT",
+      "applicationId": "550e8400-e29b-41d4-a716-446655440002"
+    },
+    {
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440004",
+      "gameTypeName": "PMI_SENEGAL",
+      "applicationId": "550e8400-e29b-41d4-a716-446655440002"
+    }
+  ],
+  "templates": [
+    {
+      "callCardTemplateId": "550e8400-e29b-41d4-a716-446655440110",
+      "templateName": "Standard Monthly Template",
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440003",
+      "active": true
+    },
+    {
+      "callCardTemplateId": "550e8400-e29b-41d4-a716-446655440111",
+      "templateName": "Executive Monthly Template",
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440003",
+      "active": true
+    }
+  ],
+  "testScenarios": {
+    "validRequest": {
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "userGroupId": "550e8400-e29b-41d4-a716-446655440001",
+      "applicationId": "550e8400-e29b-41d4-a716-446655440002",
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440003",
+      "sessionId": "550e8400-e29b-41d4-a716-446655440004"
+    },
+    "invalidUserIdRequest": {
+      "userId": "not-a-valid-uuid",
+      "userGroupId": "550e8400-e29b-41d4-a716-446655440001",
+      "applicationId": "550e8400-e29b-41d4-a716-446655440002",
+      "gameTypeId": "550e8400-e29b-41d4-a716-446655440003"
+    },
+    "missingParametersRequest": {
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "userGroupId": null,
+      "applicationId": null,
+      "gameTypeId": null
+    },
+    "emptyStringsRequest": {
+      "userId": "",
+      "userGroupId": "",
+      "applicationId": "",
+      "gameTypeId": ""
+    }
+  }
+}

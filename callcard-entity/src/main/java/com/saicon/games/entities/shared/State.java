@@ -13,25 +13,29 @@ public class State implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "STATE_ID", nullable = false, columnDefinition = "uniqueidentifier")
-    private String stateId;
+    @Column(name = "STATE_ID", nullable = false)
+    private int stateId;
 
     @Column(name = "STATE_NAME", nullable = false, columnDefinition = "nvarchar(100)")
     private String stateName;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID")
+    private Country countryId;
+
     public State() {
     }
 
-    public State(String stateId, String stateName) {
+    public State(int stateId, String stateName) {
         this.stateId = stateId;
         this.stateName = stateName;
     }
 
-    public String getStateId() {
+    public int getStateId() {
         return stateId;
     }
 
-    public void setStateId(String stateId) {
+    public void setStateId(int stateId) {
         this.stateId = stateId;
     }
 
@@ -43,21 +47,17 @@ public class State implements Serializable {
         this.stateName = stateName;
     }
 
-    /**
-     * Stub method - returns the country ID for this state
-     * In a full implementation, this would be a @ManyToOne relationship to Country
-     * @return Stub country ID (empty string)
-     */
-    public String getCountryId() {
-        // Stub - would normally be a foreign key to Country table
-        return "";
+    public Country getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Country countryId) {
+        this.countryId = countryId;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (stateId != null ? stateId.hashCode() : 0);
-        return hash;
+        return stateId;
     }
 
     @Override
@@ -66,11 +66,7 @@ public class State implements Serializable {
             return false;
         }
         State other = (State) object;
-        if ((this.stateId == null && other.stateId != null) ||
-            (this.stateId != null && !this.stateId.equalsIgnoreCase(other.stateId))) {
-            return false;
-        }
-        return true;
+        return this.stateId == other.stateId;
     }
 
     @Override

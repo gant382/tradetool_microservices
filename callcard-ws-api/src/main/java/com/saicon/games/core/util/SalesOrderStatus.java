@@ -23,6 +23,10 @@ public enum SalesOrderStatus {
         return code;
     }
 
+    public int getStatusId() {
+        return code;
+    }
+
     public String getDisplayName() {
         return displayName;
     }

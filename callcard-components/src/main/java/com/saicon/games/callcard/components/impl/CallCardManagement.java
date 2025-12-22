@@ -36,11 +36,12 @@ import com.saicon.games.callcard.components.external.InvoiceDetails;
 import com.saicon.games.metadata.dto.MetadataDTO;
 import com.saicon.games.callcard.components.external.SalesOrder;
 import com.saicon.games.callcard.components.external.SalesOrderDetails;
-import com.saicon.games.callcard.components.external.State;
+import com.saicon.games.entities.shared.State;
 import com.saicon.games.callcard.components.external.Addressbook;
 import com.saicon.games.callcard.components.external.InvoiceDTO;
-import com.saicon.games.callcard.components.external.Postcode;
-import com.saicon.games.callcard.components.external.City;
+import com.saicon.games.entities.shared.Postcode;
+import com.saicon.games.entities.shared.City;
+import com.saicon.games.entities.shared.Country;
 import com.saicon.games.callcard.components.external.UserAddressbook;
 // SalesOrderStatus enum stub needed
 import com.saicon.games.callcard.util.Constants;
@@ -160,7 +161,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    private List<CallCardTemplate> getCallCardTemplateByMetadataKeys(String userId, String userGroupId, String gameTypeId, String callCardTemplateId, List<String> metadataKeys) {
+    private List<CallCardTemplate> getCallCardTemplateByMetadataKeys(String userId, String userGroupId, String gameTypeId, String callCardTemplateId, List<String> metadataKeys) throws BusinessLayerException {
         List<KeyValueDTO> metadataFilter = new ArrayList<>();
         if (metadataKeys != null && metadataKeys.size() > 0) {
             Map<String, Map<String, String>> metadataMap = userMetadataComponent.listUserMetadata(Collections.singletonList(userId), metadataKeys, false);
@@ -244,7 +245,8 @@ public class CallCardManagement implements ICallCardManagement {
 
         //get Brand product Type Categories
         Map<String, Integer> brandProductTypeCategoriesMap = new HashMap<String, Integer>();
-        Map<Integer, List<SolrBrandProductDTO>> solrBrandProducts = solrClient.getMultipleBrandProducts(gameTypeId,
+        @SuppressWarnings("unchecked")
+        List<Object> solrBrandProductsRaw = solrClient.getMultipleBrandProducts(gameTypeId,
                 null,
                 "",
                 null,
@@ -268,7 +270,10 @@ public class CallCardManagement implements ICallCardManagement {
                 null,
                 SortOrderTypes.BY_ORDERING_ASC);
 
-        List<SolrBrandProductDTO> brandProducts = solrBrandProducts != null ? solrBrandProducts.values().iterator().next() : null;
+        List<SolrBrandProductDTO> brandProducts = null;
+        if (solrBrandProductsRaw != null && !solrBrandProductsRaw.isEmpty() && solrBrandProductsRaw.get(0) instanceof List) {
+            brandProducts = (List<SolrBrandProductDTO>) solrBrandProductsRaw.get(0);
+        }
 
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
@@ -570,7 +575,8 @@ public class CallCardManagement implements ICallCardManagement {
 
         //get Brand product Type Categories
         Map<String, Integer> brandProductTypeCategoriesMap = new HashMap<String, Integer>();
-        Map<Integer, List<SolrBrandProductDTO>> solrBrandProducts = solrClient.getMultipleBrandProducts(gameTypeId,
+        @SuppressWarnings("unchecked")
+        List<Object> solrBrandProductsRaw = solrClient.getMultipleBrandProducts(gameTypeId,
                 null,
                 "",
                 null,
@@ -594,7 +600,10 @@ public class CallCardManagement implements ICallCardManagement {
                 null,
                 SortOrderTypes.BY_ORDERING_ASC);
 
-        List<SolrBrandProductDTO> brandProducts = solrBrandProducts != null ? solrBrandProducts.values().iterator().next() : null;
+        List<SolrBrandProductDTO> brandProducts = null;
+        if (solrBrandProductsRaw != null && !solrBrandProductsRaw.isEmpty() && solrBrandProductsRaw.get(0) instanceof List) {
+            brandProducts = (List<SolrBrandProductDTO>) solrBrandProductsRaw.get(0);
+        }
 
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
@@ -1285,7 +1294,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional
-    public CallCardDTO getNewOrPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId, String callCardId, List<String> filterProperties) {
+    public CallCardDTO getNewOrPendingCallCard(String userId, String userGroupId, String gameTypeId, String applicationId, String callCardId, List<String> filterProperties) throws BusinessLayerException {
         LOGGER.info("-- CallCardManagement.getNewOrPendingCallCard : userId={} userGroupId={} gameTypeId={}", userId, userGroupId, gameTypeId);
 
         String additionalEventProperties = "";
@@ -1382,7 +1391,8 @@ public class CallCardManagement implements ICallCardManagement {
 
         //get Brand product Type Categories
         Map<String, Integer> brandProductTypeCategoriesMap = new HashMap<String, Integer>();
-        Map<Integer, List<SolrBrandProductDTO>> solrBrandProducts = solrClient.getMultipleBrandProducts(gameTypeId,
+        @SuppressWarnings("unchecked")
+        List<Object> solrBrandProductsRaw = solrClient.getMultipleBrandProducts(gameTypeId,
                 null,
                 "",
                 null,
@@ -1406,7 +1416,10 @@ public class CallCardManagement implements ICallCardManagement {
                 null,
                 SortOrderTypes.BY_ORDERING_ASC);
 
-        List<SolrBrandProductDTO> brandProducts = solrBrandProducts != null ? solrBrandProducts.values().iterator().next() : null;
+        List<SolrBrandProductDTO> brandProducts = null;
+        if (solrBrandProductsRaw != null && !solrBrandProductsRaw.isEmpty() && solrBrandProductsRaw.get(0) instanceof List) {
+            brandProducts = (List<SolrBrandProductDTO>) solrBrandProductsRaw.get(0);
+        }
 
         if (brandProducts != null && brandProducts.size() > 0) {
             for (SolrBrandProductDTO brandProduct : brandProducts) {
@@ -2120,7 +2133,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    public void addCallCardIndexes(String userId, String gameTypeId, String applicationId, CallCard callCard, List<CallCardGroupDTO> groups) {
+    public void addCallCardIndexes(String userId, String gameTypeId, String applicationId, CallCard callCard, List<CallCardGroupDTO> groups) throws BusinessLayerException {
         LOGGER.info("in addCallCardIndexes with userId {}, gameTypeId {}, applicationId {}, callCardId {}, Using SalesOrders {}", userId, gameTypeId, applicationId, callCard.getCallCardId());
         Assert.notNull(callCard, "callCard is null");
         Assert.notNull(groups, "groups is null");
@@ -2254,7 +2267,7 @@ public class CallCardManagement implements ICallCardManagement {
                                                             attribute.getPropertyValue(),
                                                             attribute.getStatus() != null ? attribute.getStatus() : 1,
                                                             attribute.getDateSubmitted() != null ? attribute.getDateSubmitted() : new Date(),
-                                                            attribute.getAmount() != null ? attribute.getAmount().getValue() : null,
+                                                            attribute.getAmount() != null ? attribute.getAmount().toBigDecimal() : BigDecimal.ZERO,
                                                             attribute.getType());
                                                 }
                                             }
@@ -2373,7 +2386,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    public void createOrUpdateSimplifiedCallCardIndexes(String userId, String gameTypeId, String applicationId, CallCard callCard, List<SimplifiedCallCardRefUserDTO> refUserIds) {
+    public void createOrUpdateSimplifiedCallCardIndexes(String userId, String gameTypeId, String applicationId, CallCard callCard, List<SimplifiedCallCardRefUserDTO> refUserIds) throws BusinessLayerException {
         Assert.notNull(callCard, "callCard is null");
         Assert.notNull(refUserIds, "refUserIds is null");
 
@@ -2444,7 +2457,7 @@ public class CallCardManagement implements ICallCardManagement {
                                         attribute.getPropertyValue(),
                                         attribute.getStatus() != null ? attribute.getStatus() : 1,
                                         attribute.getDateSubmitted() != null ? attribute.getDateSubmitted() : new Date(),
-                                        attribute.getAmount() != null ? attribute.getAmount().getValue() : null,
+                                        attribute.getAmount() != null ? attribute.getAmount().toBigDecimal() : BigDecimal.ZERO,
                                         attribute.getType());
                             }
                         }
@@ -2686,13 +2699,13 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional(readOnly = true)
-    public int countCallCards(List<String> callCardIds, List<String> userIds, List<String> refUserIds, List<String> callCardTemplateIds, Date startDate, Boolean active, boolean currentlyActive, boolean isNotCompleted, String gameTypeId) {
+    public int countCallCards(List<String> callCardIds, List<String> userIds, List<String> refUserIds, List<String> callCardTemplateIds, Date startDate, Boolean active, boolean currentlyActive, boolean isNotCompleted, String gameTypeId) throws BusinessLayerException {
         return (int) erpDynamicQueryManager.countCallCards(callCardIds, userIds, refUserIds, callCardTemplateIds, startDate, active, currentlyActive, true, gameTypeId);
     }
 
     @Override
     @Transactional
-    public void addOrUpdateSimplifiedCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, SimplifiedCallCardDTO callCard) {
+    public void addOrUpdateSimplifiedCallCard(String userGroupId, String gameTypeId, String applicationId, String userId, SimplifiedCallCardDTO callCard) throws BusinessLayerException {
         /**
          * SimplifiedCallCardDTO.getCallCardId()
          * null => create new, temporaryId is stored in InternalRefNo
@@ -2820,7 +2833,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    private CallCardTemplate getCallCardTemplateByMetadataProperty(String userGroupId, String gameTypeId, String userId) {
+    private CallCardTemplate getCallCardTemplateByMetadataProperty(String userGroupId, String gameTypeId, String userId) throws BusinessLayerException {
         List<String> metadataKeys = new ArrayList<>();
         switch (gameTypeId) {
             case Constants.PMI_EGYPT_GAME_TYPE_ID:
@@ -2832,7 +2845,17 @@ public class CallCardManagement implements ICallCardManagement {
                 break;
         }
 
-        List<MetadataDTO> metadataDTOs = userMetadataComponent.listUserMetadata(Collections.singletonList(userId), metadataKeys, false);
+        Map<String, Map<String, String>> metadataMapResult = userMetadataComponent.listUserMetadata(Collections.singletonList(userId), metadataKeys, false);
+        List<MetadataDTO> metadataDTOs = new ArrayList<>();
+        if (metadataMapResult != null && metadataMapResult.containsKey(userId)) {
+            Map<String, String> userMeta = metadataMapResult.get(userId);
+            for (Map.Entry<String, String> entry : userMeta.entrySet()) {
+                MetadataDTO dto = new MetadataDTO();
+                dto.setKey(entry.getKey());
+                dto.setValue(entry.getValue());
+                metadataDTOs.add(dto);
+            }
+        }
         if (metadataDTOs == null || metadataDTOs.size() == 0)
             throw new BusinessLayerException("", ExceptionTypeTO.CMS_CONFIGURATION_ERROR);
 
@@ -2851,7 +2874,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    private CallCardTemplate getCallCardTemplate(String userGroupId, String gameTypeId, String applicationId, String userId) {
+    private CallCardTemplate getCallCardTemplate(String userGroupId, String gameTypeId, String applicationId, String userId) throws BusinessLayerException {
         // check for associated Template
         List<CallCardTemplate> callCardTemplates = erpDynamicQueryManager.listCallCardTemplates(userGroupId, gameTypeId, null, null, true, true, userId, 0, -1);
         if (callCardTemplates != null && callCardTemplates.size() == 1) {
@@ -3004,7 +3027,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional
-    public void submitTransactions(String userId, String userGroupId, String gameTypeId, String applicationId, String indirectUserId, CallCardDTO callCardDTO) {
+    public void submitTransactions(String userId, String userGroupId, String gameTypeId, String applicationId, String indirectUserId, CallCardDTO callCardDTO) throws BusinessLayerException {
         Assert.notNull(callCardDTO, "callCard is null");
         Assert.notNull(callCardDTO.getGroupIds(), "groups is null");
 
@@ -3096,7 +3119,7 @@ public class CallCardManagement implements ICallCardManagement {
     }
 
     @Transactional
-    private void createOrUpdateAdditionalRefUserInfo(String userId, List<KeyValueDTO> additionalRefUserInfo) {
+    private void createOrUpdateAdditionalRefUserInfo(String userId, List<KeyValueDTO> additionalRefUserInfo) throws BusinessLayerException {
         Double latitude = null;
         Double longitude = null;
 
@@ -3118,8 +3141,8 @@ public class CallCardManagement implements ICallCardManagement {
         if (latitude != null && longitude != null) { // create RefUser Address Info
 
             Users user = usersDao.getReference(userId);
-            @SuppressWarnings("unchecked")
-            List<UserAddressbook> userAddressBooks = (List<UserAddressbook>) user.getUserAddress();
+            @SuppressWarnings({"unchecked", "rawtypes"})
+            List<UserAddressbook> userAddressBooks = (List) user.getUserAddress();
             List<Addressbook> userAddresses = new ArrayList<Addressbook>();
             if (userAddressBooks != null) {
                 for (UserAddressbook userAddressBook : userAddressBooks)
@@ -3202,7 +3225,9 @@ public class CallCardManagement implements ICallCardManagement {
                 List<KeyValueDTO> additionalRefUsersInfo = new ArrayList<KeyValueDTO>();
 
                 if (refUser.getUserAddress() != null && refUser.getUserAddress().size() > 0) {
-                    Addressbook address = refUser.getUserAddress().get(0).getAddressbook();
+                    @SuppressWarnings("unchecked")
+                    List<UserAddressbook> userAddresses = (List<UserAddressbook>)(List<?>) refUser.getUserAddress();
+                    Addressbook address = userAddresses.get(0).getAddressbook();
                     if (address.getLatitude() != null && address.getLongitude() != null) {
                         additionalRefUsersInfo.add(new KeyValueDTO(CallCardRefUserDTO.LATITUDE, address.getLatitude().toString()));
                         additionalRefUsersInfo.add(new KeyValueDTO(CallCardRefUserDTO.LONGITUDE, address.getLongitude().toString()));
@@ -3236,7 +3261,8 @@ public class CallCardManagement implements ICallCardManagement {
 
                         Map<String, List<CallCardActionItemAttributesDTO>> attributesPerItemMap = new HashMap<String, List<CallCardActionItemAttributesDTO>>(); // < ItemId, Attributes>
 
-                        List<SalesOrderDetails> callCardSalesOrderDetails = erpDynamicQueryManager.listSalesOrderDetails(null, salesOrder.getSalesOrderId(), null, null, 0, -1);
+                        @SuppressWarnings({"unchecked", "rawtypes"})
+                        List<SalesOrderDetails> callCardSalesOrderDetails = (List) erpDynamicQueryManager.listSalesOrderDetails(null, salesOrder.getSalesOrderId(), null, null, 0, -1);
                         for (SalesOrderDetails detail : callCardSalesOrderDetails) {
                             if (attributesPerItemMap.containsKey(detail.getItemId())) {
                                 attributesPerItemMap.get(detail.getItemId()).add(new CallCardActionItemAttributesDTO(
@@ -3284,17 +3310,19 @@ public class CallCardManagement implements ICallCardManagement {
         //Map<String, String> properties: key => propertyName, value => propertyType
         Map<String, Map<String, List<CallCardActionItemAttributesDTO>>> results = new HashMap<>();  //< RefUserId, <ItemId, List of ActionItemAttributesDTO>>
 
+        @SuppressWarnings({"unchecked", "rawtypes"})
         Map<String, List<CallCardRefUserIndex>> indexesByRefUser;//< RefUserId, List of CallCardRefUserIndex>>
+        @SuppressWarnings({"unchecked", "rawtypes"})
         Map<String, List<InvoiceDetails>> detailsByRefUser = new HashMap<>();//< RefUserId, List of SalesOrderDetails>>
 
         List<String> propertiesList = new ArrayList<String>(properties.keySet());
 
         // indexesByRefUser = erpNativeQueryManager.listCallCardRefUserIndexesPreviousValues(callCardUserId, refUserIds, previousValuesSetting, activeCallCards);  // get a number of previous values
-        indexesByRefUser = erpNativeQueryManager.listCallCardRefUserIndexesPreviousValuesSummary(callCardUserId, refUserIds, propertiesList, previousValuesSetting, recordsTypes, activeCallCards); // get the summaries for a number of previous values
+        indexesByRefUser = (Map) erpNativeQueryManager.listCallCardRefUserIndexesPreviousValuesSummary(callCardUserId, refUserIds, propertiesList, previousValuesSetting, recordsTypes, activeCallCards); // get the summaries for a number of previous values
 
         // detailsByRefUser = erpNativeQueryManager.listSalesOrderDetailsPreviousValues(callCardUserId, refUserIds, previousValuesSetting, activeCallCards, false); // get a number of previous values from Sales Order
         //detailsByRefUser = erpNativeQueryManager.listSalesOrderDetailsSummaries(callCardUserId, refUserIds, previousValuesSetting, activeCallCards, false); // get the summaries for a number of previous values from Sales Order
-        detailsByRefUser = erpNativeQueryManager.listInvoiceDetailsSummaries(callCardUserId, refUserIds, previousValuesSetting, Arrays.asList(InvoiceDTO.SUBMITTED)); // get the summaries for a number of previous values from Invoices
+        detailsByRefUser = (Map) erpNativeQueryManager.listInvoiceDetailsSummaries(callCardUserId, refUserIds, previousValuesSetting, Arrays.asList(InvoiceDTO.SUBMITTED)); // get the summaries for a number of previous values from Invoices
 
 
         // for every refUserId
@@ -3311,7 +3339,7 @@ public class CallCardManagement implements ICallCardManagement {
                     CallCardRefUser tempRefUser = new CallCardRefUser();
                     tempRefUser.setCallCardRefUserId(refUserMap.getKey());
                     salesToIndex.setCallCardRefUserId(tempRefUser);
-                    salesToIndex.setItemTypeId(invoiceDetails.getItemTypeId());
+                    salesToIndex.setItemTypeId(invoiceDetails.getItemTypeId() != null ? new ItemTypes(invoiceDetails.getItemTypeId()) : null);
                     salesToIndex.setItemId(invoiceDetails.getItemId());
                     salesToIndex.setPropertyId(Constants.METADATA_KEY_CALL_CARD_INDEX_SALES);
                     salesToIndex.setPropertyValue(String.valueOf(invoiceDetails.getQuantity()));
@@ -3588,7 +3616,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public CallCardStatsDTO getOverallCallCardStatistics(String userGroupId, Date dateFrom, Date dateTo) {
+    public CallCardStatsDTO getOverallCallCardStatistics(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
         Assert.isValidUUID(userGroupId, "userGroupId must be a valid UUID");
 
@@ -3654,7 +3682,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public TemplateUsageDTO getTemplateUsageStatistics(String templateId, String userGroupId, Date dateFrom, Date dateTo) {
+    public TemplateUsageDTO getTemplateUsageStatistics(String templateId, String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(templateId, "templateId must not be null or empty");
         Assert.isValidUUID(templateId, "templateId must be a valid UUID");
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
@@ -3737,7 +3765,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public UserEngagementDTO getUserEngagementStatistics(String userId, String userGroupId, Date dateFrom, Date dateTo) {
+    public UserEngagementDTO getUserEngagementStatistics(String userId, String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(userId, "userId must not be null or empty");
         Assert.isValidUUID(userId, "userId must be a valid UUID");
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
@@ -3841,7 +3869,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TemplateUsageDTO> getTopTemplates(String userGroupId, Integer limit, Date dateFrom, Date dateTo) {
+    public List<TemplateUsageDTO> getTopTemplates(String userGroupId, Integer limit, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
         Assert.isValidUUID(userGroupId, "userGroupId must be a valid UUID");
 
@@ -3916,7 +3944,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public Long getActiveUsersCount(String userGroupId, Date dateFrom, Date dateTo) {
+    public Long getActiveUsersCount(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
         Assert.isValidUUID(userGroupId, "userGroupId must be a valid UUID");
 
@@ -3940,7 +3968,11 @@ public class CallCardManagement implements ICallCardManagement {
             );
 
             if (results != null && !results.isEmpty()) {
-                return ((Number) results.get(0)).longValue();
+                Object result = results.get(0);
+                if (result instanceof Object[]) {
+                    return ((Number) ((Object[]) result)[0]).longValue();
+                }
+                return ((Number) result).longValue();
             }
 
             return 0L;
@@ -3953,7 +3985,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public List<UserEngagementDTO> getAllUserEngagementStatistics(String userGroupId, Date dateFrom, Date dateTo, Integer limit) {
+    public List<UserEngagementDTO> getAllUserEngagementStatistics(String userGroupId, Date dateFrom, Date dateTo, Integer limit) throws BusinessLayerException {
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
         Assert.isValidUUID(userGroupId, "userGroupId must be a valid UUID");
 
@@ -4026,7 +4058,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TemplateUsageDTO> getAllTemplateUsageStatistics(String userGroupId, Date dateFrom, Date dateTo) {
+    public List<TemplateUsageDTO> getAllTemplateUsageStatistics(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException {
         Assert.notNullOrEmpty(userGroupId, "userGroupId must not be null or empty");
         Assert.isValidUUID(userGroupId, "userGroupId must be a valid UUID");
 

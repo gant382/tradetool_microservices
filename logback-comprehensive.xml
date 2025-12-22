@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- Spring Boot Active Profile -->
+    <springProperty name="ACTIVE_PROFILE" source="spring.profiles.active" defaultValue="dev"/>
+
+    <!-- Properties -->
+    <property name="LOG_PATH" value="${LOG_PATH:-logs}"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-callcard-microservice}"/>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%X{transactionId}] - %msg%n"/>
+    <property name="LOG_PATTERN_DETAILED" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%X{transactionId}] [%file:%line] - %msg%n"/>
+
+    <!-- Console Appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- Rolling File Appender - Application Logs -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Rolling File Appender - Error Logs -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE}-error.log</file>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>${LOG_PATTERN_DETAILED}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE}-error.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Rolling File Appender - Database Access Logs -->
+    <appender name="DB_ACCESS_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/callcard-db-access.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/callcard-db-access.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Rolling File Appender - Service Integration Logs -->
+    <appender name="SERVICE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/callcard-service-integration.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/callcard-service-integration.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Rolling File Appender - Performance Logs -->
+    <appender name="PERF_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/callcard-performance.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/callcard-performance.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>500MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Async Appender for Performance -->
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE"/>
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+    <!-- Async Appender for Errors -->
+    <appender name="ASYNC_ERROR_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="ERROR_FILE"/>
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <!-- Async Appender for Database -->
+    <appender name="ASYNC_DB_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="DB_ACCESS_FILE"/>
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+    <!-- Async Appender for Services -->
+    <appender name="ASYNC_SERVICE_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="SERVICE_FILE"/>
+        <queueSize>256</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+    <!-- Async Appender for Performance -->
+    <appender name="ASYNC_PERF_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="PERF_FILE"/>
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+    <!-- CallCard Application Loggers -->
+    <logger name="com.saicon.games.callcard" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+    <logger name="com.saicon.callcard" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <!-- CallCard Service Integration Loggers -->
+    <logger name="com.saicon.games.callcard.service" level="INFO" additivity="false">
+        <appender-ref ref="ASYNC_SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- CallCard Component Loggers -->
+    <logger name="com.saicon.games.callcard.component" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- CallCard Entity/DAO Loggers -->
+    <logger name="com.saicon.games.callcard.entity" level="INFO">
+        <appender-ref ref="ASYNC_DB_FILE"/>
+    </logger>
+
+    <!-- CallCard Response Handlers -->
+    <logger name="com.saicon.games.callcard.ws.response" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <!-- CallCard Exception Handlers -->
+    <logger name="com.saicon.games.callcard.exception" level="WARN" additivity="false">
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- CallCard Utilities -->
+    <logger name="com.saicon.games.callcard.util" level="DEBUG">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <!-- Hibernate SQL Statements -->
+    <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC_DB_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Hibernate Parameter Binding -->
+    <logger name="org.hibernate.type.descriptor.sql" level="TRACE" additivity="false">
+        <appender-ref ref="ASYNC_DB_FILE"/>
+    </logger>
+
+    <!-- Hibernate Query Statistics -->
+    <logger name="org.hibernate.stat" level="INFO">
+        <appender-ref ref="ASYNC_PERF_FILE"/>
+    </logger>
+
+    <!-- JPA Bootstrap -->
+    <logger name="org.hibernate.jpa" level="INFO"/>
+
+    <!-- Connection Pool -->
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+    <logger name="com.zaxxer.hikari.HikariConfig" level="DEBUG"/>
+
+    <!-- Core Spring -->
+    <logger name="org.springframework.core" level="INFO"/>
+    <logger name="org.springframework.beans" level="INFO"/>
+
+    <!-- Web and MVC -->
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springframework.web.servlet.mvc" level="INFO"/>
+
+    <!-- Transaction Management -->
+    <logger name="org.springframework.transaction" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC_FILE"/>
+    </logger>
+
+    <!-- Data Access -->
+    <logger name="org.springframework.data" level="INFO"/>
+
+    <!-- Spring Boot -->
+    <logger name="org.springframework.boot" level="INFO"/>
+    <logger name="org.springframework.boot.actuate" level="INFO"/>
+
+    <!-- CXF Main Logger -->
+    <logger name="org.apache.cxf" level="INFO" additivity="false">
+        <appender-ref ref="ASYNC_SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- CXF Service Methods -->
+    <logger name="org.apache.cxf.services" level="INFO" additivity="false">
+        <appender-ref ref="ASYNC_SERVICE_FILE"/>
+    </logger>
+
+    <!-- CXF SOAP Message Handler -->
+    <logger name="org.apache.cxf.phase.PhaseInterceptorChain" level="INFO"/>
+
+    <!-- CXF Binding/Protocol -->
+    <logger name="org.apache.cxf.binding.soap" level="INFO"/>
+
+    <!-- CXF Transport -->
+    <logger name="org.apache.cxf.transport" level="INFO"/>
+
+    <!-- CXF Attachment Handler -->
+    <logger name="org.apache.cxf.attachment" level="INFO"/>
+
+    <!-- Jersey Core -->
+    <logger name="org.glassfish.jersey" level="INFO" additivity="false">
+        <appender-ref ref="ASYNC_SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Jersey Container -->
+    <logger name="org.glassfish.jersey.server" level="INFO"/>
+    <logger name="org.glassfish.jersey.server.spring" level="INFO"/>
+
+    <!-- Jersey Media Type -->
+    <logger name="org.glassfish.jersey.media" level="INFO"/>
+
+    <!-- Circuit Breaker -->
+    <logger name="io.github.resilience4j.circuitbreaker" level="INFO" additivity="false">
+        <appender-ref ref="ASYNC_PERF_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Retry Logic -->
+    <logger name="io.github.resilience4j.retry" level="INFO">
+        <appender-ref ref="ASYNC_PERF_FILE"/>
+    </logger>
+
+    <!-- Rate Limiter -->
+    <logger name="io.github.resilience4j.ratelimiter" level="INFO">
+        <appender-ref ref="ASYNC_PERF_FILE"/>
+    </logger>
+
+    <!-- Jackson -->
+    <logger name="com.fasterxml.jackson" level="INFO"/>
+
+    <!-- Validation -->
+    <logger name="org.hibernate.validator" level="INFO"/>
+
+    <!-- Development Profile -->
+    <springProfile name="dev">
+        <logger name="com.saicon.games.callcard" level="DEBUG"/>
+        <logger name="org.springframework" level="DEBUG"/>
+        <logger name="org.springframework.web" level="DEBUG"/>
+    </springProfile>
+
+    <!-- Test Profile -->
+    <springProfile name="test">
+        <logger name="com.saicon.games.callcard" level="DEBUG"/>
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="org.hibernate.SQL" level="DEBUG"/>
+    </springProfile>
+
+    <!-- Production Profile -->
+    <springProfile name="prod">
+        <logger name="com.saicon.games.callcard" level="INFO"/>
+        <logger name="org.springframework" level="WARN"/>
+        <logger name="org.apache.cxf" level="WARN"/>
+        <logger name="org.glassfish.jersey" level="WARN"/>
+        <logger name="org.hibernate.SQL" level="WARN"/>
+    </springProfile>
+
+    <!-- Root Logger Configuration -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
+    </root>
+</configuration>

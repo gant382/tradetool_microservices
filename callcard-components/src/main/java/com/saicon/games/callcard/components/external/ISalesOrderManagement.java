@@ -1,5 +1,7 @@
 package com.saicon.games.callcard.components.external;
 
+import com.saicon.games.core.dto.SalesOrderDetailsDTO;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -14,59 +16,70 @@ public interface ISalesOrderManagement {
     /**
      * Add a new sales order
      */
-    Object addSalesOrder(
-        String orderId,
-        String userId,
-        String userGroupId,
-        Date orderDate,
-        Date deliveryDate,
-        String orderStatus,
-        String paymentMethod,
-        String shippingAddress,
-        String notes,
-        Double totalAmount,
-        Double taxAmount,
-        Double shippingCost,
-        String currency,
-        int orderType,
-        Date createdDate,
-        String createdBy,
-        String modifiedBy,
-        Date modifiedDate,
-        String externalReference,
-        Integer priority
+    SalesOrder addSalesOrder(
+        String createdByUserId,
+        String fromUserId,
+        String toUserId,
+        Date dateCreated,
+        Date dateUpdated,
+        Object param6,
+        Object param7,
+        Object param8,
+        String comments,
+        Object param10,
+        Object param11,
+        Object param12,
+        Object param13,
+        int salesOrderStatus,
+        Date dateSubmitted,
+        Object param16,
+        Object param17,
+        Object param18,
+        String refItemId,
+        Integer refItemTypeId
     );
 
     /**
      * Create a sales order revision
      */
-    Object createSalesOrderRevision(
-        String orderId,
-        Date revisionDate,
-        Date deliveryDate,
-        String orderStatus,
-        String paymentMethod,
-        String shippingAddress,
-        String notes,
-        Double totalAmount,
-        Double taxAmount,
-        Double shippingCost,
-        String currency,
-        Date createdDate,
-        String createdBy,
-        String externalReference,
-        Integer revisionNumber
+    SalesOrder createSalesOrderRevision(
+        String createdByUserId,
+        Date dateCreated,
+        Date dateUpdated,
+        Object param4,
+        Object param5,
+        Object param6,
+        String comments,
+        Object param8,
+        Object param9,
+        Object param10,
+        Object param11,
+        Date dateSubmitted,
+        String salesOrderId,
+        String refItemId,
+        Integer refItemTypeId
     );
 
     /**
      * Add sales order details/line items
      */
-    Object addSalesOrderDetails(
-        String orderId,
-        String productId,
-        int quantity,
-        Double unitPrice,
-        Double totalPrice,
-        String notes
+    SalesOrderDetailsDTO addSalesOrderDetails(
+        String salesOrderId,
+        String itemId,
+        Integer itemTypeId,
+        Object param4,
+        BigDecimal itemPrice,
+        Object param6,
+        Object param7,
+        Object param8,
+        Object param9,
+        Object param10,
+        Integer quantity,
+        Object param12,
+        Object param13,
+        Object param14,
+        Date dateCreated,
+        Object param16,
+        Object param17
     );
 }

@@ -1,6 +1,8 @@
 package com.saicon.games.callcard.components.external;
 
+import com.saicon.games.core.util.SalesOrderStatus;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Stub class for SalesOrder entity from ERP subsystem.
@@ -13,6 +15,8 @@ public class SalesOrder {
     private String userId;
     private Date dateCreated;
     private String status;
+    private SalesOrderStatus salesOrderStatus;
+    private List<SalesOrderDetails> salesOrderDetails;
 
     public String getSalesOrderId() {
         return salesOrderId;
@@ -44,6 +48,22 @@ public class SalesOrder {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public SalesOrderStatus getSalesOrderStatus() {
+        return salesOrderStatus;
+    }
+
+    public void setSalesOrderStatus(SalesOrderStatus salesOrderStatus) {
+        this.salesOrderStatus = salesOrderStatus;
+    }
+
+    public List<SalesOrderDetails> getSalesOrderDetails() {
+        return salesOrderDetails;
+    }
+
+    public void setSalesOrderDetails(List<SalesOrderDetails> salesOrderDetails) {
+        this.salesOrderDetails = salesOrderDetails;
     }
 
     private String refItemId;

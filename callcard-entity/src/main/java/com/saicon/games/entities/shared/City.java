@@ -13,25 +13,32 @@ public class City implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "CITY_ID", nullable = false, columnDefinition = "uniqueidentifier")
-    private String cityId;
+    @Column(name = "CITY_ID", nullable = false)
+    private int cityId;
 
     @Column(name = "CITY_NAME", nullable = false, columnDefinition = "nvarchar(100)")
     private String cityName;
 
+    @Column(name = "POSTCODE_ID")
+    private Integer postcodeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STATE_ID", referencedColumnName = "STATE_ID")
+    private State stateId;
+
     public City() {
     }
 
-    public City(String cityId, String cityName) {
+    public City(int cityId, String cityName) {
         this.cityId = cityId;
         this.cityName = cityName;
     }
 
-    public String getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 
@@ -43,21 +50,17 @@ public class City implements Serializable {
         this.cityName = cityName;
     }
 
-    /**
-     * Stub method - returns the state ID for this city
-     * In a full implementation, this would be a @ManyToOne relationship to State
-     * @return Stub state ID (empty string)
-     */
-    public String getStateId() {
-        // Stub - would normally be a foreign key to State table
-        return "";
+    public State getStateId() {
+        return stateId;
+    }
+
+    public void setStateId(State stateId) {
+        this.stateId = stateId;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (cityId != null ? cityId.hashCode() : 0);
-        return hash;
+        return cityId;
     }
 
     @Override
@@ -66,11 +69,7 @@ public class City implements Serializable {
             return false;
         }
         City other = (City) object;
-        if ((this.cityId == null && other.cityId != null) ||
-            (this.cityId != null && !this.cityId.equalsIgnoreCase(other.cityId))) {
-            return false;
-        }
-        return true;
+        return this.cityId == other.cityId;
     }
 
     @Override

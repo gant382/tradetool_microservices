@@ -7,24 +7,24 @@ package com.saicon.games.callcard.components.external;
  */
 public class City {
     // Stub implementation - add fields/methods as needed for compilation
-    private String cityId;
+    private int cityId;
     private String cityName;
-    private String stateId;
+    private State stateId;
 
     public City() {
     }
 
-    public City(String cityId, String cityName, String stateId) {
+    public City(int cityId, String cityName, State stateId) {
         this.cityId = cityId;
         this.cityName = cityName;
         this.stateId = stateId;
     }
 
-    public String getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 
@@ -36,11 +36,11 @@ public class City {
         this.cityName = cityName;
     }
 
-    public String getStateId() {
+    public State getStateId() {
         return stateId;
     }
 
-    public void setStateId(String stateId) {
+    public void setStateId(State stateId) {
         this.stateId = stateId;
     }
 }
