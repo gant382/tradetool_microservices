@@ -1,5 +1,7 @@
 # CallCard Microservice Configuration
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: callcard-microservice
   profiles:

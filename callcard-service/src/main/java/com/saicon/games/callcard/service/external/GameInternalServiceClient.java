@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * - game.internal.service.url: WSDL URL for IGameInternalService
  *   Example: http://game-server:8080/Game_Server_WS/cxf/GAMEInternalService?wsdl
  */
-@Configuration
+// @Configuration  -- Disabled: Using stub instead
 public class GameInternalServiceClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GameInternalServiceClient.class);
