@@ -99,8 +99,8 @@ spring:
         # Cache configuration (L2 cache via EhCache if needed)
         cache:
           use_second_level_cache: false
-          region:
-            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+          # region:
+          #   factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
         # JSON type support for SQL Server
         type_json_format_mapper: org.hibernate.type.format.JsonFormatMapper
       javax:

@@ -3,7 +3,7 @@ package com.saicon.games.callcard.resources;
 import com.saicon.games.callcard.ws.ISimplifiedCallCardService;
 import com.saicon.games.callcard.ws.dto.CallCardBulkResponseDTO;
 import com.saicon.games.callcard.ws.dto.CallCardSummaryDTO;
-import com.saicon.games.callcard.ws.dto.SimplifiedCallCardV2DTO;
+import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,10 +62,10 @@ public class SimplifiedCallCardResources {
     @ApiOperation(
             value = "Get simplified CallCard by ID",
             notes = "Returns a simplified CallCard with minimal payload (60% smaller)",
-            response = SimplifiedCallCardV2DTO.class
+            response = SimplifiedCallCardDTO.class
     )
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = SimplifiedCallCardV2DTO.class),
+            @ApiResponse(code = 200, message = "OK", response = SimplifiedCallCardDTO.class),
             @ApiResponse(code = 404, message = "CallCard not found"),
             @ApiResponse(code = 500, message = "Internal server error")
     })
@@ -74,7 +74,7 @@ public class SimplifiedCallCardResources {
     ) {
         LOGGER.debug("GET /v2/callcards/{}", id);
 
-        SimplifiedCallCardV2DTO callCard = simplifiedCallCardService.getSimplifiedCallCard(id);
+        SimplifiedCallCardDTO callCard = simplifiedCallCardService.getSimplifiedCallCard(id);
 
         if (callCard != null) {
             return Response.ok(callCard)

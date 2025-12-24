@@ -1,0 +1,20 @@
+# Development Profile Configuration
+spring:
+  datasource:
+    url: jdbc:sqlserver://172.17.146.107:1433;databaseName=TalosStageDB;encrypt=false;trustServerCertificate=true
+    username: talosstage
+    password: 2NjP2LyLEy9_7D7a9NNN
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+
+# Override server port for dev
+server:
+  port: 8081

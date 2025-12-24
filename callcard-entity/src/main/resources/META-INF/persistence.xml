@@ -29,20 +29,23 @@
         <class>com.saicon.games.invoice.entities.Invoice</class>
         <class>com.saicon.games.invoice.entities.InvoiceDetails</class>
         <class>com.saicon.user.entities.Users</class>
+        <class>com.saicon.games.entities.shared.Users</class>
+        <class>com.saicon.games.entities.shared.UserGroup</class>
+        <class>com.saicon.games.entities.shared.UserGroups</class>
         <class>com.saicon.application.entities.Application</class>
         <class>com.saicon.addressbook.entities.Postcode</class>
         <class>com.saicon.generic.entities.ItemTypes</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+        <shared-cache-mode>NONE</shared-cache-mode>
 
         <properties>
             <!-- Hibernate Properties - managed by Spring Boot -->
-            <property name="hibernate.cache.use_second_level_cache" value="true"/>
-            <property name="hibernate.cache.use_query_cache" value="true"/>
-            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.JCacheRegionFactory"/>
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+            <property name="hibernate.cache.use_query_cache" value="false"/>
+            <!-- <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.JCacheRegionFactory"/> -->
             <property name="hibernate.generate_statistics" value="true"/>
-            <property name="hibernate.cache.use_structured_entries" value="true"/>
+            <!-- <property name="hibernate.cache.use_structured_entries" value="true"/> -->
 
             <!-- Dialect will be auto-configured by Spring Boot based on datasource -->
             <!-- Connection pool managed by HikariCP via Spring Boot -->

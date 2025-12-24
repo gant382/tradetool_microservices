@@ -34,7 +34,7 @@ public class CallCardBulkResponseDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @DTOParam(1)
-    private List<SimplifiedCallCardV2DTO> callCards;
+    private List<SimplifiedCallCardDTO> callCards;
 
     @DTOParam(2)
     private int totalCount;
@@ -68,7 +68,7 @@ public class CallCardBulkResponseDTO implements Serializable {
         this.errors = new ArrayList<>();
     }
 
-    public CallCardBulkResponseDTO(List<SimplifiedCallCardV2DTO> callCards, int totalCount,
+    public CallCardBulkResponseDTO(List<SimplifiedCallCardDTO> callCards, int totalCount,
                                    int page, int pageSize) {
         this.callCards = callCards != null ? callCards : new ArrayList<>();
         this.totalCount = totalCount;
@@ -86,11 +86,11 @@ public class CallCardBulkResponseDTO implements Serializable {
     }
 
     // Getters and Setters
-    public List<SimplifiedCallCardV2DTO> getCallCards() {
+    public List<SimplifiedCallCardDTO> getCallCards() {
         return callCards;
     }
 
-    public void setCallCards(List<SimplifiedCallCardV2DTO> callCards) {
+    public void setCallCards(List<SimplifiedCallCardDTO> callCards) {
         this.callCards = callCards;
     }
 

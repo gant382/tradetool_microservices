@@ -122,7 +122,7 @@ public class CallCardManagement implements ICallCardManagement {
 
     @Override
     @Transactional
-    public CallCardDTO listPendingCallCard(String userId, String userGroupId, String gameTypeId) {
+    public CallCardDTO listPendingCallCard(String userId, String userGroupId, String gameTypeId) throws BusinessLayerException {
         LOGGER.info("-- listPendingCallCard : userId={} userGroupId={} gameTypeId={}", userId, userGroupId, gameTypeId);
 
         CallCard callCard = checkIfActiveCallCard(userId, userGroupId, gameTypeId);
@@ -4128,5 +4128,69 @@ public class CallCardManagement implements ICallCardManagement {
             throw new BusinessLayerException("Error retrieving template usage statistics", ExceptionTypeTO.GENERIC_ERROR);
         }
     }
+    // ============================================================
+    // SimplifiedCallCard V2 Methods (User Story 3) - STUBS
+    // ============================================================
+
+    @Override
+    public SimplifiedCallCardDTO getSimplifiedCallCardV2(String callCardId) {
+        // TODO: Implement V2 method
+        throw new UnsupportedOperationException("getSimplifiedCallCardV2 not yet implemented");
+    }
+
+    @Override
+    public Integer countSimplifiedCallCardsV2(String userId, String sourceUserId, String refUserId, String templateId, Boolean includeDeleted) {
+        // TODO: Implement V2 method
+        throw new UnsupportedOperationException("countSimplifiedCallCardsV2 not yet implemented");
+    }
+
+    @Override
+    public List<SimplifiedCallCardDTO> getSimplifiedCallCardListV2(String userId, String sourceUserId, String refUserId, String templateId, Boolean includeDeleted, int rangeFrom, int rangeTo) {
+        // TODO: Implement V2 method
+        throw new UnsupportedOperationException("getSimplifiedCallCardListV2 not yet implemented");
+    }
+
+    @Override
+    public List<CallCardSummaryDTO> getCallCardSummaries(String userGroupId, int rangeFrom, int rangeTo) {
+        // TODO: Implement summary method
+        throw new UnsupportedOperationException("getCallCardSummaries not yet implemented");
+    }
+
+    @Override
+    public List<SimplifiedCallCardDTO> bulkGetSimplifiedCallCardsV2(List<String> callCardIds) {
+        // TODO: Implement bulk get method
+        throw new UnsupportedOperationException("bulkGetSimplifiedCallCardsV2 not yet implemented");
+    }
+
+    @Override
+    public Integer countCallCardsByTemplate(String templateId, boolean includeCompleted) {
+        // TODO: Implement template count method
+        throw new UnsupportedOperationException("countCallCardsByTemplate not yet implemented");
+    }
+
+    @Override
+    public List<SimplifiedCallCardDTO> getSimplifiedCallCardsByTemplate(String templateId, boolean includeCompleted, int rangeFrom, int rangeTo) {
+        // TODO: Implement template list method
+        throw new UnsupportedOperationException("getSimplifiedCallCardsByTemplate not yet implemented");
+    }
+
+    @Override
+    public Integer countCallCardsByUser(String userId, boolean includeCompleted) {
+        // TODO: Implement user count method
+        throw new UnsupportedOperationException("countCallCardsByUser not yet implemented");
+    }
+
+    @Override
+    public List<SimplifiedCallCardDTO> getSimplifiedCallCardsByUser(String userId, boolean includeCompleted, int rangeFrom, int rangeTo) {
+        // TODO: Implement user list method
+        throw new UnsupportedOperationException("getSimplifiedCallCardsByUser not yet implemented");
+    }
+
+    @Override
+    public List<CallCardSummaryDTO> searchCallCardSummaries(String userGroupId, String searchTerm, int rangeFrom, int rangeTo) {
+        // TODO: Implement search method
+        throw new UnsupportedOperationException("searchCallCardSummaries not yet implemented");
+    }
+
 }
 

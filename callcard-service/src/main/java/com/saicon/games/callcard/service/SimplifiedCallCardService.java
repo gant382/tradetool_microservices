@@ -4,7 +4,7 @@ import com.saicon.games.callcard.components.ICallCardManagement;
 import com.saicon.games.callcard.ws.ISimplifiedCallCardService;
 import com.saicon.games.callcard.ws.dto.CallCardBulkResponseDTO;
 import com.saicon.games.callcard.ws.dto.CallCardSummaryDTO;
-import com.saicon.games.callcard.ws.dto.SimplifiedCallCardV2DTO;
+import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,12 +42,12 @@ public class SimplifiedCallCardService implements ISimplifiedCallCardService {
     private ICallCardManagement callCardManagement;
 
     @Override
-    public SimplifiedCallCardV2DTO getSimplifiedCallCard(String callCardId) {
+    public SimplifiedCallCardDTO getSimplifiedCallCard(String callCardId) {
         long startTime = System.currentTimeMillis();
         try {
             LOGGER.debug("Getting simplified CallCard: {}", callCardId);
 
-            SimplifiedCallCardV2DTO result = callCardManagement.getSimplifiedCallCardV2(callCardId);
+            SimplifiedCallCardDTO result = callCardManagement.getSimplifiedCallCardV2(callCardId);
 
             long executionTime = System.currentTimeMillis() - startTime;
             LOGGER.debug("Retrieved simplified CallCard in {}ms", executionTime);
@@ -77,7 +77,7 @@ public class SimplifiedCallCardService implements ISimplifiedCallCardService {
             );
 
             // Get paginated results
-            List<SimplifiedCallCardV2DTO> callCards = callCardManagement.getSimplifiedCallCardListV2(
+            List<SimplifiedCallCardDTO> callCards = callCardManagement.getSimplifiedCallCardListV2(
                     userId, userGroupId, templateId, status, submitted, page, pageSize
             );
 
@@ -147,7 +147,7 @@ public class SimplifiedCallCardService implements ISimplifiedCallCardService {
                 return response;
             }
 
-            List<SimplifiedCallCardV2DTO> callCards = callCardManagement.bulkGetSimplifiedCallCardsV2(
+            List<SimplifiedCallCardDTO> callCards = callCardManagement.bulkGetSimplifiedCallCardsV2(
                     callCardIds
             );
 
@@ -188,7 +188,7 @@ public class SimplifiedCallCardService implements ISimplifiedCallCardService {
                     templateId, includeInactive
             );
 
-            List<SimplifiedCallCardV2DTO> callCards = callCardManagement.getSimplifiedCallCardsByTemplate(
+            List<SimplifiedCallCardDTO> callCards = callCardManagement.getSimplifiedCallCardsByTemplate(
                     templateId, includeInactive, page, pageSize
             );
 
@@ -229,7 +229,7 @@ public class SimplifiedCallCardService implements ISimplifiedCallCardService {
                     userId, includeInactive
             );
 
-            List<SimplifiedCallCardV2DTO> callCards = callCardManagement.getSimplifiedCallCardsByUser(
+            List<SimplifiedCallCardDTO> callCards = callCardManagement.getSimplifiedCallCardsByUser(
                     userId, includeInactive, page, pageSize
             );
 

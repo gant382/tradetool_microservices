@@ -4,7 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SecurityException;
+import io.jsonwebtoken.security.SignatureException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
 import org.slf4j.Logger;
@@ -108,11 +108,7 @@ public class JwtTokenProvider {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationMs);
 
-        SecretKeySpec key = new SecretKeySpec(
-            jwtSecret.getBytes(),
-            SignatureAlgorithm.HS512.getJcaName(),
-            null
-        );
+        SecretKeySpec key = new SecretKeySpec(jwtSecret.getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
         return Jwts.builder()
             .setSubject(username)
@@ -153,18 +149,14 @@ public class JwtTokenProvider {
      */
     public Claims getClaimsFromToken(String token) {
         try {
-            SecretKeySpec key = new SecretKeySpec(
-                jwtSecret.getBytes(),
-                SignatureAlgorithm.HS512.getJcaName(),
-                null
-            );
+            SecretKeySpec key = new SecretKeySpec(jwtSecret.getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
             return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-        } catch (SecurityException ex) {
+        } catch (SignatureException ex) {
             LOGGER.error("Invalid JWT signature: {}", ex.getMessage());
             throw ex;
         } catch (MalformedJwtException ex) {
@@ -195,11 +187,7 @@ public class JwtTokenProvider {
      */
     public boolean validateToken(String token) {
         try {
-            SecretKeySpec key = new SecretKeySpec(
-                jwtSecret.getBytes(),
-                SignatureAlgorithm.HS512.getJcaName(),
-                null
-            );
+            SecretKeySpec key = new SecretKeySpec(jwtSecret.getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
             Jwts.parserBuilder()
                 .setSigningKey(key)
@@ -207,7 +195,7 @@ public class JwtTokenProvider {
                 .parseClaimsJws(token);
 
             return true;
-        } catch (SecurityException ex) {
+        } catch (SignatureException ex) {
             LOGGER.error("Invalid JWT signature: {}", ex.getMessage());
         } catch (MalformedJwtException ex) {
             LOGGER.error("Invalid JWT token: {}", ex.getMessage());

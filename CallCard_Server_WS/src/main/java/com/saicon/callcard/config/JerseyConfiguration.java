@@ -2,6 +2,8 @@ package com.saicon.callcard.config;
 
 import com.saicon.games.callcard.resources.CallCardResources;
 import com.saicon.games.callcard.resources.CallCardStatisticsResources;
+import com.saicon.games.callcard.resources.SimplifiedCallCardResources;
+import com.saicon.games.callcard.resources.CallCardTransactionResources;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +28,8 @@ public class JerseyConfiguration extends ResourceConfig {
         // Register REST resource classes
         register(CallCardResources.class);
         register(CallCardStatisticsResources.class);
+        register(SimplifiedCallCardResources.class);
+        register(CallCardTransactionResources.class);
 
         // Register Jackson for JSON serialization/deserialization
         register(JacksonFeature.class);

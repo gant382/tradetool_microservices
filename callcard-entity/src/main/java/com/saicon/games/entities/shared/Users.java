@@ -14,9 +14,9 @@ import java.util.Date;
 @Table(name = "USERS")
 @NamedQueries({
         @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-        @NamedQuery(name = "com.saicon.games.entities.shared.Users.findByUserId", query = "SELECT u FROM Users u WHERE u.userId = ?"),
+        @NamedQuery(name = "com.saicon.games.entities.shared.Users.findByUserId", query = "SELECT u FROM Users u WHERE u.userId = ?1"),
         @NamedQuery(name = "com.saicon.games.entities.shared.Users.listByUserIds", query = "SELECT u FROM Users u WHERE u.userId IN ?1"),
-        @NamedQuery(name = "com.saicon.games.entities.shared.Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = ?")
+        @NamedQuery(name = "com.saicon.games.entities.shared.Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = ?1")
 })
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;

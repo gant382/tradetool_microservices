@@ -6,6 +6,7 @@ import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 import com.saicon.games.callcard.ws.dto.CallCardStatsDTO;
 import com.saicon.games.callcard.ws.dto.TemplateUsageDTO;
 import com.saicon.games.callcard.ws.dto.UserEngagementDTO;
+import com.saicon.games.callcard.ws.dto.CallCardSummaryDTO;
 // TODO: stub needed
 // import com.saicon.ecommerce.dto.ItemStatisticsDTO;
 
@@ -23,7 +24,7 @@ public interface ICallCardManagement {
     //                                               Date dateFrom,
     //                                               Date dateTo);
 
-    CallCardDTO listPendingCallCard(String userId, String userGroupId, String gameTypeId);
+    CallCardDTO listPendingCallCard(String userId, String userGroupId, String gameTypeId) throws BusinessLayerException;
 
     void submitTransactions(String userId, String userGroupId, String gameTypeId, String applicationId, String indirectUserId, CallCardDTO callCardDTO) throws BusinessLayerException;
 
@@ -118,5 +119,30 @@ public interface ICallCardManagement {
      * @return List of TemplateUsageDTO for all templates
      */
     List<TemplateUsageDTO> getAllTemplateUsageStatistics(String userGroupId, Date dateFrom, Date dateTo) throws BusinessLayerException;
+
+
+    // ============================================================
+    // SimplifiedCallCard V2 Methods (User Story 3)
+    // ============================================================
+
+    SimplifiedCallCardDTO getSimplifiedCallCardV2(String callCardId);
+
+    Integer countSimplifiedCallCardsV2(String userId, String sourceUserId, String refUserId, String templateId, Boolean includeDeleted);
+
+    List<SimplifiedCallCardDTO> getSimplifiedCallCardListV2(String userId, String sourceUserId, String refUserId, String templateId, Boolean includeDeleted, int rangeFrom, int rangeTo);
+
+    List<CallCardSummaryDTO> getCallCardSummaries(String userGroupId, int rangeFrom, int rangeTo);
+
+    List<SimplifiedCallCardDTO> bulkGetSimplifiedCallCardsV2(List<String> callCardIds);
+
+    Integer countCallCardsByTemplate(String templateId, boolean includeCompleted);
+
+    List<SimplifiedCallCardDTO> getSimplifiedCallCardsByTemplate(String templateId, boolean includeCompleted, int rangeFrom, int rangeTo);
+
+    Integer countCallCardsByUser(String userId, boolean includeCompleted);
+
+    List<SimplifiedCallCardDTO> getSimplifiedCallCardsByUser(String userId, boolean includeCompleted, int rangeFrom, int rangeTo);
+
+    List<CallCardSummaryDTO> searchCallCardSummaries(String userGroupId, String searchTerm, int rangeFrom, int rangeTo);
 
     }

@@ -26,7 +26,7 @@ public class CallCardTransactionDTO implements Serializable {
     private String transactionType;
 
     @DTOParam(4)
-    private Integer userId;
+    private String userId;
 
     @DTOParam(5)
     private String userName;  // For display purposes
@@ -61,7 +61,7 @@ public class CallCardTransactionDTO implements Serializable {
     }
 
     public CallCardTransactionDTO(String transactionId, String callCardId, String transactionType,
-                                   Integer userId, Integer userGroupId, Date timestamp, String description) {
+                                   String userId, Integer userGroupId, Date timestamp, String description) {
         this.transactionId = transactionId;
         this.callCardId = callCardId;
         this.transactionType = transactionType;
@@ -97,11 +97,11 @@ public class CallCardTransactionDTO implements Serializable {
         this.transactionType = transactionType;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

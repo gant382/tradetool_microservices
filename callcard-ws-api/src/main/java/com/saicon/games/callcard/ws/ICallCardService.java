@@ -36,13 +36,6 @@ public interface ICallCardService {
                                                             @WebParam(name = "rangeFrom") int rangeFrom,
                                                             @WebParam(name = "rangeTo") int rangeTo);
 
-    @WebMethod(operationName = "getCallCardStatistics")
-    ResponseListItemStatistics getCallCardStatistics(@WebParam(name = "userId") String userId,
-                                                     @WebParam(name = "propertyId") String propertyId,
-                                                     @WebParam(name = "types") List<Integer> types,
-                                                     @WebParam(name = "dateFrom") Date dateFrom,
-                                                     @WebParam(name = "dateTo") Date dateTo);
-
     @WebMethod(operationName = "submitTransactions")
     WSResponse submitTransactions(@WebParam(name = "userId") String userId,
                                   @WebParam(name = "userGroupId") String userGroupId,

@@ -16,7 +16,7 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.findAll", query = "SELECT ug FROM UserGroups ug"),
         @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.listAll", query = "SELECT ug FROM UserGroups ug"),
-        @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.findByUserGroupId", query = "SELECT ug FROM UserGroups ug WHERE ug.groupId = ?"),
+        @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.findByUserGroupId", query = "SELECT ug FROM UserGroups ug WHERE ug.groupId = ?1"),
         @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.findByIds", query = "SELECT ug FROM UserGroups ug where groupId IN ?1"),
         @NamedQuery(name = "com.saicon.games.entities.shared.UserGroups.listByUserGroupId", query = "SELECT ug FROM UserGroups ug WHERE ug.groupId = ?1 AND ug.isActive = true ")
 })

@@ -2,7 +2,7 @@ package com.saicon.games.callcard.ws;
 
 import com.saicon.games.callcard.ws.dto.CallCardBulkResponseDTO;
 import com.saicon.games.callcard.ws.dto.CallCardSummaryDTO;
-import com.saicon.games.callcard.ws.dto.SimplifiedCallCardV2DTO;
+import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 import org.apache.cxf.annotations.FastInfoset;
 import org.apache.cxf.annotations.GZIP;
 
@@ -38,7 +38,7 @@ public interface ISimplifiedCallCardService {
      * @return Simplified CallCard V2 DTO
      */
     @WebMethod(operationName = "getSimplifiedCallCard")
-    SimplifiedCallCardV2DTO getSimplifiedCallCard(
+    SimplifiedCallCardDTO getSimplifiedCallCard(
             @WebParam(name = "callCardId") String callCardId
     );
 

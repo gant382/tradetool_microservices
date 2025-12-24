@@ -10,8 +10,8 @@ import com.saicon.games.callcard.components.external.IUserSessionManagement;
 import com.saicon.games.callcard.ws.response.ResponseListItemStatistics;
 import com.saicon.games.callcard.ws.response.ResponseStatus;
 import com.saicon.games.callcard.ws.response.WSResponse;
-import com.saicon.games.callcard.ws.response.ResponseListCallCard;
-import com.saicon.games.callcard.ws.response.ResponseListSimplifiedCallCard;
+import com.saicon.games.callcard.ws.data.ResponseListCallCard;
+import com.saicon.games.callcard.ws.data.ResponseListSimplifiedCallCard;
 import com.saicon.games.callcard.ws.ICallCardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +44,7 @@ public class CallCardService implements ICallCardService {
 
             toReturn = new ResponseListCallCard("", ResponseStatus.OK, callCardDTO != null ? Arrays.asList(callCardDTO) : null, callCardDTO != null ? 1 : 0);
         } catch (BusinessLayerException e) {
-            return new ResponseListCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
 
         return toReturn;
@@ -58,7 +58,7 @@ public class CallCardService implements ICallCardService {
 
             toReturn = new WSResponse("", ResponseStatus.OK);
         } catch (BusinessLayerException e) {
-            return new WSResponse(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR);
+            return new WSResponse(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR);
         }
 
         return toReturn;
@@ -78,27 +78,10 @@ public class CallCardService implements ICallCardService {
         } catch (BusinessLayerException e) {
             LOGGER.error("Could not list SimplifiedCallCards.", e);
 
-            return new ResponseListSimplifiedCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListSimplifiedCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
     }
 
-    @Override
-    public ResponseListItemStatistics getCallCardStatistics(String userId,
-                                                            String propertyId,
-                                                            List<Integer> types,
-                                                            Date dateFrom,
-                                                            Date dateTo) {
-
-        try {
-            List<ItemStatisticsDTO> statisticsDTOs = callCardManagement.getCallCardStatistics(userId, propertyId, types, dateFrom, dateTo);
-            if (statisticsDTOs == null)
-                return new ResponseListItemStatistics(ExceptionTypeTO.NONE.getErrorCode(), "", ResponseStatus.OK, null, 0);
-            else
-                return new ResponseListItemStatistics(ExceptionTypeTO.NONE.getErrorCode(), "", ResponseStatus.OK, statisticsDTOs, statisticsDTOs.size());
-        } catch (BusinessLayerException e) {
-            return new ResponseListItemStatistics(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
-        }
-    }
 
     @Override
     public ResponseListCallCard getCallCardsFromTemplate(String userId, String userGroupId, String gameTypeId, String applicationId) {
@@ -109,7 +92,7 @@ public class CallCardService implements ICallCardService {
 
             return new ResponseListCallCard("", ResponseStatus.OK, callCardDTOList, callCardDTOList != null ? callCardDTOList.size() : 0);
         } catch (BusinessLayerException e) {
-            return new ResponseListCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
     }
 
@@ -128,7 +111,7 @@ public class CallCardService implements ICallCardService {
 
             return new ResponseListCallCard("", ResponseStatus.OK, callCardDTOList, totalCallCard);
         } catch (BusinessLayerException e) {
-            return new ResponseListCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
     }
 
@@ -147,7 +130,7 @@ public class CallCardService implements ICallCardService {
 
             return new ResponseListCallCard("", ResponseStatus.OK, callCardDTOList, totalCallCard);
         } catch (BusinessLayerException e) {
-            return new ResponseListCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
     }
 
@@ -166,7 +149,7 @@ public class CallCardService implements ICallCardService {
 
             return new ResponseListCallCard("", ResponseStatus.OK, callCardDTOList, totalCallCard);
         } catch (BusinessLayerException e) {
-            return new ResponseListCallCard(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR, null, 0);
+            return new ResponseListCallCard(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR, null, 0);
         }
     }
 
@@ -176,13 +159,13 @@ public class CallCardService implements ICallCardService {
         try {
             callCardManagement.submitTransactions( userId, userGroupId, gameTypeId, applicationId, indirectUserId, callCardDTO);
             if (callCardDTO == null)
-                return new WSResponse(ExceptionTypeTO.CMS_CONFIGURATION_ERROR.getErrorCode(), "", ResponseStatus.ERROR);
+                return new WSResponse(ExceptionTypeTO.CMS_CONFIGURATION_ERROR, "", ResponseStatus.ERROR);
 
-            return new WSResponse(ExceptionTypeTO.NONE.getErrorCode(), "", ResponseStatus.OK);
+            return new WSResponse(ExceptionTypeTO.NONE, "", ResponseStatus.OK);
         } catch (BusinessLayerException e) {
             LOGGER.error("Could not submitTransactions.", e);
 
-            return new WSResponse(e.getErrorCode(), e.getMessage(), ResponseStatus.ERROR);
+            return new WSResponse(Integer.parseInt(e.getErrorCode()), e.getMessage(), ResponseStatus.ERROR);
         }
     }
 

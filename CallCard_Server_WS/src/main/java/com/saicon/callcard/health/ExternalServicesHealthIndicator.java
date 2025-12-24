@@ -86,7 +86,7 @@ public class ExternalServicesHealthIndicator implements HealthIndicator {
      * Service continues to operate but may have limited functionality
      */
     private Health buildDegradedResponse(String reason) {
-        return Health.degraded()
+        return Health.unknown()
             .withDetail("externalServices", "Partially Available")
             .withDetail("talosCoreService", "Unavailable")
             .withDetail("talosCoreUrl", talosCoreUrl)

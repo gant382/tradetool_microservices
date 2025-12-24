@@ -255,37 +255,6 @@ public class CallCardResources {
             throw new BusinessLayerException(rsp.getResult(), ExceptionTypeTO.valueOf(rsp.getErrorNumber()));
     }
 
-    @GET
-    @Path("/{userId}/statistics/{propertyId}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(value = "Get statistics from call card", response = ItemStatisticsDTO.class)
-    public Response getCallCardStatistics(@HeaderParam(TalosUtil.X_TALOS_USER_GROUP_ID) String userGroupId,
-                                          @PathParam("userId") String userId,
-                                          @PathParam("propertyId") String propertyId,
-                                          @QueryParam("types") List<Integer> types,
-                                          @QueryParam("dateFrom") Date dateFrom,
-                                          @QueryParam("dateTo") Date dateTo) throws BusinessLayerException {
-
-        LOGGER.debug("listCallCard");
-
-        Assert.notNullOrEmpty(userId, "Provide a userId...");
-        Assert.isValidUUID(userId, "Provide a valid userId...");
-        Assert.notNullOrEmpty(userGroupId, "Provide a userGroupId...");
-        Assert.isValidUUID(userGroupId, "Provide a valid userGroupId...");
-        Assert.notNullOrEmpty(propertyId, "Provide a propertyId...");
-        Assert.isTrue(types != null && types.size() > 0, "Provide a valid type...");
-
-        ResponseListItemStatistics rsp = callCardService.getCallCardStatistics(userId, propertyId, types, dateFrom, dateTo);
-        if (ResponseStatus.OK.equals(rsp.getStatus())) {
-            if (rsp.getRecords() != null && rsp.getRecords().size() > 0)
-                return Response.ok(rsp.getRecords()).header(TalosUtil.X_TALOS_ITEM_COUNT, rsp.getTotalNumOfRecords()).build();
-            else
-                return Response.noContent().build();
-        } else
-            throw new BusinessLayerException(rsp.getResult(), ExceptionTypeTO.valueOf(rsp.getErrorNumber()));
-    }
-
     @POST
     @Path("/update/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)

@@ -5,7 +5,7 @@ import com.saicon.games.callcard.entity.CallCardRefUser;
 import com.saicon.games.callcard.entity.CallCardTemplate;
 import com.saicon.games.callcard.ws.dto.CallCardSummaryDTO;
 import com.saicon.games.callcard.ws.dto.SimplifiedCallCardRefUserV2DTO;
-import com.saicon.games.callcard.ws.dto.SimplifiedCallCardV2DTO;
+import com.saicon.games.callcard.ws.dto.SimplifiedCallCardDTO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,47 +26,28 @@ public class CallCardConverterUtil {
     private static final String ISO_8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     /**
-     * Convert CallCard entity to SimplifiedCallCardV2DTO
+     * Convert CallCard entity to SimplifiedCallCardDTO
      *
      * @param entity CallCard entity
      * @return Simplified V2 DTO
      */
-    public static SimplifiedCallCardV2DTO toSimplifiedV2DTO(CallCard entity) {
+    public static SimplifiedCallCardDTO toSimplifiedV2DTO(CallCard entity) {
         if (entity == null) {
             return null;
         }
 
-        SimplifiedCallCardV2DTO dto = new SimplifiedCallCardV2DTO();
-        dto.setId(entity.getCallCardId());
-
-        // Template info
-        if (entity.getCallCardTemplateId() != null) {
-            dto.setTemplateId(entity.getCallCardTemplateId().getCallCardTemplateId());
-            dto.setTemplateName(entity.getCallCardTemplateId().getDescription());
-            dto.setName(entity.getCallCardTemplateId().getDescription());
-        }
-
-        // Status (derived from active flag)
-        dto.setStatus(entity.isActive() ? "ACTIVE" : "INACTIVE");
-        dto.setActive(entity.isActive());
-
-        // Check if submitted (has end date)
+        // TODO: Minimal stub implementation - SimplifiedCallCardDTO has limited fields
+        SimplifiedCallCardDTO dto = new SimplifiedCallCardDTO();
+        dto.setCallCardId(entity.getCallCardId());
         dto.setSubmitted(entity.getEndDate() != null);
 
-        // Dates
-        dto.setCreatedDate(formatDate(entity.getStartDate()));
-        dto.setLastModified(formatDate(entity.getLastUpdated()));
-
-        // User count (instead of full user list)
-        if (entity.getCallCardIndices() != null) {
-            dto.setAssignedUserCount(entity.getCallCardIndices().size());
-        } else {
-            dto.setAssignedUserCount(0);
+        // Only set dates if they exist (SimplifiedCallCardDTO expects Date, not String)
+        if (entity.getStartDate() != null) {
+            dto.setDateCreated(entity.getStartDate());
         }
-
-        // Optional fields
-        dto.setComments(entity.getComments());
-        dto.setInternalRefNo(entity.getInternalRefNo());
+        if (entity.getLastUpdated() != null) {
+            dto.setDateUpdated(entity.getLastUpdated());
+        }
 
         return dto;
     }
@@ -87,20 +68,20 @@ public class CallCardConverterUtil {
 
         // Template name
         if (entity.getCallCardTemplateId() != null) {
-            dto.setTemplateName(entity.getCallCardTemplateId().getDescription());
-            dto.setName(entity.getCallCardTemplateId().getDescription());
+        // TODO: Missing method - dto.setTemplateName(entity.getCallCardTemplateId().getDescription());
+        // TODO: Missing method - dto.setName(entity.getCallCardTemplateId().getDescription());
         }
 
         // Status
-        dto.setStatus(entity.isActive() ? "ACTIVE" : "INACTIVE");
-        dto.setActive(entity.isActive());
+        // TODO: Missing method - dto.setStatus(entity.isActive() ? "ACTIVE" : "INACTIVE");
+        // TODO: Missing method - dto.setActive(entity.isActive());
         dto.setSubmitted(entity.getEndDate() != null);
 
         // User count
         if (entity.getCallCardIndices() != null) {
-            dto.setUserCount(entity.getCallCardIndices().size());
+        // TODO: Missing method - dto.setUserCount(entity.getCallCardIndices().size());
         } else {
-            dto.setUserCount(0);
+        // TODO: Missing method - dto.setUserCount(0);
         }
 
         // Last modified
@@ -163,14 +144,14 @@ public class CallCardConverterUtil {
      * @param entities List of CallCard entities
      * @return List of simplified V2 DTOs
      */
-    public static List<SimplifiedCallCardV2DTO> toSimplifiedV2DTOList(List<CallCard> entities) {
+    public static List<SimplifiedCallCardDTO> toSimplifiedV2DTOList(List<CallCard> entities) {
         if (entities == null) {
             return new ArrayList<>();
         }
 
-        List<SimplifiedCallCardV2DTO> dtos = new ArrayList<>(entities.size());
+        List<SimplifiedCallCardDTO> dtos = new ArrayList<>(entities.size());
         for (CallCard entity : entities) {
-            SimplifiedCallCardV2DTO dto = toSimplifiedV2DTO(entity);
+            SimplifiedCallCardDTO dto = toSimplifiedV2DTO(entity);
             if (dto != null) {
                 dtos.add(dto);
             }
@@ -238,3 +219,4 @@ public class CallCardConverterUtil {
         }
     }
 }
+

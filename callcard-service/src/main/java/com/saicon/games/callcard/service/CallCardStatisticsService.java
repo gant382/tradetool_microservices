@@ -55,13 +55,13 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
 
             if (stats != null) {
                 return new ResponseCallCardStats(
-                        ExceptionTypeTO.NONE.getErrorCode(),
+                        "0000",
                         ResponseStatus.OK,
                         stats
                 );
             } else {
                 return new ResponseCallCardStats(
-                        ExceptionTypeTO.NONE.getErrorCode(),
+                        "0000",
                         "No statistics found",
                         ResponseStatus.OK,
                         null
@@ -79,7 +79,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting CallCard statistics", e);
             return new ResponseCallCardStats(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
+                    "9999",
                     "Unexpected error: " + e.getMessage(),
                     ResponseStatus.ERROR,
                     null
@@ -104,7 +104,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             }
 
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     results,
                     results.size()
@@ -114,7 +114,6 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             LOGGER.error("Business layer error getting template usage statistics", e);
             return new ResponseListTemplateUsage(
                     e.getErrorCode(),
-                    e.getMessage(),
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -122,8 +121,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting template usage statistics", e);
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
-                    "Unexpected error: " + e.getMessage(),
+                    "9999",
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -148,7 +146,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             }
 
             return new ResponseListUserEngagement(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     results,
                     results.size()
@@ -158,7 +156,6 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             LOGGER.error("Business layer error getting user engagement statistics", e);
             return new ResponseListUserEngagement(
                     e.getErrorCode(),
-                    e.getMessage(),
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -166,8 +163,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting user engagement statistics", e);
             return new ResponseListUserEngagement(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
-                    "Unexpected error: " + e.getMessage(),
+                    "9999",
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -187,7 +183,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             );
 
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     topTemplates,
                     topTemplates != null ? topTemplates.size() : 0
@@ -197,7 +193,6 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             LOGGER.error("Business layer error getting top templates", e);
             return new ResponseListTemplateUsage(
                     e.getErrorCode(),
-                    e.getMessage(),
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -205,8 +200,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting top templates", e);
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
-                    "Unexpected error: " + e.getMessage(),
+                    "9999",
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -230,7 +224,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             stats.setTotalUsers(activeUsersCount != null ? activeUsersCount : 0L);
 
             return new ResponseCallCardStats(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     stats
             );
@@ -246,7 +240,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting active users count", e);
             return new ResponseCallCardStats(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
+                    "9999",
                     "Unexpected error: " + e.getMessage(),
                     ResponseStatus.ERROR,
                     null
@@ -266,7 +260,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             );
 
             return new ResponseListUserEngagement(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     engagementStats,
                     engagementStats != null ? engagementStats.size() : 0
@@ -276,7 +270,6 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             LOGGER.error("Business layer error getting all user engagement statistics", e);
             return new ResponseListUserEngagement(
                     e.getErrorCode(),
-                    e.getMessage(),
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -284,8 +277,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting all user engagement statistics", e);
             return new ResponseListUserEngagement(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
-                    "Unexpected error: " + e.getMessage(),
+                    "9999",
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -304,7 +296,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             );
 
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.NONE.getErrorCode(),
+                    "0000",
                     ResponseStatus.OK,
                     templateStats,
                     templateStats != null ? templateStats.size() : 0
@@ -314,7 +306,6 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
             LOGGER.error("Business layer error getting all template usage statistics", e);
             return new ResponseListTemplateUsage(
                     e.getErrorCode(),
-                    e.getMessage(),
                     ResponseStatus.ERROR,
                     null,
                     0
@@ -322,8 +313,7 @@ public class CallCardStatisticsService implements ICallCardStatisticsService {
         } catch (Exception e) {
             LOGGER.error("Unexpected error getting all template usage statistics", e);
             return new ResponseListTemplateUsage(
-                    ExceptionTypeTO.GENERIC_ERROR.getErrorCode(),
-                    "Unexpected error: " + e.getMessage(),
+                    "9999",
                     ResponseStatus.ERROR,
                     null,
                     0
