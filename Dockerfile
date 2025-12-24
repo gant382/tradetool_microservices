@@ -1,5 +1,9 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE=CallCard_Server_WS/target/*.war
-COPY ${JAR_FILE} app.war
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.war"]
+FROM amazoncorretto:17-alpine
+WORKDIR /app
+COPY CallCard_Server_WS/target/CallCard_Server_WS-1.0.0-SNAPSHOT.war app.war
+EXPOSE 8080
+ENV SPRING_PROFILES_ACTIVE=prod
+ENV SERVER_PORT=8080
+HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/callcard/actuator/health || exit 1
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.war"]
