@@ -153,11 +153,53 @@ Status: ❌ HTTP 404 - Route not found
 
 ---
 
-## 🔧 Configuration Needed
+## ✅ EC2 Nginx Configuration Completed (Dec 27, 2025)
 
-### API Gateway / Reverse Proxy Configuration Required
+### Nginx Configuration Successfully Updated
 
-The API gateway at `talosmaind.saicongames.com` (34.253.51.11) needs to be configured to route CallCard requests to the internal microservice.
+The Nginx reverse proxy on EC2 instance i-062d989a1132c8b45 has been successfully configured with CallCard routes.
+
+**Configuration File:** `/etc/nginx/conf.d/claude-chatbot.conf`
+
+**Changes Made:**
+1. ✅ Added CallCard location blocks for all endpoints
+2. ✅ Resolved conflicting server name issues (disabled duplicate talosmaind.conf)
+3. ✅ Configured proper proxy headers and timeouts
+4. ✅ Added CORS support for REST APIs
+5. ✅ Tested and verified all endpoints working internally
+
+**Test Results (Internal EC2 Access):**
+```bash
+# Health check - ✅ Working
+curl -H "Host: talosmaind.saicongames.com" http://localhost/callcard/actuator/health
+# Returns: {"status":"UP","components":{...}}
+
+# REST API - ✅ Authentication Working
+curl -H "Host: talosmaind.saicongames.com" http://localhost/callcard/rest/callcards
+# Returns: 401 Unauthorized (JWT required)
+
+# Info endpoint - ✅ Working
+curl -H "Host: talosmaind.saicongames.com" http://localhost/callcard/actuator/info
+# Returns: {}
+```
+
+---
+
+## ⚠️ External Gateway Configuration Still Required
+
+### Issue: Public DNS Not Reachable
+
+The domain `talosmaind.saicongames.com` resolves to **34.253.51.11** (pmistagesp01.saicongames.com), which is NOT the EC2 instance IP (52.51.171.216). This appears to be a separate load balancer or API gateway that needs configuration.
+
+**Status:**
+- ❌ 34.253.51.11 is not responding to ping requests
+- ❌ HTTP requests to talosmaind.saicongames.com timeout
+- ✅ EC2 Nginx (172.17.165.60:80) is properly configured and working
+- ✅ CallCard microservice (localhost:8080) is healthy and responding
+
+### Required Action
+
+The external API gateway at `talosmaind.saicongames.com` (34.253.51.11) needs to be configured to forward `/callcard/*` requests to the EC2 instance.
 
 #### Required Routes
 
@@ -318,27 +360,39 @@ Uptime: 2 days
 
 ## ✅ Conclusion
 
-### What's Working
-✅ CallCard microservice is deployed and running successfully
+### What's Working (Updated Dec 27, 2025)
+✅ CallCard microservice is deployed and running successfully on EC2
 ✅ All endpoints are functional on internal network
-✅ Authentication is properly enforced
-✅ Database connection is stable
-✅ Health checks are passing
+✅ **EC2 Nginx reverse proxy fully configured with CallCard routes**
+✅ Authentication is properly enforced (JWT 401 responses working)
+✅ Database connection is stable (Microsoft SQL Server 15.00.4375)
+✅ Health checks are passing (all components UP)
 ✅ SOAP and REST services are available
+✅ Internal routing verified: `http://localhost/callcard/*` → `http://localhost:8080/callcard/*`
 
 ### What Needs Configuration
-⚠️ API Gateway routes for `/callcard/*`
-⚠️ Public DNS access through talosmaind.saicongames.com
-⚠️ JWT token generation for testing protected endpoints
+⚠️ **External API Gateway at 34.253.51.11 (pmistagesp01.saicongames.com)**
+  - DNS talosmaind.saicongames.com resolves to 34.253.51.11 (not the EC2 instance)
+  - This external gateway needs to forward `/callcard/*` traffic to EC2 instance
+  - Current status: Not responding (connection timeout)
 
-### Recommendation
-The microservice is production-ready on the internal network. To enable public access via `talosmaind.saicongames.com`, configure the API gateway/reverse proxy at 34.253.51.11 to route `/callcard/*` requests to `http://172.17.165.60:8080`.
+⚠️ JWT token generation for testing protected endpoints (documentation needed)
+
+### Summary
+The CallCard microservice is fully operational and the **EC2 Nginx reverse proxy has been successfully configured** with all CallCard routes. The service is production-ready on the internal network.
+
+To enable public access via `talosmaind.saicongames.com`:
+1. Configure the external API gateway at **34.253.51.11** to forward requests to EC2 instance
+2. Route pattern: `https://talosmaind.saicongames.com/callcard/*` → `http://52.51.171.216/callcard/*` (or via private IP)
+3. Ensure proper SSL/TLS termination at the external gateway
+4. Forward necessary headers (Authorization, Host, X-Real-IP, X-Forwarded-For)
 
 ---
 
-**Report Generated:** 2025-12-26
+**Report Generated:** 2025-12-26 (Updated: 2025-12-27)
 **Service Status:** ✅ Operational (Internal)
-**Public Access Status:** ⚠️ Pending Gateway Configuration
+**EC2 Nginx Status:** ✅ Fully Configured
+**Public Access Status:** ⚠️ Pending External Gateway Configuration at 34.253.51.11
 
 ---
 
