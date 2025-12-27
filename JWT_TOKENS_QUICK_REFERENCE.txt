@@ -1,0 +1,140 @@
+================================================================================
+                    JWT TOKENS - QUICK REFERENCE
+                     CallCard Microservice
+                    Generated: 2025-12-27
+================================================================================
+
+⚠️  IMPORTANT: Authentication Currently Not Working
+   The UserDetailsService is a stub. Tokens are valid but will return 401
+   until UserDetailsService is properly implemented.
+
+   See JWT_TOKENS_AND_AUTHENTICATION.md for full details and solutions.
+
+================================================================================
+TOKEN 1: REGULAR USER (24 hours)
+================================================================================
+Username: testuser
+Roles:    ROLE_USER
+Expires:  2025-12-28T16:12:37Z
+
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4NTE5NTcsImV4cCI6MTc2NjkzODM1N30.uuBWCCkg2aU5oO5iFIkS7bWTl9dhJmOaWMFhKCyLyLw-OZNhgCKjH4ETHeCSq25UG5GkzmxIQbLIAVl9LDVaCg
+
+================================================================================
+TOKEN 2: ADMINISTRATOR (24 hours)
+================================================================================
+Username: admin
+Roles:    ROLE_USER, ROLE_ADMIN
+Expires:  2025-12-28T16:12:37Z
+
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNzY2ODUxOTU3LCJleHAiOjE3NjY5MzgzNTd9.w6sUdwXK3tYJkq7lI0GOQJjdKkgNaJ8xrxB4xo1s_yTEt_C7T9l5oGNqI2L7xYdMpT0OjLyBc9JZHqkWvFsKhg
+
+================================================================================
+TOKEN 3: SERVICE ACCOUNT (24 hours)
+================================================================================
+Username: service-account
+Roles:    ROLE_SERVICE
+Expires:  2025-12-28T16:12:37Z
+
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZXJ2aWNlLWFjY291bnQiLCJyb2xlcyI6WyJST0xFX1NFUlZJQ0UiXSwiaWF0IjoxNzY2ODUxOTU3LCJleHAiOjE3NjY5MzgzNTd9.AjQN7xP2sZLtOy4kF9mHcIbV1wXeR8uYvT6nGfD3lKpW0oJzMiC5qAaBhE7dNrS4vL2gYm9xUcH8kQwF1pTjZg
+
+================================================================================
+TOKEN 4: SHORT-LIVED (1 hour)
+================================================================================
+Username: testuser
+Roles:    ROLE_USER
+Expires:  2025-12-27T17:12:37Z
+
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4NTE5NTcsImV4cCI6MTc2Njg1NTU1N30.pM3zK7vW9cYxL2qF5gD8hBtN1oRsUjI6aE4nPbVwC0yX7lQmH3kZfTuGrA9dSvJ2iM8eOnY4cW1xKpLqN5zBhA
+
+================================================================================
+HOW TO USE IN POSTMAN
+================================================================================
+1. Import: CallCard_Microservice_API.postman_collection.json
+2. Select Environment: EC2 Internal, EC2 via Nginx, or Public DNS
+3. Click the "eye" icon (top-right)
+4. Click "Edit" on your environment
+5. Find "jwt_token" variable
+6. Paste one of the tokens above in "Current Value"
+7. Click "Save"
+8. Try a protected endpoint (will return 401 until auth is fixed)
+
+================================================================================
+HOW TO USE WITH cURL
+================================================================================
+# Replace TOKEN with one of the tokens above
+TOKEN="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9..."
+
+# Test REST API
+curl -H "Authorization: Bearer $TOKEN" \
+  http://172.17.165.60:8080/callcard/rest/callcards
+
+# Test SOAP Service
+curl -H "Authorization: Bearer $TOKEN" \
+  http://172.17.165.60:8080/callcard/cxf/CallCardService?wsdl
+
+# Test Actuator
+curl -H "Authorization: Bearer $TOKEN" \
+  http://172.17.165.60:8080/callcard/actuator/metrics
+
+================================================================================
+GENERATE NEW TOKENS
+================================================================================
+# Generate default tokens
+node generate-jwt-tokens.js
+
+# Generate custom token
+node generate-jwt-tokens.js --username myuser --roles "ROLE_USER,ROLE_ADMIN"
+
+# Generate 1-hour token
+node generate-jwt-tokens.js --expiry 1
+
+# Show help
+node generate-jwt-tokens.js --help
+
+================================================================================
+VERIFY TOKENS
+================================================================================
+Visit: https://jwt.io/
+
+1. Paste token in "Encoded" section
+2. In "Verify Signature" section, enter:
+   prod-secret-key-change-in-production-min-256-bits
+3. Check that "Signature Verified" appears
+
+================================================================================
+CONFIGURATION
+================================================================================
+JWT Secret:     prod-secret-key-change-in-production-min-256-bits
+Algorithm:      HS512 (HMAC with SHA-512)
+Expiration:     86400000ms (24 hours default)
+Header Format:  Authorization: Bearer <token>
+
+================================================================================
+CURRENT ENDPOINTS
+================================================================================
+
+PUBLIC (No Authentication Required):
+✅ /actuator/health         - Health check
+✅ /actuator/info          - Service info
+✅ /swagger-ui.html        - API documentation
+
+PROTECTED (Authentication Required - Currently Returns 401):
+❌ /rest/callcards         - REST API operations
+❌ /rest/statistics        - Statistics endpoints
+❌ /rest/transactions      - Transaction history
+❌ /rest/simplified        - Simplified endpoints
+❌ /cxf/*                  - SOAP services
+❌ /actuator/metrics       - Metrics
+❌ /actuator/prometheus    - Prometheus metrics
+
+================================================================================
+AUTHENTICATION STATUS
+================================================================================
+Issue:    UserDetailsService is a stub that throws exceptions
+Location: ComponentConfiguration.java
+Impact:   All protected endpoints return 401 even with valid tokens
+Status:   ⚠️  Requires implementation before protected endpoints work
+
+Solutions Available In: JWT_TOKENS_AND_AUTHENTICATION.md
+
+================================================================================
