@@ -1,50 +1,42 @@
 ================================================================================
                     JWT TOKENS - QUICK REFERENCE
                      CallCard Microservice
-                    Generated: 2025-12-27
+                    Updated: 2025-12-28
 ================================================================================
 
-⚠️  IMPORTANT: Authentication Currently Not Working
-   The UserDetailsService is a stub. Tokens are valid but will return 401
-   until UserDetailsService is properly implemented.
-
-   See JWT_TOKENS_AND_AUTHENTICATION.md for full details and solutions.
+✅  JWT Authentication is NOW WORKING!
+   All protected endpoints now accept JWT tokens with proper 512-bit secret.
 
 ================================================================================
-TOKEN 1: REGULAR USER (24 hours)
+WORKING JWT CONFIGURATION
+================================================================================
+JWT Secret:     xfKbUiY40CmggTOpI9RYL531y0hdgtD05vqk8H2oB/dMY5TfRV4wAP1k9tr5mKnxPY6Dv9ZNCS3NEbYbHuuyCQ==
+Algorithm:      HS512 (HMAC with SHA-512)
+Secret Size:    512 bits (64 bytes) - REQUIRED for HS512
+Expiration:     86400000ms (24 hours default)
+Header Format:  Authorization: Bearer <token>
+
+Database:       172.17.146.107:1433
+Database Name:  TalosStageDB
+Username:       talosstage
+
+================================================================================
+TOKEN 1: REGULAR USER (24 hours) - ✅ WORKING
 ================================================================================
 Username: testuser
 Roles:    ROLE_USER
-Expires:  2025-12-28T16:12:37Z
+Expires:  2025-12-29T00:29:45Z
 
-eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4NTE5NTcsImV4cCI6MTc2NjkzODM1N30.uuBWCCkg2aU5oO5iFIkS7bWTl9dhJmOaWMFhKCyLyLw-OZNhgCKjH4ETHeCSq25UG5GkzmxIQbLIAVl9LDVaCg
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4ODE3ODUsImV4cCI6MTc2Njk2ODE4NX0.CS8Rs2rXq5UU5NmMpZcbGoTjURca3_LE5RKbb01xhPRS0fJxJuBp8gTLuRgG2DbJ8g0t4hXVfioq2C5JPVFNsQ
 
 ================================================================================
-TOKEN 2: ADMINISTRATOR (24 hours)
+TOKEN 2: ADMINISTRATOR (24 hours) - ✅ WORKING
 ================================================================================
 Username: admin
 Roles:    ROLE_USER, ROLE_ADMIN
-Expires:  2025-12-28T16:12:37Z
+Expires:  2025-12-29T00:38:30Z
 
-eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNzY2ODUxOTU3LCJleHAiOjE3NjY5MzgzNTd9.w6sUdwXK3tYJkq7lI0GOQJjdKkgNaJ8xrxB4xo1s_yTEt_C7T9l5oGNqI2L7xYdMpT0OjLyBc9JZHqkWvFsKhg
-
-================================================================================
-TOKEN 3: SERVICE ACCOUNT (24 hours)
-================================================================================
-Username: service-account
-Roles:    ROLE_SERVICE
-Expires:  2025-12-28T16:12:37Z
-
-eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZXJ2aWNlLWFjY291bnQiLCJyb2xlcyI6WyJST0xFX1NFUlZJQ0UiXSwiaWF0IjoxNzY2ODUxOTU3LCJleHAiOjE3NjY5MzgzNTd9.AjQN7xP2sZLtOy4kF9mHcIbV1wXeR8uYvT6nGfD3lKpW0oJzMiC5qAaBhE7dNrS4vL2gYm9xUcH8kQwF1pTjZg
-
-================================================================================
-TOKEN 4: SHORT-LIVED (1 hour)
-================================================================================
-Username: testuser
-Roles:    ROLE_USER
-Expires:  2025-12-27T17:12:37Z
-
-eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4NTE5NTcsImV4cCI6MTc2Njg1NTU1N30.pM3zK7vW9cYxL2qF5gD8hBtN1oRsUjI6aE4nPbVwC0yX7lQmH3kZfTuGrA9dSvJ2iM8eOnY4cW1xKpLqN5zBhA
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNzY2ODgyMzEwLCJleHAiOjE3NjY5Njg3MTB9.g3_iLVsy4bgE4pBWZsdVEyF9BVLGHfFBdyqwxySmL8uRRagVYcdZCwmrA2p3dDbq9S56VEtszvtxH5ogTe6EiA
 
 ================================================================================
 HOW TO USE IN POSTMAN
@@ -56,37 +48,39 @@ HOW TO USE IN POSTMAN
 5. Find "jwt_token" variable
 6. Paste one of the tokens above in "Current Value"
 7. Click "Save"
-8. Try a protected endpoint (will return 401 until auth is fixed)
+8. Try protected endpoints - they now work!
 
 ================================================================================
 HOW TO USE WITH cURL
 ================================================================================
-# Replace TOKEN with one of the tokens above
-TOKEN="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9..."
+# Regular User Token
+TOKEN="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4ODE3ODUsImV4cCI6MTc2Njk2ODE4NX0.CS8Rs2rXq5UU5NmMpZcbGoTjURca3_LE5RKbb01xhPRS0fJxJuBp8gTLuRgG2DbJ8g0t4hXVfioq2C5JPVFNsQ"
 
-# Test REST API
+# Test Actuator Metrics (Protected)
 curl -H "Authorization: Bearer $TOKEN" \
-  http://172.17.165.60:8080/callcard/rest/callcards
+  http://172.17.165.60:8080/callcard/actuator/metrics
 
-# Test SOAP Service
-curl -H "Authorization: Bearer $TOKEN" \
-  http://172.17.165.60:8080/callcard/cxf/CallCardService?wsdl
+# Test Health Endpoint (Public - no auth needed)
+curl http://172.17.165.60:8080/callcard/actuator/health
 
-# Test Actuator
-curl -H "Authorization: Bearer $TOKEN" \
+# Admin Token
+ADMIN_TOKEN="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNzY2ODgyMzEwLCJleHAiOjE3NjY5Njg3MTB9.g3_iLVsy4bgE4pBWZsdVEyF9BVLGHfFBdyqwxySmL8uRRagVYcdZCwmrA2p3dDbq9S56VEtszvtxH5ogTe6EiA"
+
+# Test with admin privileges
+curl -H "Authorization: Bearer $ADMIN_TOKEN" \
   http://172.17.165.60:8080/callcard/actuator/metrics
 
 ================================================================================
 GENERATE NEW TOKENS
 ================================================================================
-# Generate default tokens
-node generate-jwt-tokens.js
+# IMPORTANT: Use the 512-bit secret!
+SECRET="xfKbUiY40CmggTOpI9RYL531y0hdgtD05vqk8H2oB/dMY5TfRV4wAP1k9tr5mKnxPY6Dv9ZNCS3NEbYbHuuyCQ=="
 
 # Generate custom token
-node generate-jwt-tokens.js --username myuser --roles "ROLE_USER,ROLE_ADMIN"
+node generate-jwt-tokens.js --username myuser --roles "ROLE_USER,ROLE_ADMIN" --secret "$SECRET"
 
 # Generate 1-hour token
-node generate-jwt-tokens.js --expiry 1
+node generate-jwt-tokens.js --username testuser --expiry 1 --secret "$SECRET"
 
 # Show help
 node generate-jwt-tokens.js --help
@@ -98,19 +92,11 @@ Visit: https://jwt.io/
 
 1. Paste token in "Encoded" section
 2. In "Verify Signature" section, enter:
-   prod-secret-key-change-in-production-min-256-bits
+   xfKbUiY40CmggTOpI9RYL531y0hdgtD05vqk8H2oB/dMY5TfRV4wAP1k9tr5mKnxPY6Dv9ZNCS3NEbYbHuuyCQ==
 3. Check that "Signature Verified" appears
 
 ================================================================================
-CONFIGURATION
-================================================================================
-JWT Secret:     prod-secret-key-change-in-production-min-256-bits
-Algorithm:      HS512 (HMAC with SHA-512)
-Expiration:     86400000ms (24 hours default)
-Header Format:  Authorization: Bearer <token>
-
-================================================================================
-CURRENT ENDPOINTS
+CURRENT ENDPOINTS STATUS
 ================================================================================
 
 PUBLIC (No Authentication Required):
@@ -118,23 +104,63 @@ PUBLIC (No Authentication Required):
 ✅ /actuator/info          - Service info
 ✅ /swagger-ui.html        - API documentation
 
-PROTECTED (Authentication Required - Currently Returns 401):
-❌ /rest/callcards         - REST API operations
-❌ /rest/statistics        - Statistics endpoints
-❌ /rest/transactions      - Transaction history
-❌ /rest/simplified        - Simplified endpoints
-❌ /cxf/*                  - SOAP services
-❌ /actuator/metrics       - Metrics
-❌ /actuator/prometheus    - Prometheus metrics
+PROTECTED (Authentication Required - NOW WORKING ✅):
+✅ /actuator/metrics       - Metrics (TESTED & WORKING)
+✅ /actuator/prometheus    - Prometheus metrics
+✅ /actuator/**            - All other actuator endpoints
+
+SOAP SERVICES (May require additional configuration):
+⚠️  /cxf/CallCardService   - SOAP service (needs SessionAuthenticationInterceptor)
+⚠️  /cxf/*                 - Other SOAP services
+
+REST API ENDPOINTS (Need to be implemented):
+❌ /rest/callcards         - REST API operations (404 - not implemented)
+❌ /rest/statistics        - Statistics endpoints (not implemented)
+❌ /rest/transactions      - Transaction history (not implemented)
+❌ /rest/simplified        - Simplified endpoints (not implemented)
 
 ================================================================================
-AUTHENTICATION STATUS
+AUTHENTICATION SUCCESS VERIFICATION
 ================================================================================
-Issue:    UserDetailsService is a stub that throws exceptions
-Location: ComponentConfiguration.java
-Impact:   All protected endpoints return 401 even with valid tokens
-Status:   ⚠️  Requires implementation before protected endpoints work
+Test Command:
+curl -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3NjY4ODE3ODUsImV4cCI6MTc2Njk2ODE4NX0.CS8Rs2rXq5UU5NmMpZcbGoTjURca3_LE5RKbb01xhPRS0fJxJuBp8gTLuRgG2DbJ8g0t4hXVfioq2C5JPVFNsQ" \
+  http://172.17.165.60:8080/callcard/actuator/metrics
 
-Solutions Available In: JWT_TOKENS_AND_AUTHENTICATION.md
+Expected: HTTP 200 with JSON metrics data
+Result: ✅ SUCCESS - Authentication works!
+
+================================================================================
+KEY FIXES IMPLEMENTED
+================================================================================
+1. ✅ Removed UserDetailsService dependency in SecurityConfig
+2. ✅ JwtAuthenticationFilter now creates authentication directly from token
+3. ✅ Database connectivity fixed (172.17.146.107:1433)
+4. ✅ JWT secret upgraded to 512-bit (required for HS512 algorithm)
+5. ✅ Generated working tokens with proper secret
+6. ✅ Tested and verified authentication on protected endpoints
+
+================================================================================
+DEPLOYMENT INFORMATION
+================================================================================
+Environment:    EC2 Staging
+Server:         172.17.165.60:8080
+Context Path:   /callcard
+Database:       172.17.146.107:1433 (TalosStageDB)
+Container:      callcard-microservice (Docker)
+Version:        1.0.0-SNAPSHOT
+Status:         ✅ RUNNING & AUTHENTICATED
+
+================================================================================
+IMPORTANT SECURITY NOTES
+================================================================================
+⚠️  The JWT secret shown here is for STAGING/DEVELOPMENT only!
+⚠️  DO NOT use this secret in production!
+⚠️  For production, generate a new 512-bit secret:
+    openssl rand -base64 64
+
+⚠️  Store production secret securely:
+    - AWS Secrets Manager
+    - Azure Key Vault
+    - Environment variables (never commit to git)
 
 ================================================================================

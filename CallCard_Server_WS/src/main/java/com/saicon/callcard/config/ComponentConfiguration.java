@@ -160,11 +160,26 @@ public class ComponentConfiguration {
     }
 
     // Security Beans
+    /**
+     * UserDetailsService stub - NOT USED in current JWT implementation
+     *
+     * The microservice uses stateless JWT authentication where user details
+     * are extracted directly from JWT token claims (JwtAuthenticationFilter).
+     * No database lookup or UserDetailsService is required.
+     *
+     * This stub is kept for:
+     * 1. Satisfying Spring Security's bean dependency requirements
+     * 2. Future implementation of username/password authentication
+     * 3. Backwards compatibility
+     *
+     * If you need to implement username/password authentication in the future,
+     * replace this stub with a real implementation that loads users from database.
+     */
     @Bean
     public org.springframework.security.core.userdetails.UserDetailsService userDetailsService() {
         return username -> {
             throw new org.springframework.security.core.userdetails.UsernameNotFoundException(
-                "User authentication not yet implemented in microservice"
+                "User authentication not implemented - using stateless JWT authentication only"
             );
         };
     }

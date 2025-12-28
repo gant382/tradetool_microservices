@@ -86,9 +86,6 @@ import java.util.Collections;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
     @Autowired
@@ -97,6 +94,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * JWT Authentication Filter Bean
      * Extracts and validates JWT tokens from Authorization header
+     *
+     * Note: This implementation uses stateless JWT authentication.
+     * Authentication is derived directly from token claims without
+     * requiring UserDetailsService or database lookups.
      */
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
@@ -106,6 +107,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * Password Encoder Bean
      * BCrypt with strength 12 for secure password hashing
+     *
+     * Note: Not required for JWT-only authentication but provided
+     * for future use if username/password login is implemented.
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -115,6 +119,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * Authentication Manager Bean
      * Required for authentication of credentials
+     *
+     * Note: Not used in current JWT-only implementation but provided
+     * for future use if username/password login is implemented.
      */
     @Bean
     @Override
@@ -122,15 +129,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    /**
-     * Configure global authentication manager
-     */
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .userDetailsService(userDetailsService)
-            .passwordEncoder(passwordEncoder());
-    }
+    // Note: configure(AuthenticationManagerBuilder) method removed
+    // JWT authentication is stateless and doesn't require UserDetailsService
 
     /**
      * CORS Configuration Source
